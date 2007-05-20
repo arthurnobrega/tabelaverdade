@@ -25,5 +25,10 @@ public class Constantes {
             "( (~ (p & q) ) V (q V r ) ). Note que temos 4 subfórmulas: " +
             "(p & q), ( ~ (p & q) ), (q V r) e ( (~ (p & q) ) V (q V r ) ). " +
             "Portanto 4 duplas de parênteses, uma para cada operador lógico.";
-        
+
+    /* Constantes dos padrões de escrita. */
+    public final static char CONJUNCAO = '&';
+    public final static char DISJUNCAO = 'v';
+    public final static char IMPLICACAO = '/';
+    public final static char DUPLA_IMPLICACAO = '%';
 }
