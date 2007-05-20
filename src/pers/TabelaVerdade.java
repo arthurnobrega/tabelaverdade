@@ -16,19 +16,23 @@ import java.util.ArrayList;
  * @author UltraXP
  */
 public class TabelaVerdade {
-    
+
     /** Creates a new instance of TabelaVerdade */
-    public TabelaVerdade(String formula) {
+    public TabelaVerdade(String pFormula) {
+        formula = pFormula;
     }
-    
-    public ArrayList getTabela() {
+
+    public ArrayList construirTabela() {
         return new ArrayList();
     }
-    
-    /* Esta função retorna se não ocorreu nenhum erro no uso do objeto. */
-    public int verificarSucesso() {
-        return sucesso;
+
+    public int verificarSemantica() {
+        return 1;
     }
-    
-    private int sucesso = 0;
+
+    public int nroProposicoes() {
+        return 1;
+    }
+
+    public String formula;
 }
