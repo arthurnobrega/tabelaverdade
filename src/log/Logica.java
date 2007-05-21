@@ -8,6 +8,8 @@ package log;
 import gui.Constantes;
 import java.util.ArrayList;
 import java.util.Stack;
+import javax.swing.JOptionPane;
+import pers.NoDefaultException;
 import pers.TabelaVerdade;
 
 /**
@@ -15,30 +17,33 @@ import pers.TabelaVerdade;
  * @author Arthur Thiago Barbosa Nobrega
  */
 public class Logica {
-    
-    public static ArrayList verTabela(String formula) {
-        
-    }
 
     /* Função que retorna a tabela verdade da fórmula passada.
      * @param formula Fórmula que se deseja ver a tabela verdade.
      * @return Um ArrayList de vetores contendo a tabela verdade.
      */
-    public ArrayList retornarTabela(String formula) {
+    public static ArrayList retornarTabela(String formula) {
+        try {
+            testarPadroes(formula);
+        } catch (NoDefaultException e) {
+            JOptionPane.showMessageDialog(null, "A fórmula informada não segue " +
+                    "os padrões estipulados. Por favor leia as regras descritas.");
+        }
+
         TabelaVerdade tabVerdade = new TabelaVerdade(formula);
         ArrayList tabela = tabVerdade.construirTabela();
-        return tabela;
+        return (tabela);
     }
 
     /* Função que retorna se a conclusao é consequência lógica das premissas.
      * @param premissas ArrayList contendo todas as fórmulas das premissas.
      * @param conclusao Fórmula da conclusão.
      */
-    public int retornarConsequencia(ArrayList premissas, String conclusao) {
+    public static int retornarConsequencia(ArrayList premissas, String conclusao) {
         return (Constantes.SUCESSO); // Provisório.
     }
 
-    private int testarPadroes(String formula) {
+    private static void testarPadroes(String formula) throws NoDefaultException {
         char ch;
         int abreParenteses = 0, fechaParenteses = 0, simbolos = 0;
         for(int i = 0; i < formula.length() - 1; i++) {
@@ -57,9 +62,7 @@ public class Logica {
 
         /* Testa se a fórmula seguiu os padrões exigidos. */
         if ((simbolos == fechaParenteses) && (abreParenteses == fechaParenteses)) {
-            return (Constantes.SUCESSO);
-        } else {
-            return (Constantes.FRACASSO);
+            throw new NoDefaultException();
         }
     }
 }
