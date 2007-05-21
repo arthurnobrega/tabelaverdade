@@ -110,17 +110,6 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
     
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new OpcaoEquivalencia().setVisible(true);
-            }
-        });
-    }
-    
     // Declaração de variáveis - não modifique//GEN-BEGIN:variables
     private javax.swing.JButton btnVisualizar;
     private javax.swing.JButton btnVoltar;
