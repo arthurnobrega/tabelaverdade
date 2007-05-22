@@ -111,6 +111,7 @@
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="txtAjuda.setText(TEXTOPADRAO);"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="txtAjuda.setWrapStyleWord(true);"/>
           </AuxValues>
         </Component>
       </SubComponents>

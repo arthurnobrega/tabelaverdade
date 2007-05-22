@@ -87,6 +87,7 @@ public class Principal extends javax.swing.JFrame {
         txtAjuda.setEditable(false);
         txtAjuda.setLineWrap(true);
         txtAjuda.setRows(5);
+        txtAjuda.setWrapStyleWord(true);
         jScrollPane1.setViewportView(txtAjuda);
 
         jLabel1.setFont(new java.awt.Font("Verdana", 0, 11));

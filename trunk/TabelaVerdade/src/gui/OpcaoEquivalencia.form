@@ -25,7 +25,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="btnVoltar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="467" max="32767" attributes="0"/>
-                      <Component id="btnVisualizar" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnVerificar" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" alignment="0" pref="661" max="32767" attributes="0"/>
               </Group>
@@ -62,12 +62,12 @@
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <Component id="txtFormula2" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="21" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnVisualizar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnVerificar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -94,6 +94,9 @@
             <Property name="rows" type="int" value="5"/>
             <Property name="text" postCode="txtAjuda.setText(&quot;Digite as duas f&#xf3;rmulas que voc&#xea; deseja verificar se s&#xe3;o semanticamente equivalentes. Para isso siga os seguintes padr&#xf5;es:\n\n&quot; + Constantes.PADRAO_FORMULA);"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="txtAjuda.setWrapStyleWord(true);"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
@@ -109,10 +112,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVoltarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnVisualizar">
+    <Component class="javax.swing.JButton" name="btnVerificar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Verificar Equival&#xea;ncia"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerificarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
