@@ -156,13 +156,13 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
         String[] linha2 = { "V" , "F"};
         String[] linha3 = { "V" , "F"};
         String[] linha4 = { "F" , "V"};
-        ArrayList lista = new ArrayList();
-        lista.add(linha1);
-        lista.add(linha2);
-        lista.add(linha3);
-        lista.add(linha4);
-        lista.add(vetor);
-        new Tabelas(this, true, lista).setVisible(true);
+        ArrayList dados = new ArrayList();
+        dados.add(linha1);
+        dados.add(linha2);
+        dados.add(linha3);
+        dados.add(linha4);
+        dados.add(vetor);
+        new Tabelas(this, true, dados).setVisible(true);
     }//GEN-LAST:event_btnVerificarActionPerformed
 
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
