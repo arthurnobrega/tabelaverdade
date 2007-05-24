@@ -10,6 +10,7 @@ import java.awt.Component;
 import java.awt.FontMetrics;
 import java.util.ArrayList;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -25,8 +26,8 @@ public class Tabelas extends javax.swing.JDialog {
     /** Cria uma nova janela de Tabelas. */
     public Tabelas(java.awt.Frame parent, boolean modal, ArrayList pDados) {
         super(parent, modal);
-        dados = pDados;
-        initComponents();
+        dados = pDados;        
+        initComponents();        
         Containers.alinharContainer(this);
     }
 
@@ -35,19 +36,9 @@ public class Tabelas extends javax.swing.JDialog {
 
         /** Cria um novo modelo de Tabela.
          */
-        public ModeloTabela(ArrayList dados) {
+        public ModeloTabela() {            
             int tamanhoLista = dados.size();
-            listaColunas = (String[]) dados.get(tamanhoLista - 1);
-            dados.remove(tamanhoLista - 1);
             listaLinhas = (ArrayList) dados.clone();
-        }
-
-        /**
-         * Retorna o nome da coluna passada como parâmetro pelo seu número.
-         * @see javax.swing.table.TableModel#getColummName(int)
-         */     
-        public String getColumnName(int col) {
-                    return listaColunas[col];
         }
 
         /**
@@ -55,7 +46,7 @@ public class Tabelas extends javax.swing.JDialog {
          * @see javax.swing.table.TableModel#getColumnCount()
          */
         public int getColumnCount() {
-             return listaColunas.length;
+             return ((String[])listaLinhas.get(0)).length;
         }
 
          /**
@@ -81,12 +72,7 @@ public class Tabelas extends javax.swing.JDialog {
             return (String[]) listaLinhas.get(rowIndex);
         }
 
-        public Class getCollumnClass(int c) {
-            return getValueAt(0, c).getClass();
-        }
-
         private ArrayList listaLinhas = null;
-        private String[] listaColunas = null;
  
     }
     
@@ -97,74 +83,61 @@ public class Tabelas extends javax.swing.JDialog {
             super();
         }
 
-        private Color getCellColor(String[] linhas){
-
-            /* Faz um teste para decidir a cor da linha. */            
-            
-          //if((doc % 2) == 0)
-                return Color.GREEN;
-          //else
-          //    return Color.BLACK;
+        private Color getCellColor(String[] linhas) {
+            /* Faz um teste para decidir a cor da letra */
+            return Color.BLACK;
         }
 
         public Component getTableCellRendererComponent(javax.swing.JTable table,
-                Object value, boolean isSelected, boolean hasFocus, int row, int column){
+                Object value, boolean isSelected, boolean hasFocus, int row, int column) {
 
 
             JLabel label = (JLabel)super.getTableCellRendererComponent(
                     table, value, isSelected, hasFocus, row, column);
 
-            String[] credor = ((ModeloTabela)table.getModel()).getValues(row);
+            String[] dados = ((ModeloTabela)table.getModel()).getValues(row);
 
             // somente para centralizar
             if (column != 0)
                 label.setHorizontalAlignment(JLabel.CENTER);
 
             // se for par
-            if((row % 2) == 0){
+            if ((row % 2) == 0){
 
                 // cor de fundo
-                label.setBackground(Color.WHITE);  
+                label.setBackground(new Color(255, 218, 185));
 
                 // cor da fonte
-                if(column != 0)
-                    label.setForeground(getCellColor(credor));                      
+                label.setForeground(getCellColor(dados));
             }
 
             // se for ímpar
-            else{
+            else {
 
-                    // cor de fundo
-                label.setBackground(new Color(240, 240, 240));
+                // cor de fundo
+                label.setBackground(Color.WHITE);
 
                 // cor da fonte
-                if(column != 0)
-                    label.setForeground(getCellColor(credor));
+                label.setForeground(getCellColor(dados));
             }
 
-            if(column == 0)
-
-                    label.setHorizontalAlignment(SwingConstants.CENTER);
-
-            else if(column == 1)
-
-                    label.setHorizontalAlignment(SwingConstants.LEFT);
+            label.setHorizontalAlignment(SwingConstants.CENTER);
 
 
             return label;
         }
     
     }
-    
+
+
     class ModeloColuna extends DefaultTableColumnModel {
 
 
         public ModeloColuna(FontMetrics fm) {
 
-                int digito = fm.stringWidth("0");
-                int letra = fm.stringWidth("M");
-                addColumn(criaColuna(0, 100 * letra, fm, true, "Nome/Razão Social"));
-                addColumn(criaColuna(1, 20 * digito, fm, false, "Documento"));          
+                int nColunas = 2;
+                addColumn(criaColuna(0, tabela.getWidth() / nColunas, fm, true, "(p v q)"));
+                addColumn(criaColuna(1, tabela.getWidth() / nColunas, fm, true, "( (p - q) v r )"));
         }
 
         private TableColumn criaColuna(int columnIndex, int largura, FontMetrics fm, boolean resizable, String titulo){
@@ -195,12 +168,12 @@ public class Tabelas extends javax.swing.JDialog {
     private void initComponents() {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane = new javax.swing.JScrollPane();
-        FontMetrics fm = tabela.getFontMetrics(tabela.getFont());
         tabela = new javax.swing.JTable();
+        FontMetrics fm = tabela.getFontMetrics(tabela.getFont());
         btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        tabela.setModel(new ModeloTabela(dados));
+        tabela.setModel(new ModeloTabela());
         tabela.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         tabela.setColumnModel(new ModeloColuna(fm));
         jScrollPane.setViewportView(tabela);
