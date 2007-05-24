@@ -151,7 +151,7 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
         }
 
         /* Faz a ação. MUDAR COMENTÁRIO. */
-        String[] vetor = { "( p v q )" , "( ~ ( p v q ) )"};
+//        String[] vetor = { "( p v q )" , "( ~ ( p v q ) )"};
         String[] linha1 = { "V" , "F"};
         String[] linha2 = { "V" , "F"};
         String[] linha3 = { "V" , "F"};
@@ -161,7 +161,7 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
         dados.add(linha2);
         dados.add(linha3);
         dados.add(linha4);
-        dados.add(vetor);
+//        dados.add(vetor);
         new Tabelas(this, true, dados).setVisible(true);
     }//GEN-LAST:event_btnVerificarActionPerformed
 

@@ -28,7 +28,7 @@
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="10" pref="10" max="10" attributes="0"/>
-              <Component id="jScrollPane1" pref="661" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="718" max="32767" attributes="0"/>
               <EmptySpace min="10" pref="10" max="10" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
@@ -40,9 +40,9 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtConclusao" alignment="1" pref="483" max="32767" attributes="0"/>
-                  <Component id="cmbPremissas" alignment="1" pref="483" max="32767" attributes="0"/>
-                  <Component id="txtNovaPremissa" alignment="1" pref="483" max="32767" attributes="0"/>
+                  <Component id="txtConclusao" alignment="1" pref="484" max="32767" attributes="0"/>
+                  <Component id="cmbPremissas" alignment="1" pref="484" max="32767" attributes="0"/>
+                  <Component id="txtNovaPremissa" alignment="1" pref="484" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
