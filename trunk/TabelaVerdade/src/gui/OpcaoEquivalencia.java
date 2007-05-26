@@ -7,6 +7,8 @@ package gui;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import tipos.Constantes;
+import tipos.Containers;
 
 /**
  *
@@ -113,12 +115,6 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
 
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
         /* Verifica se pelo menos uma das Fórmulas está em branco. */
-        if ((txtFormula1.getText().length() == 0) || (txtFormula2.getText().length() == 0)) {
-            JOptionPane.showMessageDialog(null, "Por favor insira as duas fórmulas " +
-                    "que serão comparadas!", "Campo de Fórmula em branco!",
-                    JOptionPane.INFORMATION_MESSAGE);
-            return;
-        }
 
         /* Faz a ação. MUDAR COMENTÁRIO. */
     }//GEN-LAST:event_btnVerificarActionPerformed

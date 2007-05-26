@@ -7,9 +7,11 @@ package gui;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import tipos.Constantes;
+import tipos.Containers;
 
 /**
- *
+ * 
  * @author Arthur Thiago Barbosa Nobrega
  */
 public class OpcaoConsequencia extends javax.swing.JFrame {
@@ -143,12 +145,6 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
 
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
         /* Verifica se a Conclusão está em branco. */
-        if (txtConclusao.getText().length() == 0) {
-            JOptionPane.showMessageDialog(null, "Por favor preencha o campo da " +
-                    "fórmula de Conclusão!", "Campo Conclusão em branco!", 
-                    JOptionPane.INFORMATION_MESSAGE);
-            return;            
-        }
 
         /* Faz a ação. MUDAR COMENTÁRIO. */
 //        String[] vetor = { "( p v q )" , "( ~ ( p v q ) )"};

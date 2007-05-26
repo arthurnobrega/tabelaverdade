@@ -22,7 +22,7 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               <Component id="btnVoltar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="425" max="32767" attributes="1"/>
+              <EmptySpace pref="482" max="32767" attributes="1"/>
               <Component id="btnVerificar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
@@ -40,9 +40,9 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtConclusao" alignment="1" pref="484" max="32767" attributes="0"/>
-                  <Component id="cmbPremissas" alignment="1" pref="484" max="32767" attributes="0"/>
-                  <Component id="txtNovaPremissa" alignment="1" pref="484" max="32767" attributes="0"/>
+                  <Component id="txtConclusao" alignment="1" pref="540" max="32767" attributes="0"/>
+                  <Component id="cmbPremissas" alignment="1" pref="540" max="32767" attributes="0"/>
+                  <Component id="txtNovaPremissa" alignment="1" pref="540" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
