@@ -7,6 +7,8 @@ package gui;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import tipos.Constantes;
+import tipos.Containers;
 
 /**
  *
@@ -100,12 +102,6 @@ public class OpcaoTabela extends javax.swing.JFrame {
 
     private void btnVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarActionPerformed
         /* Verifica se a Conclusão está em branco. */
-        if (txtFormula.getText().length() == 0) {
-            JOptionPane.showMessageDialog(null, "Por favor preencha o campo da " +
-                    "Fórmula!", "Campo da Fórmula em branco!",
-                    JOptionPane.INFORMATION_MESSAGE);
-            return;            
-        }
 
         /* Faz a ação. MUDAR COMENTÁRIO. */
     }//GEN-LAST:event_btnVisualizarActionPerformed

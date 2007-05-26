@@ -10,12 +10,12 @@ import java.awt.Component;
 import java.awt.FontMetrics;
 import java.util.ArrayList;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.TableColumn;
+import tipos.Containers;
 
 /**
  *
@@ -102,7 +102,7 @@ public class Tabelas extends javax.swing.JDialog {
                 label.setHorizontalAlignment(JLabel.CENTER);
 
             // se for par
-            if ((row % 2) == 0){
+            if (row == 2){
 
                 // cor de fundo
                 label.setBackground(new Color(255, 218, 185));
