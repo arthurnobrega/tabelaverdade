@@ -5,8 +5,10 @@
 
 package gui;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import log.LogicaTabela;
 import tipos.Constantes;
 import tipos.Containers;
 
@@ -101,9 +103,12 @@ public class OpcaoTabela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarActionPerformed
-        /* Verifica se a Conclusão está em branco. */
-
-        /* Faz a ação. MUDAR COMENTÁRIO. */
+        try {
+            LogicaTabela logTab = new LogicaTabela(txtFormula.getText());
+            new Tabelas(this, true, logTab.getLinhas(), logTab.getColunas()).setVisible(true);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "A fórmula não segue os padrões estipulados!");
+        }
     }//GEN-LAST:event_btnVisualizarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
