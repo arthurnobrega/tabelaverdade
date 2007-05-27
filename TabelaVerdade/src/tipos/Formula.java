@@ -3,7 +3,7 @@
  *
  */
 
-package pers;
+package tipos;
 
 import java.util.ArrayList;
 import tipos.Constantes;
@@ -17,37 +17,65 @@ public class Formula {
     /** Cria uma nova instância de fórmula. */
     public Formula(String formula) {
         this.formula = formula;
-        contarProposicoes();
+        contarCaracteres();
     }
 
     /** Função interna que conta o número de proposições distintas que 
-     * existem na fórmula e as guarda na variável de objeto 'proposições'.
+     * existem na fórmula e as guarda na variável de objeto 'proposicoes'.
      */
-    private void contarProposicoes() {        
-        int j;
-        boolean achou;
-        Character letra;
+    private void contarCaracteres() {
+        char letra;
         proposicoes = new ArrayList();
-        /* Percorre todo a formula à procura do número de proposições distintas. */
+        /* Testa o caractere e armazena o tipo dele na variável correspondente. */
         for (int i = 0; i <= formula.length() - 1; i++) {
-            letra = new Character(formula.charAt(i));
-            if (!(letra.equals(Constantes.CONJUNCAO)) && !(letra.equals(Constantes.DISJUNCAO))
-              && !(letra.equals(Constantes.IMPLICACAO)) && !(letra.equals(Constantes.DUPLA_IMPLICACAO))
-              && !(letra.equals(Constantes.NEGACAO)) && (letra != ' ') && (letra != '(') && (letra != ')')) {
-                achou = false;
-                j = 0;                
-                /* É uma proposição, agora temos que testar se ela já não foi incluída na lista. */
-                while ((!achou) && (j < proposicoes.size() - 1)) {                    
-                    if (letra.equals((Character) proposicoes.get(j))) {
-                        achou = true;
-                    }
-                    else {
-                        j++;
-                    }
+            letra = formula.charAt(i);
+            switch (letra) {
+                case Constantes.CONJUNCAO: {
+                    conectivos++;
+                    break;
                 }
-                /* Se não foi encontrada, adiciona à lista de proposições. */
-                if ((!achou) || (proposicoes.size() == 0)) {
-                    proposicoes.add(letra);
+                case Constantes.DISJUNCAO: {
+                    conectivos++;
+                    break;
+                }
+                case Constantes.NEGACAO: {
+                    conectivos++;
+                    break;
+                }
+                case Constantes.IMPLICACAO: {
+                    conectivos++;
+                    break;
+                }
+                case Constantes.DUPLA_IMPLICACAO: {
+                    conectivos++;
+                    break;
+                }
+                case '(': {
+                    abreParenteses++;
+                    break;
+                }
+                case ')': {
+                    fechaParenteses++;
+                    break;
+                }
+                case ' ': {
+                    break;
+                }
+                default: {
+                    boolean achou = false;
+                    int j = 0;
+                    while ((!achou) && (j <= proposicoes.size() - 1)) {                    
+                        if (letra == proposicoes.get(j)) {
+                            achou = true;
+                        }
+                        else {
+                            j++;
+                        }
+                    }
+                    if (!achou) {
+                        proposicoes.add(letra);
+                    }
+                    break;
                 }
             }
         }
@@ -65,12 +93,21 @@ public class Formula {
         return (ArrayList) proposicoes.clone();
     }
     
-    /** @return O número de proposições da fórmula.
-     */
-    public int getCountProposicoes() {
-        return proposicoes.size();
+    public int getConectivos() {
+        return conectivos;
     }
-
-    private String formula;
-    private ArrayList proposicoes;
+    
+    public int getAbreParenteses() {
+        return abreParenteses;
+    }
+    
+    public int getFechaParenteses() {
+        return fechaParenteses;
+    }
+    
+    private String formula = null;
+    private ArrayList proposicoes = null;
+    private int conectivos = 0;
+    private int abreParenteses = 0;
+    private int fechaParenteses = 0;
 }
