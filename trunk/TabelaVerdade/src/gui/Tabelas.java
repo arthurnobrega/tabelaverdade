@@ -24,10 +24,11 @@ import tipos.Containers;
 public class Tabelas extends javax.swing.JDialog {
 
     /** Cria uma nova janela de Tabelas. */
-    public Tabelas(java.awt.Frame parent, boolean modal, ArrayList pDados) {
+    public Tabelas(java.awt.Frame parent, boolean modal, ArrayList pDados, ArrayList pColunas) {
         super(parent, modal);
-        dados = pDados;        
-        initComponents();        
+        dados = pDados;
+        colunas = pColunas;
+        initComponents();
         Containers.alinharContainer(this);
     }
 
@@ -135,9 +136,10 @@ public class Tabelas extends javax.swing.JDialog {
 
         public ModeloColuna(FontMetrics fm) {
 
-                int nColunas = 2;
-                addColumn(criaColuna(0, tabela.getWidth() / nColunas, fm, true, "(p v q)"));
-                addColumn(criaColuna(1, tabela.getWidth() / nColunas, fm, true, "( (p - q) v r )"));
+                int nColunas = colunas.size();
+                for (int i = 0; i <= nColunas - 1; i++) {
+                    addColumn(criaColuna(i, tabela.getWidth() / nColunas, fm, true, (String) colunas.get(i)));
+                }
         }
 
         private TableColumn criaColuna(int columnIndex, int largura, FontMetrics fm, boolean resizable, String titulo){
@@ -231,4 +233,5 @@ public class Tabelas extends javax.swing.JDialog {
     private javax.swing.JTable tabela;
     // Fim da declaração de variáveis//GEN-END:variables
     ArrayList dados;
+    ArrayList colunas;
 }

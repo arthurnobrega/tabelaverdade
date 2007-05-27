@@ -10,6 +10,7 @@
 package log;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import pers.TabelaVerdade;
 
 /**
@@ -23,7 +24,17 @@ public class LogicaTabela extends Logica {
         if (!testarFormula(formula)) {
             throw new IOException();
         }
-        TabelaVerdade tabela = new TabelaVerdade(formula);
+        tabela = new TabelaVerdade(formula);
+        System.out.println("entrou");
     }
     
+    public ArrayList getLinhas() {
+        return tabela.getLinhas();
+    }
+    
+    public ArrayList getColunas() {
+        return tabela.getColunas();
+    }
+    
+    TabelaVerdade tabela;
 }
