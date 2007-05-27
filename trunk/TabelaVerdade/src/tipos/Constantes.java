@@ -23,9 +23,9 @@ public class Constantes {
             "Portanto 4 duplas de parênteses, uma para cada operador lógico.";
 
     /* Constantes dos padrões de escrita dos Símbolos Proposicionais. */
-    public final static Character NEGACAO = '~';
-    public final static Character CONJUNCAO = '&';
-    public final static Character DISJUNCAO = 'v';
-    public final static Character IMPLICACAO = '-';
-    public final static Character DUPLA_IMPLICACAO = '=';
+    public final static char NEGACAO = '~';
+    public final static char CONJUNCAO = '&';
+    public final static char DISJUNCAO = 'v';
+    public final static char IMPLICACAO = '-';
+    public final static char DUPLA_IMPLICACAO = '=';
 }
