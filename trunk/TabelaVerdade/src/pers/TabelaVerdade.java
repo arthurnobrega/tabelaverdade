@@ -17,53 +17,46 @@ import tipos.Formula;
 public class TabelaVerdade {
 
     /** Creates a new instance of TabelaVerdade */
-    public TabelaVerdade(String frase) {
-
+    public TabelaVerdade(Formula formula) {        
         /* Inicializa todas as variáveis de objeto com seus respectivos valores. */
-        formula = new Formula(frase);
+        this.formula = formula;
         contruirTabela();
+        /*
         pilhaConectivos = new Stack();
         pilhaProposicoes = new Stack();
         vetorLetras = formula.getFormula().toCharArray();
-        
         for (int i = 0; i <= vetorLetras.length; i++) {
-            adicionarNaPilha(i);            
+            adicionarNaPilha(i);
         }
+        */
     }
     
+    private static String[] valores = new String[] {"V", "F"};
     private void contruirTabela() {
-        int nroProposicoes = formula.getProposicoes().size();
-        nroLinhas = (int) Math.pow(2, nroProposicoes);
-        int proporcao = 1;
-        for (int i = 0; i <= nroProposicoes - 1; i++) {
-            String[] vetorBoolean = new String[nroLinhas];
+        nroColunas = formula.getProposicoes().size();
+        nroLinhas = (int) Math.pow(2, nroColunas);
+        int proporcao = nroLinhas / 2;
+        String[] vetorBoolean = new String[nroLinhas];
+        for (int i = 0; i <= nroColunas - 1; i++) {
             int j = 0;
             while (j <= nroLinhas - 1) {
-                String valor = "V";
-                for (int n = 0; n <= proporcao - 1; n++) {
-                    vetorBoolean[j] = valor;
-                    System.out.println(n);
-                    j++;
-                }
-                valor = "F";
-                for (int n = 0; n <= proporcao - 1; n++) {
-                    vetorBoolean[j] = valor;
-                    j++;
+                for (String valor : valores) {
+                    for (int n = 0; n <= proporcao - 1; n++) {
+                        vetorBoolean[j] = valor;
+                        j++;
+                    }
                 }
             }
-            for (int k = 0; k <= vetorBoolean.length - 1; k++) {
-                System.out.println(vetorBoolean[i]);
-            }
-            linhas.add(vetorBoolean);
-            System.out.println("entrou");
+            colunas.add(vetorBoolean);
             vetorBoolean = new String[nroLinhas];
-            proporcao *= 2;
+            proporcao /= 2;
         }
+        transformarArray();
     }
     
     /** Função que adiciona uma letra na pilha ou resolve caso a letras seja um parênteses fechando.
      * @param posicao Posição da letra dentro do vetor de letras.
-     */
+     *
     private void adicionarNaPilha(int posicao) {
         switch (vetorLetras[posicao]) {
             case ' ': {
@@ -105,7 +98,7 @@ public class TabelaVerdade {
                 pilhaProposicoes.push(vetorLetras[posicao]);
             }
         }
-    }
+    }*/
     
     private void resolverPilhas(boolean negacao) {        
         String conectivo = (String) pilhaConectivos.pop();
@@ -117,6 +110,17 @@ public class TabelaVerdade {
         }
     }
     
+    private void transformarArray() {
+        for (int i = 0; i <= nroLinhas - 1; i++) {
+            String[] dadosLinha = new String[nroColunas];
+            for (int j = 0; j <= nroColunas - 1; j++) {
+                String[] dadosColuna = (String[]) colunas.get(j);
+                dadosLinha[j] = dadosColuna[i];
+            }
+            linhas.add(dadosLinha);
+        }
+    }
+    
     public ArrayList getLinhas() {
         return (ArrayList) linhas.clone();
     }
@@ -124,10 +128,12 @@ public class TabelaVerdade {
         return (ArrayList) formula.getProposicoes();
     }
 
-    private ArrayList linhas;
-    private Formula formula;
-    private int nroLinhas;
-    private Stack pilhaConectivos;
-    private Stack pilhaProposicoes;
+    private ArrayList linhas = new ArrayList();
+    private ArrayList colunas = new ArrayList();
+    private Formula formula = null;
+    private int nroLinhas = 0;
+    private int nroColunas = 0;
+    private Stack pilhaConectivos = null;
+    private Stack pilhaProposicoes = null;
     private char[] vetorLetras;
 }

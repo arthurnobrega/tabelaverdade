@@ -12,6 +12,7 @@ package log;
 import java.io.IOException;
 import java.util.ArrayList;
 import pers.TabelaVerdade;
+import tipos.Formula;
 
 /**
  *
@@ -20,12 +21,11 @@ import pers.TabelaVerdade;
 public class LogicaTabela extends Logica {
     
     /** Creates a new instance of LogicaTabela */
-    public LogicaTabela(String formula) throws IOException {
+    public LogicaTabela(Formula formula) throws IOException {
         if (!testarFormula(formula)) {
             throw new IOException();
         }
         tabela = new TabelaVerdade(formula);
-        System.out.println("entrou");
     }
     
     public ArrayList getLinhas() {

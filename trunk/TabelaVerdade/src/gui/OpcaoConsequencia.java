@@ -45,8 +45,10 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
         txtAjuda.setColumns(20);
         txtAjuda.setEditable(false);
         txtAjuda.setFont(new java.awt.Font("Courier", 0, 12));
+        txtAjuda.setLineWrap(true);
         txtAjuda.setRows(5);
         txtAjuda.setText("Informe todas as premissas (ou nenhuma) e a conclusão para verificar se a conclusão é consequência lógica das premissas. Para isso siga os seguintes padrões:\n\n" + Constantes.PADRAO_FORMULA);
+        txtAjuda.setWrapStyleWord(true);
         txtAjuda.setWrapStyleWord(true);
         jScrollPane1.setViewportView(txtAjuda);
 
@@ -91,12 +93,12 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
             .add(layout.createSequentialGroup()
                 .add(10, 10, 10)
                 .add(btnVoltar)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 425, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 482, Short.MAX_VALUE)
                 .add(btnVerificar)
                 .addContainerGap())
             .add(layout.createSequentialGroup()
                 .add(10, 10, 10)
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 661, Short.MAX_VALUE)
+                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
                 .add(10, 10, 10))
             .add(layout.createSequentialGroup()
                 .addContainerGap()
@@ -106,9 +108,9 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel1))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, txtConclusao, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, cmbPremissas, 0, 483, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, txtNovaPremissa, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, txtConclusao, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, cmbPremissas, 0, 540, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, txtNovaPremissa, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(btnRemover)

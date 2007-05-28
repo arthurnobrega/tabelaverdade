@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import log.LogicaTabela;
 import tipos.Constantes;
 import tipos.Containers;
+import tipos.Formula;
 
 /**
  *
@@ -104,8 +105,9 @@ public class OpcaoTabela extends javax.swing.JFrame {
 
     private void btnVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarActionPerformed
         try {
-            LogicaTabela logTab = new LogicaTabela(txtFormula.getText());
-            new Tabelas(this, true, logTab.getLinhas(), logTab.getColunas()).setVisible(true);
+            Formula formula = new Formula(txtFormula.getText());
+            LogicaTabela logTab = new LogicaTabela(formula);
+            new Tabelas(this, true, logTab.getLinhas(), logTab.getColunas(), null).setVisible(true);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "A fórmula não segue os padrões estipulados!");
         }
