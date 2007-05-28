@@ -15,7 +15,7 @@ import tipos.Formula;
 public class Logica {
     
     /* Esta função irá testar se a fórmula é bem formada e segue os padrões exigidos.*/
-    protected boolean testarFormula(String strFormula) {
+    protected boolean testarFormula(Formula formula) {
         return true;
     }
 }

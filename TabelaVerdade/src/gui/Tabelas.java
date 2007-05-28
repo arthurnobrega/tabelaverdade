@@ -24,10 +24,11 @@ import tipos.Containers;
 public class Tabelas extends javax.swing.JDialog {
 
     /** Cria uma nova janela de Tabelas. */
-    public Tabelas(java.awt.Frame parent, boolean modal, ArrayList pDados, ArrayList pColunas) {
+    public Tabelas(java.awt.Frame parent, boolean modal, ArrayList linhas, ArrayList colunas, int[] linhasSelecionadas) {
         super(parent, modal);
-        dados = pDados;
-        colunas = pColunas;
+        this.linhas = linhas;
+        this.colunas = colunas;
+        this.linhasSelecionadas = linhasSelecionadas;
         initComponents();
         Containers.alinharContainer(this);
     }
@@ -37,9 +38,7 @@ public class Tabelas extends javax.swing.JDialog {
 
         /** Cria um novo modelo de Tabela.
          */
-        public ModeloTabela() {            
-            int tamanhoLista = dados.size();
-            listaLinhas = (ArrayList) dados.clone();
+        public ModeloTabela() {
         }
 
         /**
@@ -47,7 +46,7 @@ public class Tabelas extends javax.swing.JDialog {
          * @see javax.swing.table.TableModel#getColumnCount()
          */
         public int getColumnCount() {
-             return ((String[])listaLinhas.get(0)).length;
+             return ((String[])linhas.get(0)).length;
         }
 
          /**
@@ -55,7 +54,7 @@ public class Tabelas extends javax.swing.JDialog {
           * @see javax.swing.table.TableModel#getRowCount()
           */
         public int getRowCount() {
-             return listaLinhas.size();
+             return linhas.size();
         }
 
          /**
@@ -64,17 +63,14 @@ public class Tabelas extends javax.swing.JDialog {
           */
         public Object getValueAt(int rowIndex, int columnIndex) {
             // Obtem a linha, que é uma String []
-            String[] linha = (String []) listaLinhas.get(rowIndex);
+            String[] linha = (String[]) linhas.get(rowIndex);
             // Retorna o objeto que esta na coluna
             return linha[columnIndex];
         }
 
         public String[] getValues(int rowIndex){
-            return (String[]) listaLinhas.get(rowIndex);
+            return (String[]) linhas.get(rowIndex);
         }
-
-        private ArrayList listaLinhas = null;
- 
     }
     
     class CellRenderer extends DefaultTableCellRenderer {
@@ -84,50 +80,35 @@ public class Tabelas extends javax.swing.JDialog {
             super();
         }
 
-        private Color getCellColor(String[] linhas) {
-            /* Faz um teste para decidir a cor da letra */
-            return Color.BLACK;
-        }
-
         public Component getTableCellRendererComponent(javax.swing.JTable table,
                 Object value, boolean isSelected, boolean hasFocus, int row, int column) {
 
 
             JLabel label = (JLabel)super.getTableCellRendererComponent(
                     table, value, isSelected, hasFocus, row, column);
-
-            String[] dados = ((ModeloTabela)table.getModel()).getValues(row);
-
-            // somente para centralizar
-            if (column != 0)
+            
+            /* Centraliza os dados na célula. */
+            if (column != 0) {
                 label.setHorizontalAlignment(JLabel.CENTER);
-
-            // se for par
-            if (row == 2){
-
-                // cor de fundo
-                label.setBackground(new Color(255, 218, 185));
-
-                // cor da fonte
-                label.setForeground(getCellColor(dados));
             }
-
-            // se for ímpar
-            else {
-
-                // cor de fundo
-                label.setBackground(Color.WHITE);
-
-                // cor da fonte
-                label.setForeground(getCellColor(dados));
+            
+            /* Seta a cor padrão do fundo. */
+            label.setBackground(Color.WHITE);
+            /* Seta a cor padrão da letra. */
+            label.setForeground(Color.BLACK);
+            
+            int i = 0;
+            while ((linhasSelecionadas != null) && (i <= linhasSelecionadas.length)) {
+                if (row == linhasSelecionadas[i]) {
+                    label.setBackground(new Color(255, 218, 185));
+                }
+                i++;
             }
 
             label.setHorizontalAlignment(SwingConstants.CENTER);
 
-
             return label;
         }
-    
     }
 
 
@@ -155,7 +136,6 @@ public class Tabelas extends javax.swing.JDialog {
             col.setHeaderValue(titulo);
             col.setPreferredWidth(largura);
             if(!resizable){
-
                 col.setMaxWidth(largura);
                 col.setMinWidth(largura);
             }
@@ -232,6 +212,7 @@ public class Tabelas extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JTable tabela;
     // Fim da declaração de variáveis//GEN-END:variables
-    ArrayList dados;
+    int[] linhasSelecionadas;
+    ArrayList linhas;
     ArrayList colunas;
 }

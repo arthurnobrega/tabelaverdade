@@ -24,58 +24,34 @@ public class Formula {
      * existem na fórmula e as guarda na variável de objeto 'proposicoes'.
      */
     private void contarCaracteres() {
-        char letra;
+        String letra;
         proposicoes = new ArrayList();
         /* Testa o caractere e armazena o tipo dele na variável correspondente. */
         for (int i = 0; i <= formula.length() - 1; i++) {
-            letra = formula.charAt(i);
-            switch (letra) {
-                case Constantes.CONJUNCAO: {
-                    conectivos++;
-                    break;
-                }
-                case Constantes.DISJUNCAO: {
-                    conectivos++;
-                    break;
-                }
-                case Constantes.NEGACAO: {
-                    conectivos++;
-                    break;
-                }
-                case Constantes.IMPLICACAO: {
-                    conectivos++;
-                    break;
-                }
-                case Constantes.DUPLA_IMPLICACAO: {
-                    conectivos++;
-                    break;
-                }
-                case '(': {
-                    abreParenteses++;
-                    break;
-                }
-                case ')': {
-                    fechaParenteses++;
-                    break;
-                }
-                case ' ': {
-                    break;
-                }
-                default: {
-                    boolean achou = false;
-                    int j = 0;
-                    while ((!achou) && (j <= proposicoes.size() - 1)) {                    
-                        if (letra == proposicoes.get(j)) {
-                            achou = true;
-                        }
-                        else {
-                            j++;
-                        }
+            letra = formula.substring(i, i + 1);
+            if (letra.equals(Constantes.CONJUNCAO) || letra.equals(Constantes.DISJUNCAO)
+                    || letra.equals(Constantes.NEGACAO) || letra.equals(Constantes.IMPLICACAO)
+                    || letra.equals(Constantes.DUPLA_IMPLICACAO)) {
+                conectivos++;
+            } else if (letra.equals("(")) {
+                abreParenteses++;
+            } else if (letra.equals(")")) {
+                abreParenteses++;
+            } else if (letra.equals(" ")) {
+                
+            } else {
+                boolean achou = false;
+                int j = 0;
+                while ((!achou) && (j <= proposicoes.size() - 1)) {
+                    if (letra.equals(proposicoes.get(j))) {
+                        achou = true;
                     }
-                    if (!achou) {
-                        proposicoes.add(letra);
+                    else {
+                        j++;
                     }
-                    break;
+                }
+                if (!achou) {
+                    proposicoes.add(letra);
                 }
             }
         }
