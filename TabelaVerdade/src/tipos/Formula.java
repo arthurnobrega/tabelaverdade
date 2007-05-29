@@ -36,9 +36,9 @@ public class Formula {
             } else if (letra.equals("(")) {
                 abreParenteses++;
             } else if (letra.equals(")")) {
-                abreParenteses++;
+                fechaParenteses++;
             } else if (letra.equals(" ")) {
-                
+                /* Desconsidera os espaços. */
             } else {
                 boolean achou = false;
                 int j = 0;

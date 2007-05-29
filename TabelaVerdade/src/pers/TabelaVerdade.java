@@ -20,19 +20,22 @@ public class TabelaVerdade {
     public TabelaVerdade(Formula formula) {        
         /* Inicializa todas as variáveis de objeto com seus respectivos valores. */
         this.formula = formula;
-        contruirTabela();
-        /*
-        pilhaConectivos = new Stack();
-        pilhaProposicoes = new Stack();
-        vetorLetras = formula.getFormula().toCharArray();
-        for (int i = 0; i <= vetorLetras.length; i++) {
-            adicionarNaPilha(i);
+        /* Preenche a tabela primeiramente com as colunas das proposições. */
+        preencherTabela();
+        /* Agora realmente resolve a tabela. */
+        String[] resultado = new String[nroLinhas];
+        for (int i = 0; i <= nroLinhas - 1; i++) {
+            resultado[i] = resolverFormula(i);
         }
-        */
+        colunas.add(resultado);
+        transformarArray();
     }
     
-    private static String[] valores = new String[] {"V", "F"};
-    private void contruirTabela() {
+    /** Função que preenche as colunas das proposições com V ou F.
+     *
+     */
+    private void preencherTabela() {
+        String[] valores = new String[] {verdadeiro, falso};
         nroColunas = formula.getProposicoes().size();
         nroLinhas = (int) Math.pow(2, nroColunas);
         int proporcao = nroLinhas / 2;
@@ -51,81 +54,116 @@ public class TabelaVerdade {
             vetorBoolean = new String[nroLinhas];
             proporcao /= 2;
         }
-        transformarArray();
+    }
+
+    /** Resolve de fato a tabela, preenchendo com V ou F nas fórmulas.
+     *
+     */
+    private String resolverFormula(int linha) {
+        int parent = formula.getFechaParenteses();
+        String strFormula = formula.getFormula();
+        int i = 0;
+        while (parent > 0) {
+            String letra = strFormula.substring(i, i + 1);
+            if(!(letra.equals(Constantes.CONJUNCAO)) && !(letra.equals(Constantes.DISJUNCAO))
+                    && !(letra.equals(Constantes.NEGACAO)) && !(letra.equals(Constantes.IMPLICACAO)) 
+                    && !(letra.equals(Constantes.DUPLA_IMPLICACAO)) && !(letra.equals("("))
+                    && !(letra.equals(")")) && !(letra.equals(" "))) {
+                pilhaProposicoes.add(letra);
+            } else if (letra.equals(")")) {
+                    realizarOperacao(linha);
+                    parent--;
+            } else if (!(letra.equals("(")) && !(letra.equals(" "))) {
+                pilhaConectivos.add(letra);
+            }
+            i++;
+        }
+        Stack retorno = (Stack) pilhaProposicoes.clone();
+        pilhaConectivos = new Stack();
+        pilhaProposicoes = new Stack();
+        return (String) retorno.pop();
     }
     
-    /** Função que adiciona uma letra na pilha ou resolve caso a letras seja um parênteses fechando.
-     * @param posicao Posição da letra dentro do vetor de letras.
-     *
-    private void adicionarNaPilha(int posicao) {
-        switch (vetorLetras[posicao]) {
-            case ' ': {
-                break;
-            }
-            case '(': {
-                break;
-            }
-            case ')': {
-                boolean negacao = false;
-                String topoPilha = (String) pilhaConectivos.get(pilhaConectivos.size() - 1);
-                if (topoPilha.equals(Constantes.NEGACAO)) {
-                    negacao = true;
-                }
-                resolverPilhas(negacao);
-                break;
-            }
-            case Constantes.CONJUNCAO: {
-                pilhaConectivos.push(vetorLetras[posicao]);
-                break;
-            }
-            case Constantes.DISJUNCAO: {
-                pilhaConectivos.push(vetorLetras[posicao]);
-                break;
-            }
-            case Constantes.NEGACAO: {
-                pilhaConectivos.push(vetorLetras[posicao]);
-                break;
-            }
-            case Constantes.IMPLICACAO: {
-                pilhaConectivos.push(vetorLetras[posicao]);
-                break;
-            }
-            case Constantes.DUPLA_IMPLICACAO: {
-                pilhaConectivos.push(vetorLetras[posicao]);
-                break;
-            }
-            default: {
-                pilhaProposicoes.push(vetorLetras[posicao]);
-            }
-        }
-    }*/
-    
-    private void resolverPilhas(boolean negacao) {        
+    private void realizarOperacao(int linha) {
         String conectivo = (String) pilhaConectivos.pop();
-        String proposicao2 = (String) pilhaProposicoes.pop();
-        if (negacao) {
+        String proposicao1, proposicao2;
+        
+        /* Testa qual conectivo é e faz a operação. */
+        if (conectivo.equals(Constantes.CONJUNCAO)) {             
+            proposicao2 = pegarValor((String) pilhaProposicoes.pop(), linha);
+            proposicao1 = pegarValor((String) pilhaProposicoes.pop(), linha);
+            if((proposicao1.equals(verdadeiro)) && (proposicao2.equals(verdadeiro))) {
+               pilhaProposicoes.push(verdadeiro);
+            } else {
+               pilhaProposicoes.push(falso);
+            }
+        } else if (conectivo.equals(Constantes.DISJUNCAO)) {
+            proposicao2 = pegarValor((String) pilhaProposicoes.pop(), linha);
+            proposicao1 = pegarValor((String) pilhaProposicoes.pop(), linha);
+            if (proposicao1.equals(verdadeiro) || proposicao2.equals(verdadeiro)) {
+                pilhaProposicoes.push(verdadeiro);
+            } else {
+                pilhaProposicoes.push(falso);
+            }
             
-        } else {
-            String proposicao1 = (String) pilhaProposicoes.pop();
+        } else if (conectivo.equals(Constantes.NEGACAO)) {
+            proposicao1 = pegarValor((String) pilhaProposicoes.pop(), linha);
+            if (proposicao1.equals(verdadeiro)) {
+                pilhaProposicoes.push(falso);
+            } else {
+                pilhaProposicoes.push(verdadeiro);
+            }
+        } else if (conectivo.equals(Constantes.IMPLICACAO)) {
+            proposicao2 = pegarValor((String) pilhaProposicoes.pop(), linha);
+            proposicao1 = pegarValor((String) pilhaProposicoes.pop(), linha);
+            if ((proposicao1.equals(falso)) && (proposicao2.equals(verdadeiro))) {
+                pilhaProposicoes.push(falso);
+            } else {
+                pilhaProposicoes.push(verdadeiro);
+            }
+        } else if (conectivo.equals(Constantes.DUPLA_IMPLICACAO)) {
+            proposicao2 = pegarValor((String) pilhaProposicoes.pop(), linha);
+            proposicao1 = pegarValor((String) pilhaProposicoes.pop(), linha);
+            if (proposicao1.equals(proposicao2)) {
+                pilhaProposicoes.push(verdadeiro);
+            } else {
+                pilhaProposicoes.push(falso);
+            }
         }
+    }
+    
+    private String pegarValor(String proposicao, int linha) {
+        ArrayList listaProposicoes = formula.getProposicoes();
+        int coluna = 0;
+        while (coluna <= nroColunas - 1) {
+            String letracoluna = (String) listaProposicoes.get(coluna);
+            if (proposicao.equals(letracoluna)) {
+                break;
+            }
+            coluna++;
+        }
+        String[] vetorColuna = (String[]) colunas.get(coluna);
+        return vetorColuna[linha];
     }
     
     private void transformarArray() {
         for (int i = 0; i <= nroLinhas - 1; i++) {
-            String[] dadosLinha = new String[nroColunas];
-            for (int j = 0; j <= nroColunas - 1; j++) {
+            String[] dadosLinha = new String[nroColunas + 1];
+            for (int j = 0; j <= nroColunas; j++) {
                 String[] dadosColuna = (String[]) colunas.get(j);
                 dadosLinha[j] = dadosColuna[i];
             }
             linhas.add(dadosLinha);
         }
-    }
+    }    
     
     public ArrayList getLinhas() {
         return (ArrayList) linhas.clone();
     }
     public ArrayList getColunas() {
-        return (ArrayList) formula.getProposicoes();
+        ArrayList listaColunas = formula.getProposicoes();
+        listaColunas.add(formula.getFormula());
+        return (ArrayList) listaColunas;
     }
 
     private ArrayList linhas = new ArrayList();
@@ -133,7 +171,8 @@ public class TabelaVerdade {
     private Formula formula = null;
     private int nroLinhas = 0;
     private int nroColunas = 0;
-    private Stack pilhaConectivos = null;
-    private Stack pilhaProposicoes = null;
-    private char[] vetorLetras;
+    private Stack pilhaConectivos = new Stack();
+    private Stack pilhaProposicoes = new Stack();
+    private String verdadeiro = "V";
+    private String falso = "F";
 }
