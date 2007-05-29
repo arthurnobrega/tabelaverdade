@@ -18,9 +18,9 @@ public class TabelaVerdade {
 
     /** Creates a new instance of TabelaVerdade */
     public TabelaVerdade(Formula formula) {        
-        /* Inicializa todas as variáveis de objeto com seus respectivos valores. */
+        /* Inicializa todas as variï¿½veis de objeto com seus respectivos valores. */
         this.formula = formula;
-        /* Preenche a tabela primeiramente com as colunas das proposições. */
+        /* Preenche a tabela primeiramente com as colunas das proposiï¿½ï¿½es. */
         preencherTabela();
         /* Agora realmente resolve a tabela. */
         String[] resultado = new String[nroLinhas];
@@ -31,7 +31,7 @@ public class TabelaVerdade {
         transformarArray();
     }
     
-    /** Função que preenche as colunas das proposições com V ou F.
+    /** Funï¿½ï¿½o que preenche as colunas das proposiï¿½ï¿½es com V ou F.
      *
      */
     private void preencherTabela() {
@@ -56,7 +56,7 @@ public class TabelaVerdade {
         }
     }
 
-    /** Resolve de fato a tabela, preenchendo com V ou F nas fórmulas.
+    /** Resolve de fato a tabela, preenchendo com V ou F nas fï¿½rmulas.
      *
      */
     private String resolverFormula(int linha) {
@@ -88,7 +88,7 @@ public class TabelaVerdade {
         String conectivo = (String) pilhaConectivos.pop();
         String proposicao1, proposicao2;
         
-        /* Testa qual conectivo é e faz a operação. */
+        /* Testa qual conectivo ï¿½ e faz a operaï¿½ï¿½o. */
         if (conectivo.equals(Constantes.CONJUNCAO)) {             
             proposicao2 = pegarValor((String) pilhaProposicoes.pop(), linha);
             proposicao1 = pegarValor((String) pilhaProposicoes.pop(), linha);
@@ -116,7 +116,7 @@ public class TabelaVerdade {
         } else if (conectivo.equals(Constantes.IMPLICACAO)) {
             proposicao2 = pegarValor((String) pilhaProposicoes.pop(), linha);
             proposicao1 = pegarValor((String) pilhaProposicoes.pop(), linha);
-            if ((proposicao1.equals(falso)) && (proposicao2.equals(verdadeiro))) {
+            if ((proposicao1.equals(verdadeiro)) && (proposicao2.equals(falso))) {
                 pilhaProposicoes.push(falso);
             } else {
                 pilhaProposicoes.push(verdadeiro);
