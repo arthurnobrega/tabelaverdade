@@ -36,22 +36,54 @@ public class Logica {
     }
     
     
+    /*Função que testa a existência de dois operadores lógicos juntos*/
     private boolean testarOperadoresJuntos(char[] formula){
         
         int tamanhoVetor = formula.length;
         
-        for(int i=0;i<(tamanhoVetor-2);){
-            do{
-                i++; 
-            }while(formula[i] != '^' && formula[i] != 'v' && formula[i] !=
-                    '-' && formula[i] != '~' && formula[i] != '=');
-            
-            if(formula[i+1] == '^' || formula[i+1] == 'v' || formula[i+1] == '-'
-                    || formula[i+1] == '~' || formula[i+1] == '='){
-                return false;
+        for(int i=0;i<(tamanhoVetor-1);i++){
+            if(formula[i] == '^' || formula[i] == 'v' || formula[i] ==
+                    '-' || formula[i] == '~' || formula[i] == '='){
+                if(formula[i+1] == '^' || formula[i+1] == 'v' || 
+                   formula[i+1] == '-' || formula[i+1] == '~' || 
+                   formula[i+1] == '='){
+                    return false;    
+                }
+            }           
+        }
+        
+        if(formula[0] == '^' || formula[0] == 'v' || formula[0] == '-' ||
+            formula[0] == '~' || formula[0] == '='){
+            return false;            
+        }
+        
+        if(formula[0] != '('){
+            return false;
+        }
+        
+        if(formula[tamanhoVetor-1] != ')')
+            return false;
+                
+        return true;
+    }
+    
+    /*Função que testa o número de proposições juntas*/
+    private boolean testarProposicoesJuntas(char[] formula){
+        
+        int tamanhoVetor = formula.length;
+        
+        for(int i=1;i<(tamanhoVetor-1);i++){
+            if(formula[i] != '^' && formula[i] != 'v' && formula[i] !=
+               '-' && formula[i] != '~' && formula[i] != '=' && formula[i] !='('
+               && formula[i] != ')'){
+                if(formula[i+1] != '^' && formula[i+1] != 'v' && formula[i+1] !=
+                   '-' && formula[i+1] != '~' && formula[i+1] != '=' && 
+                   formula[i+1] !='(' && formula[i+1] != ')'){
+                    return false;
+                } 
             }
         }
-                
+        
         return true;
     }
     
@@ -73,13 +105,14 @@ public class Logica {
             }
         }    
         
-        if(!(testarOperadoresJuntos(cVetor))){
-            System.out.println("faungo");
+        if(!testarOperadoresJuntos(cVetor) || !testarProposicoesJuntas(cVetor)){
             return false;
         }
         
         return true;
+        
     }
+    
     
     public static void main(String[] args){
         Logica log = new Logica();
