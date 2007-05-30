@@ -1,10 +1,6 @@
 /*
  * LogicaTabela.java
  *
- * Created on 26 de Maio de 2007, 23:21
- *
- * To change this template, choose Tools | Template Manager
- * and open the template in the editor.
  */
 
 package log;
@@ -16,7 +12,7 @@ import tipos.Formula;
 
 /**
  *
- * @author UltraXP
+ * @author Arthur Thiago Barbosa Nobrega
  */
 public class LogicaTabela extends Logica {
     

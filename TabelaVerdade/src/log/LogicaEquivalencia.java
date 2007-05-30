@@ -11,7 +11,7 @@ package log;
 
 /**
  *
- * @author UltraXP
+ * @author Arthur Thiago Barbosa Nobrega
  */
 public class LogicaEquivalencia extends Logica {
     

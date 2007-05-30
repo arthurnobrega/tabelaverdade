@@ -16,7 +16,7 @@ public class Containers {
     }
     
       /**
-      * Centraliza na tela um di·logo, um frame ou outro container.
+      * Centraliza na tela um di√°logo, um frame ou outro container.
       * @param container O container.
       */
      public static void alinharContainer(java.awt.Container container) {

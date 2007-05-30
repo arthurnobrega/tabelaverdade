@@ -25,9 +25,9 @@ public class OpcaoTabela extends javax.swing.JFrame {
         Containers.alinharContainer(this);
     }
     
-    /** Este mÈtodo È gerado automaticamente pelo NetBeans e È respons·vel por toda a parte gr·fica.
+    /** Este m√©todo √© gerado automaticamente pelo NetBeans e √© respons√°vel por toda a parte gr√°fica.
      */
-    // <editor-fold defaultstate="collapsed" desc=" CÛdigo Gerado ">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc=" C√≥digo Gerado ">//GEN-BEGIN:initComponents
     private void initComponents() {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAjuda = new javax.swing.JTextArea();
@@ -44,7 +44,7 @@ public class OpcaoTabela extends javax.swing.JFrame {
         txtAjuda.setFont(new java.awt.Font("Courier", 0, 12));
         txtAjuda.setLineWrap(true);
         txtAjuda.setRows(5);
-        txtAjuda.setText("Digite a fÛrmula que vocÍ deseja visualizar a tabela verdade. Para isso siga os seguintes padrıes:\n\n" + Constantes.PADRAO_FORMULA);
+        txtAjuda.setText("Digite a f√≥rmula que voc√™ deseja visualizar a tabela verdade. Para isso siga os seguintes padr√µes:\n\n" + Constantes.PADRAO_FORMULA);
         txtAjuda.setWrapStyleWord(true);
         jScrollPane1.setViewportView(txtAjuda);
 
@@ -109,7 +109,7 @@ public class OpcaoTabela extends javax.swing.JFrame {
             LogicaTabela logTab = new LogicaTabela(formula);
             new Tabelas(this, true, logTab.getLinhas(), logTab.getColunas(), null).setVisible(true);
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "A fÛrmula n„o segue os padrıes estipulados!");
+            JOptionPane.showMessageDialog(null, "A f√≥rmula n√£o segue os padr√µes estipulados!","F√≥rmula incorreta!", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnVisualizarActionPerformed
 
@@ -118,13 +118,13 @@ public class OpcaoTabela extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
     
-    // DeclaraÁ„o de vari·veis - n„o modifique//GEN-BEGIN:variables
+    // Declara√ß√£o de vari√°veis - n√£o modifique//GEN-BEGIN:variables
     private javax.swing.JButton btnVisualizar;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea txtAjuda;
     private javax.swing.JTextField txtFormula;
-    // Fim da declaraÁ„o de vari·veis//GEN-END:variables
+    // Fim da declara√ß√£o de vari√°veis//GEN-END:variables
     
 }

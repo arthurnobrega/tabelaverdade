@@ -14,19 +14,19 @@ import tipos.Constantes;
  */
 public class Formula {
     
-    /** Cria uma nova inst‚ncia de fÛrmula. */
+    /** Cria uma nova inst√¢ncia de f√≥rmula. */
     public Formula(String formula) {
         this.formula = formula;
         contarCaracteres();
     }
 
-    /** FunÁ„o interna que conta o n˙mero de proposiÁıes distintas que 
-     * existem na fÛrmula e as guarda na vari·vel de objeto 'proposicoes'.
+    /** Fun√ß√£o interna que conta o n√∫mero de proposi√ß√µes distintas que 
+     * existem na f√≥rmula e as guarda na vari√°vel de objeto 'proposicoes'.
      */
     private void contarCaracteres() {
         String letra;
         proposicoes = new ArrayList();
-        /* Testa o caractere e armazena o tipo dele na vari·vel correspondente. */
+        /* Testa o caractere e armazena o tipo dele na vari√°vel correspondente. */
         for (int i = 0; i <= formula.length() - 1; i++) {
             letra = formula.substring(i, i + 1);
             if (letra.equals(Constantes.CONJUNCAO) || letra.equals(Constantes.DISJUNCAO)
@@ -38,7 +38,7 @@ public class Formula {
             } else if (letra.equals(")")) {
                 fechaParenteses++;
             } else if (letra.equals(" ")) {
-                /* Desconsidera os espaÁos. */
+                /* Desconsidera os espa√ßos. */
             } else {
                 boolean achou = false;
                 int j = 0;
@@ -57,13 +57,13 @@ public class Formula {
         }
     }
 
-    /** @return A fÛrmula em forma de String.
+    /** @return A f√≥rmula em forma de String.
      */
     public String getFormula() {
         return formula;
     }
     
-    /** @return A lista de proposiÁıes da fÛrmula.
+    /** @return A lista de proposi√ß√µes da f√≥rmula.
      */
     public ArrayList getProposicoes() {
         return (ArrayList) proposicoes.clone();

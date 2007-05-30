@@ -5,24 +5,24 @@
 
 package tipos;
 
-/** Esta classe guarda as constantes que s„o usadas no programa e que n„o foram encaixadas em outras classes.
+/** Esta classe guarda as constantes que s√£o usadas no programa e que n√£o foram encaixadas em outras classes.
  *
  * @author Arthur Thiago Barbosa Nobrega
  */
 public class Constantes {
         
-    /* Cosntante que È utilizada nas 3 opÁıes iniciais para mostrar os padrıes de escrita ao usu·rio. */
-    public final static String PADRAO_FORMULA = "* Operadores lÛgicos que devem ser utilizados:\n" +
-        "& : ConjunÁ„o                   - : ImplicaÁ„o                    ~ : NegaÁ„o\n" +
-        "v : DisjunÁ„o                   = : Dupla ImplicaÁ„o\n\n" +
-        "* O uso de espaÁos n„o interfere na leitura da fÛrmula. Use-os para visualizar " +
-            "melhor a fÛrmula que est· digitando.\n" +
-        "* Coloque parÍnteses em torno de todas as subfÛrmulas. Exemplo: " +
-            "( (~ (p & q) ) V (q V r ) ). Note que temos 4 subfÛrmulas: " +
+    /* Constante que √© utilizada nas 3 op√ß√µes iniciais para mostrar os padr√µes de escrita ao usu√°rio. */
+    public final static String PADRAO_FORMULA = "* Operadores l√≥gicos que devem ser utilizados:\n" +
+        "& : Conjun√ß√£o                   - : Implica√ß√£o                    ~ : Nega√ß√£o\n" +
+        "v : Disjun√ß√£o                   = : Dupla Implica√ß√£o\n\n" +
+        "* O uso de espa√ßos n√£o interfere na leitura da f√≥rmula. Use-os para visualizar " +
+            "melhor a f√≥rmula que est√° digitando.\n" +
+        "* Coloque par√™nteses em torno de todas as subf√≥rmulas. Exemplo: " +
+            "( (~ (p & q) ) V (q V r ) ). Note que temos 4 subf√≥rmulas: " +
             "(p & q), ( ~ (p & q) ), (q V r) e ( (~ (p & q) ) V (q V r ) ). " +
-            "Portanto 4 duplas de parÍnteses, uma para cada operador lÛgico.";
+            "Portanto 4 duplas de par√™nteses, uma para cada operador l√≥gico.";
 
-    /* Constantes dos padrıes de escrita dos SÌmbolos Proposicionais. */
+    /* Constantes dos padr√µes de escrita dos S√≠mbolos Proposicionais. */
     public final static String NEGACAO = "~";
     public final static String CONJUNCAO = "&";
     public final static String DISJUNCAO = "v";
