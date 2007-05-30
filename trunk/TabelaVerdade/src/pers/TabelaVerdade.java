@@ -18,9 +18,9 @@ public class TabelaVerdade {
 
     /** Creates a new instance of TabelaVerdade */
     public TabelaVerdade(Formula formula) {        
-        /* Inicializa todas as variï¿½veis de objeto com seus respectivos valores. */
+        /* Inicializa todas as variáveis de objeto com seus respectivos valores. */
         this.formula = formula;
-        /* Preenche a tabela primeiramente com as colunas das proposiï¿½ï¿½es. */
+        /* Preenche a tabela primeiramente com as colunas das proposições. */
         preencherTabela();
         /* Agora realmente resolve a tabela. */
         String[] resultado = new String[nroLinhas];
@@ -31,7 +31,7 @@ public class TabelaVerdade {
         transformarArray();
     }
     
-    /** Funï¿½ï¿½o que preenche as colunas das proposiï¿½ï¿½es com V ou F.
+    /** Função que preenche as colunas das proposições com V ou F.
      *
      */
     private void preencherTabela() {
@@ -56,7 +56,7 @@ public class TabelaVerdade {
         }
     }
 
-    /** Resolve de fato a tabela, preenchendo com V ou F nas fï¿½rmulas.
+    /** Resolve de fato a tabela, preenchendo com V ou F nas fórmulas.
      *
      */
     private String resolverFormula(int linha) {
@@ -69,7 +69,7 @@ public class TabelaVerdade {
                     && !(letra.equals(Constantes.NEGACAO)) && !(letra.equals(Constantes.IMPLICACAO)) 
                     && !(letra.equals(Constantes.DUPLA_IMPLICACAO)) && !(letra.equals("("))
                     && !(letra.equals(")")) && !(letra.equals(" "))) {
-                pilhaProposicoes.add(letra);
+                pilhaProposicoes.add(pegarValor(letra, linha));
             } else if (letra.equals(")")) {
                     realizarOperacao(linha);
                     parent--;
@@ -88,18 +88,21 @@ public class TabelaVerdade {
         String conectivo = (String) pilhaConectivos.pop();
         String proposicao1, proposicao2;
         
-        /* Testa qual conectivo ï¿½ e faz a operaï¿½ï¿½o. */
+        /* Testa qual conectivo ï¿½ e faz a operação. */
         if (conectivo.equals(Constantes.CONJUNCAO)) {             
-            proposicao2 = pegarValor((String) pilhaProposicoes.pop(), linha);
-            proposicao1 = pegarValor((String) pilhaProposicoes.pop(), linha);
+            proposicao2 = (String) pilhaProposicoes.pop();
+            proposicao1 = (String) pilhaProposicoes.pop();
             if((proposicao1.equals(verdadeiro)) && (proposicao2.equals(verdadeiro))) {
                pilhaProposicoes.push(verdadeiro);
             } else {
                pilhaProposicoes.push(falso);
             }
+//            if (pilhaConectivos.get(pilhaConectivos.size() - 1).equals(Constantes.NEGACAO)) {
+//                realizarOperacao(linha);
+//            }
         } else if (conectivo.equals(Constantes.DISJUNCAO)) {
-            proposicao2 = pegarValor((String) pilhaProposicoes.pop(), linha);
-            proposicao1 = pegarValor((String) pilhaProposicoes.pop(), linha);
+            proposicao2 = (String) pilhaProposicoes.pop();
+            proposicao1 = (String) pilhaProposicoes.pop();
             if (proposicao1.equals(verdadeiro) || proposicao2.equals(verdadeiro)) {
                 pilhaProposicoes.push(verdadeiro);
             } else {
@@ -107,23 +110,23 @@ public class TabelaVerdade {
             }
             
         } else if (conectivo.equals(Constantes.NEGACAO)) {
-            proposicao1 = pegarValor((String) pilhaProposicoes.pop(), linha);
+            proposicao1 = (String) pilhaProposicoes.pop();
             if (proposicao1.equals(verdadeiro)) {
                 pilhaProposicoes.push(falso);
             } else {
                 pilhaProposicoes.push(verdadeiro);
             }
         } else if (conectivo.equals(Constantes.IMPLICACAO)) {
-            proposicao2 = pegarValor((String) pilhaProposicoes.pop(), linha);
-            proposicao1 = pegarValor((String) pilhaProposicoes.pop(), linha);
+            proposicao2 = (String) pilhaProposicoes.pop();
+            proposicao1 = (String) pilhaProposicoes.pop();
             if ((proposicao1.equals(verdadeiro)) && (proposicao2.equals(falso))) {
                 pilhaProposicoes.push(falso);
             } else {
                 pilhaProposicoes.push(verdadeiro);
             }
         } else if (conectivo.equals(Constantes.DUPLA_IMPLICACAO)) {
-            proposicao2 = pegarValor((String) pilhaProposicoes.pop(), linha);
-            proposicao1 = pegarValor((String) pilhaProposicoes.pop(), linha);
+            proposicao2 = (String) pilhaProposicoes.pop();
+            proposicao1 = (String) pilhaProposicoes.pop();
             if (proposicao1.equals(proposicao2)) {
                 pilhaProposicoes.push(verdadeiro);
             } else {
