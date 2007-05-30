@@ -22,7 +22,7 @@ public class LogicaTabela extends Logica {
     
     /** Creates a new instance of LogicaTabela */
     public LogicaTabela(Formula formula) throws IOException {
-        if (!testarFormula(formula)) {
+        if (!testarFormulaBemFormada(formula)) {
             throw new IOException();
         }
         tabela = new TabelaVerdade(formula);
