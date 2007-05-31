@@ -22,12 +22,10 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
         Containers.alinharContainer(this);
     }
     
-    /** Este método é gerado automaticamente pelo NetBeans e é responsável por toda a parte gráfica.
+    /** Este mï¿½todo ï¿½ gerado automaticamente pelo NetBeans e ï¿½ responsï¿½vel por toda a parte grï¿½fica.
      */
-    // <editor-fold defaultstate="collapsed" desc=" Código Gerado ">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc=" CÃ³digo Gerado ">//GEN-BEGIN:initComponents
     private void initComponents() {
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtAjuda = new javax.swing.JTextArea();
         btnVoltar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtNovaPremissa = new javax.swing.JTextField();
@@ -38,20 +36,11 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtConclusao = new javax.swing.JTextField();
         btnVerificar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Verificando Consequ\u00eancia L\u00f3gica entre FBFs");
-        txtAjuda.setBackground(new java.awt.Color(226, 226, 226));
-        txtAjuda.setColumns(20);
-        txtAjuda.setEditable(false);
-        txtAjuda.setFont(new java.awt.Font("Courier", 0, 12));
-        txtAjuda.setLineWrap(true);
-        txtAjuda.setRows(5);
-        txtAjuda.setText("Informe todas as premissas (ou nenhuma) e a conclusão para verificar se a conclusão é consequência lógica das premissas. Para isso siga os seguintes padrões:\n\n" + Constantes.PADRAO_FORMULA);
-        txtAjuda.setWrapStyleWord(true);
-        txtAjuda.setWrapStyleWord(true);
-        jScrollPane1.setViewportView(txtAjuda);
-
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,43 +75,52 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
             }
         });
 
+        jTextArea1.setBackground(new java.awt.Color(226, 226, 226));
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Arial", 0, 13));
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Informe todas as premissas (ou nenhuma) e a conclusÃ£o para verificar se a conclusÃ£o Ã© consequÃªncia lÃ³gica das premissas. Para isso siga os seguintes padrÃµes:\n\n" + Constantes.PADRAO_FORMULA);
+        jTextArea1.setWrapStyleWord(true);
+        jScrollPane1.setViewportView(jTextArea1);
+
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
-                .add(10, 10, 10)
-                .add(btnVoltar)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 482, Short.MAX_VALUE)
-                .add(btnVerificar)
-                .addContainerGap())
-            .add(layout.createSequentialGroup()
-                .add(10, 10, 10)
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
-                .add(10, 10, 10))
-            .add(layout.createSequentialGroup()
-                .addContainerGap()
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel3)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel2)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel1))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, txtConclusao, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, cmbPremissas, 0, 540, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, txtNovaPremissa, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(btnRemover)
-                    .add(btnAdicionar))
+                    .add(layout.createSequentialGroup()
+                        .add(10, 10, 10)
+                        .add(btnVoltar)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 507, Short.MAX_VALUE)
+                        .add(btnVerificar))
+                    .add(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel3)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel2)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel1))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, txtConclusao, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, cmbPremissas, 0, 565, Short.MAX_VALUE)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, txtNovaPremissa, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(btnRemover)
+                            .add(btnAdicionar)))
+                    .add(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 217, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(19, 19, 19)
+                .add(11, 11, 11)
+                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 232, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(btnAdicionar)
                     .add(jLabel1)
@@ -150,9 +148,9 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVerificarActionPerformed
 
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
-        /* Verifica se a Lista de Premissas está em branco. */
+        /* Verifica se a Lista de Premissas estï¿½ em branco. */
         if (cmbPremissas.getItemCount() == 0) {
-            JOptionPane.showMessageDialog(null, "Não existem fórmulas para serem " +
+            JOptionPane.showMessageDialog(null, "Nï¿½o existem fï¿½rmulas para serem " +
                     "deletadas!", "Lista de Premissas vazia!",JOptionPane.INFORMATION_MESSAGE);
             return;
         }
@@ -165,16 +163,16 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         String novaPremissa = txtNovaPremissa.getText();
 
-        /* Verifica se o campo Nova Premissa está em branco. */
+        /* Verifica se o campo Nova Premissa estï¿½ em branco. */
         if (novaPremissa.length() == 0) {
-            JOptionPane.showMessageDialog(null, "Por favor insira uma fórmula" +
-                    " no campo Nova Premissa antes\n de tentar adicioná-la à " +
+            JOptionPane.showMessageDialog(null, "Por favor insira uma fï¿½rmula" +
+                    " no campo Nova Premissa antes\n de tentar adicionï¿½-la ï¿½ " +
                     "Lista de Premissas!", "Campo Nova Premissa em branco!", 
                     JOptionPane.INFORMATION_MESSAGE);
             return;
         }
 
-        /* Adiciona a premissa à Lista de Premissas e a seleciona. */
+        /* Adiciona a premissa ï¿½ Lista de Premissas e a seleciona. */
         cmbPremissas.addItem(novaPremissa);
         txtNovaPremissa.setText("");
         cmbPremissas.setSelectedIndex(cmbPremissas.getItemCount() - 1);
@@ -185,7 +183,7 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
     
-    // Declaração de variáveis - não modifique//GEN-BEGIN:variables
+    // DeclaraÃ§Ã£o de variÃ¡veis - nÃ£o modifique//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionar;
     private javax.swing.JButton btnRemover;
     private javax.swing.JButton btnVerificar;
@@ -195,9 +193,9 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea txtAjuda;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txtConclusao;
     private javax.swing.JTextField txtNovaPremissa;
-    // Fim da declaração de variáveis//GEN-END:variables
+    // Fim da declaraÃ§Ã£o de variÃ¡veis//GEN-END:variables
     
 }

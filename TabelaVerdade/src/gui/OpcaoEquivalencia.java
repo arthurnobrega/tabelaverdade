@@ -22,30 +22,21 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
         Containers.alinharContainer(this);
     }
     
-    /** Este método é gerado automaticamente pelo NetBeans e é responsável por toda a parte gráfica.
+    /** Este mï¿½todo ï¿½ gerado automaticamente pelo NetBeans e ï¿½ responsï¿½vel por toda a parte grï¿½fica.
      */
-    // <editor-fold defaultstate="collapsed" desc=" Código Gerado ">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc=" CÃ³digo Gerado ">//GEN-BEGIN:initComponents
     private void initComponents() {
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtAjuda = new javax.swing.JTextArea();
         txtFormula1 = new javax.swing.JTextField();
         txtFormula2 = new javax.swing.JTextField();
         btnVoltar = new javax.swing.JButton();
         btnVerificar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Verificando Equival\u00eancia entre duas FBFs");
-        txtAjuda.setBackground(new java.awt.Color(226, 226, 226));
-        txtAjuda.setColumns(20);
-        txtAjuda.setEditable(false);
-        txtAjuda.setFont(new java.awt.Font("Courier", 0, 12));
-        txtAjuda.setLineWrap(true);
-        txtAjuda.setRows(5);
-        txtAjuda.setText("Digite as duas fórmulas que você deseja verificar se são semanticamente equivalentes. Para isso siga os seguintes padrões:\n\n" + Constantes.PADRAO_FORMULA);
-        txtAjuda.setWrapStyleWord(true);
-        jScrollPane1.setViewportView(txtAjuda);
 
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -65,38 +56,48 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
 
         jLabel2.setText("F\u00f3rmula 2:");
 
+        jTextArea1.setBackground(new java.awt.Color(226, 226, 226));
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Arial", 0, 13));
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Digite as duas fÃ³rmulas que vocÃª deseja verificar se sÃ£o semanticamente equivalentes. Para isso siga os seguintes padrÃµes:\n\n" + Constantes.PADRAO_FORMULA);
+        jTextArea1.setWrapStyleWord(true);
+        jScrollPane1.setViewportView(jTextArea1);
+
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
                 .add(10, 10, 10)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(layout.createSequentialGroup()
-                        .add(btnVoltar)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 467, Short.MAX_VALUE)
-                        .add(btnVerificar))
-                    .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 661, Short.MAX_VALUE))
+                .add(btnVoltar)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 549, Short.MAX_VALUE)
+                .add(btnVerificar)
                 .addContainerGap())
             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jLabel2)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(txtFormula2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
+                .add(txtFormula2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
                 .add(10, 10, 10))
             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jLabel1)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(txtFormula1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
+                .add(txtFormula1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
                 .add(10, 10, 10))
+            .add(layout.createSequentialGroup()
+                .addContainerGap()
+                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 743, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 217, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(17, 17, 17)
+                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 232, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jLabel1)
                     .add(txtFormula1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 19, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
@@ -108,15 +109,15 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(btnVerificar)
                     .add(btnVoltar))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
-        /* Verifica se pelo menos uma das Fórmulas está em branco. */
+        /* Verifica se pelo menos uma das Fï¿½rmulas estï¿½ em branco. */
 
-        /* Faz a ação. MUDAR COMENTÁRIO. */
+        /* Faz a aï¿½ï¿½o. MUDAR COMENTï¿½RIO. */
     }//GEN-LAST:event_btnVerificarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
@@ -124,15 +125,15 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
     
-    // Declaração de variáveis - não modifique//GEN-BEGIN:variables
+    // DeclaraÃ§Ã£o de variÃ¡veis - nÃ£o modifique//GEN-BEGIN:variables
     private javax.swing.JButton btnVerificar;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea txtAjuda;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txtFormula1;
     private javax.swing.JTextField txtFormula2;
-    // Fim da declaração de variáveis//GEN-END:variables
+    // Fim da declaraÃ§Ã£o de variÃ¡veis//GEN-END:variables
     
 }
