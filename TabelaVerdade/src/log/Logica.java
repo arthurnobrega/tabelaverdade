@@ -153,13 +153,4 @@ public class Logica {
     private int parenteses = 0;
     private int operadores = 0;
     
-    public static void main(String[] args){
-        Logica log = new Logica();
-        Formula formula = new Formula("(~p)");
-        if(log.testarFormulaBemFormada(formula)){
-           System.out.println("true");
-        }
-        else
-           System.out.println("false");
-    }
 }
