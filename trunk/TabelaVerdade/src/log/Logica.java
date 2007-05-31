@@ -29,16 +29,23 @@ public class Logica {
         String strFormula = formula.getFormula();
         String[] cVetor = StringToChar(strFormula);
         
-        
-        if (parenteses != operadores || parenteses == 0){
-            return false;
-        }        
+        if (cVetor.length > 3){
+            if (parenteses != operadores || parenteses == 0){
+                return false;
+            }        
+        }
         
         for (int i = 0; i< strFormula.length() - 1; i++) {
             if(cVetor[i].equals("(") && cVetor[i+1].equals(")")) {
                 return false;
             }
         }    
+        
+         for (int i = 0; i< strFormula.length() - 1; i++) {
+            if(cVetor[i].equals(")") && cVetor[i+1].equals("(")) {
+                return false;
+            }
+        } 
         
         if (!testarConectivosJuntos(cVetor) || !testarProposicoesJuntas(cVetor)) {
             return false;
@@ -152,4 +159,13 @@ public class Logica {
     private int parenteses = 0;
     private int operadores = 0;
     
+    public static void main(String[] args){
+        Logica log = new Logica();
+        Formula formula = new Formula("(!p)");
+        if(log.testarFormulaBemFormada(formula)){
+           System.out.println("true");
+        }
+        else
+           System.out.println("false");
+    }
 }
