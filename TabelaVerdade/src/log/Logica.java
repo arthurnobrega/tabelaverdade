@@ -15,6 +15,14 @@ import tipos.Formula;
  */
 public class Logica {
     
+    protected ArrayList getLinhas() {
+        return new ArrayList();
+    }
+    
+    protected ArrayList getColunas() {
+        return new ArrayList();
+    }
+    
     /** 
      * Esta função irá testar se a fórmula é bem formada e segue os padrões exigidos.
      *ela utiliza funções para analizar o uso de operadores e proposições e casos
@@ -148,7 +156,7 @@ public class Logica {
         }
         
         return true;
-    }
+    }    
     
     private int parenteses = 0;
     private int operadores = 0;

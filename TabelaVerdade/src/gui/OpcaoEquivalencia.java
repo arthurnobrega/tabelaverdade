@@ -5,10 +5,14 @@
 
 package gui;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import log.LogicaEquivalencia;
+import log.LogicaTabela;
 import tipos.Constantes;
 import tipos.Containers;
+import tipos.Formula;
 
 /**
  *
@@ -61,7 +65,7 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
         jTextArea1.setFont(new java.awt.Font("Arial", 0, 13));
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Digite as duas fórmulas que você deseja verificar se são semanticamente equivalentes. Para isso siga os seguintes padrões:\n\n" + Constantes.PADRAO_FORMULA);
+        jTextArea1.setText("Digite as duas f\u00f3rmulas que voc\u00ea deseja verificar se s\u00e3o semanticamente equivalentes. Para isso siga os seguintes padr\u00f5es:\n\n" + Constantes.PADRAO_FORMULA);
         jTextArea1.setWrapStyleWord(true);
         jScrollPane1.setViewportView(jTextArea1);
 
@@ -79,18 +83,18 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
                 .addContainerGap()
                 .add(jLabel2)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(txtFormula2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
+                .add(txtFormula2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
                 .add(10, 10, 10))
             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jLabel1)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(txtFormula1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
+                .add(txtFormula1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
                 .add(10, 10, 10))
             .add(layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 743, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -115,9 +119,14 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
-        /* Verifica se pelo menos uma das F�rmulas est� em branco. */
-
-        /* Faz a a��o. MUDAR COMENT�RIO. */
+        try {
+            Formula formula1 = new Formula(txtFormula1.getText());
+            Formula formula2 = new Formula(txtFormula2.getText());
+            LogicaEquivalencia logEquiv = new LogicaEquivalencia(formula1, formula2);
+            new Tabelas(this, true, logEquiv.getLinhas(), logEquiv.getColunas(), null).setVisible(true);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, Constantes.MENSAGEM_ERRO_FORMULA, Constantes.TITULO_ERRO_FORMULA, JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnVerificarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
