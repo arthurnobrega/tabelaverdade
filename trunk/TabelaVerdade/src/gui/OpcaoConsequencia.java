@@ -80,7 +80,7 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
         jTextArea1.setFont(new java.awt.Font("Arial", 0, 13));
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Informe todas as premissas (ou nenhuma) e a conclusão para verificar se a conclusão é consequência lógica das premissas. Para isso siga os seguintes padrões:\n\n" + Constantes.PADRAO_FORMULA);
+        jTextArea1.setText("Informe todas as premissas (ou nenhuma) e a conclus\u00e3o para verificar se a conclus\u00e3o \u00e9 consequ\u00eancia l\u00f3gica das premissas. Para isso siga os seguintes padr\u00f5es:\n\n" + Constantes.PADRAO_FORMULA);
         jTextArea1.setWrapStyleWord(true);
         jScrollPane1.setViewportView(jTextArea1);
 
@@ -103,16 +103,16 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel1))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, txtConclusao, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, cmbPremissas, 0, 565, Short.MAX_VALUE)
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, txtNovaPremissa, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE))
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, txtConclusao, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, cmbPremissas, 0, 566, Short.MAX_VALUE)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, txtNovaPremissa, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(btnRemover)
                             .add(btnAdicionar)))
                     .add(layout.createSequentialGroup()
                         .addContainerGap()
-                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE)))
+                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 796, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -150,8 +150,8 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
         /* Verifica se a Lista de Premissas est� em branco. */
         if (cmbPremissas.getItemCount() == 0) {
-            JOptionPane.showMessageDialog(null, "N�o existem f�rmulas para serem " +
-                    "deletadas!", "Lista de Premissas vazia!",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "N\u00e3o existem f\u00f3rmulas para serem deletadas!", 
+                    "Lista de Premissas vazia!",JOptionPane.INFORMATION_MESSAGE);
             return;
         }
 
@@ -165,9 +165,8 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
 
         /* Verifica se o campo Nova Premissa est� em branco. */
         if (novaPremissa.length() == 0) {
-            JOptionPane.showMessageDialog(null, "Por favor insira uma f�rmula" +
-                    " no campo Nova Premissa antes\n de tentar adicion�-la � " +
-                    "Lista de Premissas!", "Campo Nova Premissa em branco!", 
+            JOptionPane.showMessageDialog(null, "Por favor insira uma f\u00f3rmula no campo Nova Premissa antes\n" +
+                    " de tentar adicion\u00e1-la \u00e0 Lista de Premissas!", "Campo Nova Premissa em branco!", 
                     JOptionPane.INFORMATION_MESSAGE);
             return;
         }

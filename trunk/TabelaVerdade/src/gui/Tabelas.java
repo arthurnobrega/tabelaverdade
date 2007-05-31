@@ -33,7 +33,7 @@ public class Tabelas extends javax.swing.JDialog {
         Containers.alinharContainer(this);
     }
 
-    /* Cria uma classe interna que será o modelo da Tabela. */
+    /* Cria uma classe interna que serï¿½ o modelo da Tabela. */
     class ModeloTabela extends AbstractTableModel {
 
         /** Cria um novo modelo de Tabela.
@@ -62,7 +62,7 @@ public class Tabelas extends javax.swing.JDialog {
           * @see javax.swing.table.TableModel#getValueAt(int, int)
           */
         public Object getValueAt(int rowIndex, int columnIndex) {
-            // Obtem a linha, que é uma String []
+            // Obtem a linha, que ï¿½ uma String []
             String[] linha = (String[]) linhas.get(rowIndex);
             // Retorna o objeto que esta na coluna
             return linha[columnIndex];
@@ -87,14 +87,14 @@ public class Tabelas extends javax.swing.JDialog {
             JLabel label = (JLabel)super.getTableCellRendererComponent(
                     table, value, isSelected, hasFocus, row, column);
             
-            /* Centraliza os dados na célula. */
+            /* Centraliza os dados na cï¿½lula. */
             if (column != 0) {
                 label.setHorizontalAlignment(JLabel.CENTER);
             }
             
-            /* Seta a cor padrão do fundo. */
+            /* Seta a cor padrï¿½o do fundo. */
             label.setBackground(Color.WHITE);
-            /* Seta a cor padrão da letra. */
+            /* Seta a cor padrï¿½o da letra. */
             label.setForeground(Color.BLACK);
             
             int i = 0;
@@ -144,9 +144,9 @@ public class Tabelas extends javax.swing.JDialog {
         }    
     }
 
-    /** Este método é gerado automaticamente pelo NetBeans e é responsável por toda a parte gráfica.
+    /** Este mï¿½todo ï¿½ gerado automaticamente pelo NetBeans e ï¿½ responsï¿½vel por toda a parte grï¿½fica.
      */
-    // <editor-fold defaultstate="collapsed" desc=" Código Gerado ">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc=" Cï¿½digo Gerado ">//GEN-BEGIN:initComponents
     private void initComponents() {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane = new javax.swing.JScrollPane();
@@ -207,13 +207,13 @@ public class Tabelas extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
-    // Declaração de variáveis - não modifique//GEN-BEGIN:variables
+    // Declaraï¿½ï¿½o de variï¿½veis - nï¿½o modifique//GEN-BEGIN:variables
     private javax.swing.JButton btnVoltar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JTable tabela;
-    // Fim da declaração de variáveis//GEN-END:variables
-    int[] linhasSelecionadas;
-    ArrayList linhas;
-    ArrayList colunas;
+    // Fim da declaraï¿½ï¿½o de variï¿½veis//GEN-END:variables
+    private int[] linhasSelecionadas;
+    private ArrayList linhas;
+    private ArrayList colunas;
 }

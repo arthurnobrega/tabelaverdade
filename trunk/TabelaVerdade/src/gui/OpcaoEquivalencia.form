@@ -30,20 +30,20 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtFormula2" pref="688" max="32767" attributes="0"/>
+              <Component id="txtFormula2" pref="708" max="32767" attributes="0"/>
               <EmptySpace min="10" pref="10" max="10" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtFormula1" pref="688" max="32767" attributes="0"/>
+              <Component id="txtFormula1" pref="708" max="32767" attributes="0"/>
               <EmptySpace min="10" pref="10" max="10" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="743" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="53" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -122,7 +122,7 @@
             <Property name="lineWrap" type="boolean" value="true"/>
             <Property name="rows" type="int" value="5"/>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="&quot;Digite as duas f&#xf3;rmulas que voc&#xea; deseja verificar se s&#xe3;o semanticamente equivalentes. Para isso siga os seguintes padr&#xf5;es:\n\n&quot; + Constantes.PADRAO_FORMULA" type="code"/>
+              <Connection code="&quot;Digite as duas f\u00f3rmulas que voc\u00ea deseja verificar se s\u00e3o semanticamente equivalentes. Para isso siga os seguintes padr\u00f5es:\n\n&quot; + Constantes.PADRAO_FORMULA" type="code"/>
             </Property>
             <Property name="wrapStyleWord" type="boolean" value="true"/>
           </Properties>
