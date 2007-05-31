@@ -100,17 +100,13 @@ public class Logica {
             || (formula[i].equals(Constantes.NEGACAO)) || (formula[i].equals(Constantes.IMPLICACAO))
             || (formula[i].equals(Constantes.DUPLA_IMPLICACAO))) {
                 if ((formula[i+1].equals(Constantes.CONJUNCAO)) || (formula[i+1].equals(Constantes.DISJUNCAO))
-                || (formula[i+1].equals(Constantes.NEGACAO)) || (formula[i+1].equals(Constantes.IMPLICACAO))
+                || (formula[i+1].equals(Constantes.IMPLICACAO))
                 || (formula[i+1].equals(Constantes.DUPLA_IMPLICACAO))) {
                     return false;    
                 }
             }           
         }
-        
-        if (!(formula[0].equals("("))) {
-            return false;
-        }
-        
+                
         if (!(formula[tamanhoVetor-1].equals(")"))) {
             return false;
         }
@@ -140,14 +136,12 @@ public class Logica {
         int tamanhoVetor = formula.length;
         
         for (int i = 1; i< tamanhoVetor - 1; i++) {
-            if (!(formula[i].equals(Constantes.CONJUNCAO)) && !(formula[i].equals(Constantes.DISJUNCAO))
-            && !(formula[i].equals(Constantes.NEGACAO)) && !(formula[i].equals(Constantes.IMPLICACAO))
-            && !(formula[i].equals(Constantes.DUPLA_IMPLICACAO)) && !(formula[i].equals("("))
-            && !(formula[i].equals(")")) && !(formula[i]).equals(" ")) {
-                if(!(formula[i+1].equals(Constantes.CONJUNCAO)) && !(formula[i+1].equals(Constantes.DISJUNCAO))
-                && !(formula[i+1].equals(Constantes.NEGACAO)) && !(formula[i+1].equals(Constantes.IMPLICACAO))
-                && !(formula[i+1].equals(Constantes.DUPLA_IMPLICACAO)) && !(formula[i+1].equals("("))
-                && !(formula[i+1].equals(")")) && !(formula[i+1]).equals(" ")) {
+            if ((formula[i].equals(Constantes.CONJUNCAO)) || (formula[i].equals(Constantes.DISJUNCAO))
+            || (formula[i].equals(Constantes.NEGACAO)) || (formula[i].equals(Constantes.IMPLICACAO))
+            || (formula[i].equals(Constantes.DUPLA_IMPLICACAO)) || (formula[i].equals("("))) {
+                if((formula[i+1].equals(Constantes.CONJUNCAO)) || (formula[i+1].equals(Constantes.DISJUNCAO))
+                || (formula[i+1].equals(Constantes.IMPLICACAO)) || (formula[i+1].equals(Constantes.DUPLA_IMPLICACAO))
+                || (formula[i+1].equals(")"))) {
                     return false;
                 } 
             }
@@ -161,7 +155,7 @@ public class Logica {
     
     public static void main(String[] args){
         Logica log = new Logica();
-        Formula formula = new Formula("(!p)");
+        Formula formula = new Formula("(~p)");
         if(log.testarFormulaBemFormada(formula)){
            System.out.println("true");
         }
