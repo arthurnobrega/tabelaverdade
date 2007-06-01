@@ -37,6 +37,10 @@ public class Logica {
         String strFormula = formula.getFormula();
         String[] cVetor = StringToChar(strFormula);
         
+        if (strFormula.length() == 0) {
+            return false;
+        }
+        
         if (cVetor.length > 3){
             if (parenteses != operadores || parenteses == 0){
                 return false;

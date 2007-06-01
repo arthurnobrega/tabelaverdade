@@ -8,6 +8,7 @@ package gui;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import log.FormulaException;
 import log.LogicaTabela;
 import tipos.Constantes;
 import tipos.Containers;
@@ -109,7 +110,7 @@ public class OpcaoTabela extends javax.swing.JFrame {
             Formula formula = new Formula(txtFormula.getText());
             LogicaTabela logTab = new LogicaTabela(formula);
             new Tabelas(this, true, logTab.getLinhas(), logTab.getColunas(), null).setVisible(true);
-        } catch (IOException e) {
+        } catch (FormulaException e) {
             JOptionPane.showMessageDialog(null, Constantes.MENSAGEM_ERRO_FORMULA, Constantes.TITULO_ERRO_FORMULA, JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnVisualizarActionPerformed
