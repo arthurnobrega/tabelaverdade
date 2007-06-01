@@ -5,7 +5,6 @@
 
 package log;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import pers.TabelaVerdade;
 import tipos.Formula;
@@ -17,9 +16,9 @@ import tipos.Formula;
 public class LogicaTabela extends Logica {
     
     /** Creates a new instance of LogicaTabela */
-    public LogicaTabela(Formula formula) throws IOException {
+    public LogicaTabela(Formula formula) throws FormulaException {
         if (!(testarFormulaBemFormada(formula))) {
-            throw new IOException();
+            throw new FormulaException();
         }
         tabela = new TabelaVerdade(formula);
     }
