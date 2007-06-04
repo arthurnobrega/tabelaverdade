@@ -32,7 +32,7 @@ public class Logica {
      *
      * @return Retorna verdadeiro ou falso, caso seja uma FBF ou não, respectivamente. 
      */
-    protected boolean testarFormulaBemFormada(Formula formula) {
+    public boolean testarFormulaBemFormada(Formula formula) {
         
         String strFormula = formula.getFormula();
         String[] cVetor = StringToChar(strFormula);
