@@ -65,7 +65,7 @@ public class Formula {
     
     /** @return A lista de proposições da fórmula.
      */
-    public ArrayList getProposicoes() {
+    public ArrayList<String> getProposicoes() {
         return (ArrayList) proposicoes.clone();
     }
     
@@ -82,7 +82,7 @@ public class Formula {
     }
     
     private String formula = null;
-    private ArrayList proposicoes = null;
+    private ArrayList<String> proposicoes = null;
     private int conectivos = 0;
     private int abreParenteses = 0;
     private int fechaParenteses = 0;

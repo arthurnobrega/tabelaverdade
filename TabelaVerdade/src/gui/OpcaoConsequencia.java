@@ -6,9 +6,15 @@
 package gui;
 
 import java.util.ArrayList;
+import javax.swing.ComboBoxModel;
 import javax.swing.JOptionPane;
+import log.FormulaException;
+import log.Logica;
+import log.LogicaConsequencia;
+import pers.Consequencia;
 import tipos.Constantes;
 import tipos.Containers;
+import tipos.Formula;
 
 /**
  * 
@@ -24,7 +30,7 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
     
     /** Este mï¿½todo ï¿½ gerado automaticamente pelo NetBeans e ï¿½ responsï¿½vel por toda a parte grï¿½fica.
      */
-    // <editor-fold defaultstate="collapsed" desc=" Código Gerado ">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc=" Cï¿½digo Gerado ">//GEN-BEGIN:initComponents
     private void initComponents() {
         btnVoltar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -145,7 +151,21 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
-
+        ComboBoxModel modelo = cmbPremissas.getModel();
+        ArrayList listaPremissas = new ArrayList();
+        for (int i = 0; i <= nroPremissas - 1; i++) {
+            listaPremissas.add(modelo.getElementAt(i));
+        }
+        
+        String conclusao = txtConclusao.getText();
+        
+        try {
+            Consequencia conseq = new Consequencia(listaPremissas, conclusao);
+            new Tabelas(this, true, conseq.getLinhas(), conseq.getColunas(), conseq.getLinhasSelecionadas()).setVisible(true);
+        } catch (FormulaException e) {
+            JOptionPane.showMessageDialog(null, "A conclusÃ£o nÃ£o segue os padrÃµes estipulados!", 
+                    "ConclusÃ£o invÃ¡lida!", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnVerificarActionPerformed
 
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
@@ -163,15 +183,14 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
 
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         String novaPremissa = txtNovaPremissa.getText();
-
-        /* Verifica se o campo Nova Premissa estï¿½ em branco. */
-        if (novaPremissa.length() == 0) {
-            JOptionPane.showMessageDialog(null, "Por favor insira uma f\u00f3rmula no campo Nova Premissa antes\n" +
-                    " de tentar adicion\u00e1-la \u00e0 Lista de Premissas!", "Campo Nova Premissa em branco!", 
-                    JOptionPane.INFORMATION_MESSAGE);
+        
+        LogicaConsequencia logica = new LogicaConsequencia(novaPremissa);
+        if (!logica.testarFormulaBemFormada()) {
+            JOptionPane.showMessageDialog(null, "A premissa nÃ£o pode ser inserida pois nÃ£o \n" +
+                    "segue os padrÃµes estipulados!","Premissa incorreta!", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
+        nroPremissas++;
         /* Adiciona a premissa ï¿½ Lista de Premissas e a seleciona. */
         cmbPremissas.addItem(novaPremissa);
         txtNovaPremissa.setText("");
@@ -183,7 +202,7 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
     
-    // Declaração de variáveis - não modifique//GEN-BEGIN:variables
+    // Declaraï¿½ï¿½o de variï¿½veis - nï¿½o modifique//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionar;
     private javax.swing.JButton btnRemover;
     private javax.swing.JButton btnVerificar;
@@ -196,6 +215,6 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txtConclusao;
     private javax.swing.JTextField txtNovaPremissa;
-    // Fim da declaração de variáveis//GEN-END:variables
-    
+    // Fim da declaraï¿½ï¿½o de variï¿½veis//GEN-END:variables
+    int nroPremissas = 0;
 }
