@@ -31,5 +31,4 @@ public class Constantes {
     public final static String DISJUNCAO = "|";
     public final static String IMPLICACAO = "-";
     public final static String DUPLA_IMPLICACAO = "=";
-    public final static String ALFABETO_PROPOSICOES = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "abcdefghijklmnopqrstuvwxyz";
 }

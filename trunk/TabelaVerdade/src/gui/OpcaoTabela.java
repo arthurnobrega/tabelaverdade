@@ -5,11 +5,9 @@
 
 package gui;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import log.FormulaException;
-import log.LogicaTabela;
+import pers.Tabela;
 import tipos.Constantes;
 import tipos.Containers;
 import tipos.Formula;
@@ -28,7 +26,7 @@ public class OpcaoTabela extends javax.swing.JFrame {
     
     /** Este mÃ©todo Ã© gerado automaticamente pelo NetBeans e Ã© responsÃ¡vel por toda a parte grÃ¡fica.
      */
-    // <editor-fold defaultstate="collapsed" desc=" Código Gerado ">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc=" Cï¿½digo Gerado ">//GEN-BEGIN:initComponents
     private void initComponents() {
         txtFormula = new javax.swing.JTextField();
         btnVoltar = new javax.swing.JButton();
@@ -109,7 +107,7 @@ public class OpcaoTabela extends javax.swing.JFrame {
     private void btnVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarActionPerformed
         try {
             Formula formula = new Formula(txtFormula.getText());
-            LogicaTabela logTab = new LogicaTabela(formula);
+            Tabela logTab = new Tabela(formula);
             new Tabelas(this, true, logTab.getLinhas(), logTab.getColunas(), null).setVisible(true);
         } catch (FormulaException e) {
             JOptionPane.showMessageDialog(null, Constantes.MENSAGEM_ERRO_FORMULA, Constantes.TITULO_ERRO_FORMULA, JOptionPane.ERROR_MESSAGE);
@@ -121,13 +119,13 @@ public class OpcaoTabela extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
     
-    // Declaração de variáveis - não modifique//GEN-BEGIN:variables
+    // Declaraï¿½ï¿½o de variï¿½veis - nï¿½o modifique//GEN-BEGIN:variables
     private javax.swing.JButton btnVisualizar;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txtFormula;
-    // Fim da declaração de variáveis//GEN-END:variables
+    // Fim da declaraï¿½ï¿½o de variï¿½veis//GEN-END:variables
     
 }

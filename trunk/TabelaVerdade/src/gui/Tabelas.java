@@ -24,7 +24,7 @@ import tipos.Containers;
 public class Tabelas extends javax.swing.JDialog {
 
     /** Cria uma nova janela de Tabelas. */
-    public Tabelas(java.awt.Frame parent, boolean modal, ArrayList linhas, ArrayList colunas, int[] linhasSelecionadas) {
+    public Tabelas(java.awt.Frame parent, boolean modal, ArrayList<String[]> linhas, ArrayList<String> colunas, ArrayList<Integer> linhasSelecionadas) {
         super(parent, modal);
         this.linhas = linhas;
         this.colunas = colunas;
@@ -98,8 +98,8 @@ public class Tabelas extends javax.swing.JDialog {
             label.setForeground(Color.BLACK);
             
             int i = 0;
-            while ((linhasSelecionadas != null) && (i <= linhasSelecionadas.length)) {
-                if (row == linhasSelecionadas[i]) {
+            while ((linhasSelecionadas != null) && (i <= linhasSelecionadas.size() - 1)) {
+                if (new Integer(row).equals(linhasSelecionadas.get(i))) {
                     label.setBackground(new Color(255, 218, 185));
                 }
                 i++;
@@ -213,7 +213,7 @@ public class Tabelas extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JTable tabela;
     // Fim da declara��o de vari�veis//GEN-END:variables
-    private int[] linhasSelecionadas;
-    private ArrayList linhas;
-    private ArrayList colunas;
+    private ArrayList<Integer> linhasSelecionadas;
+    private ArrayList<String[]> linhas;
+    private ArrayList<String> colunas;
 }
