@@ -5,12 +5,9 @@
 
 package gui;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import log.FormulaException;
-import log.LogicaEquivalencia;
-import log.LogicaTabela;
+import pers.Equivalencia;
 import tipos.Constantes;
 import tipos.Containers;
 import tipos.Formula;
@@ -29,7 +26,7 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
     
     /** Este mï¿½todo ï¿½ gerado automaticamente pelo NetBeans e ï¿½ responsï¿½vel por toda a parte grï¿½fica.
      */
-    // <editor-fold defaultstate="collapsed" desc=" CÃ³digo Gerado ">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc=" Código Gerado ">//GEN-BEGIN:initComponents
     private void initComponents() {
         txtFormula1 = new javax.swing.JTextField();
         txtFormula2 = new javax.swing.JTextField();
@@ -63,6 +60,7 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
 
         jTextArea1.setBackground(new java.awt.Color(226, 226, 226));
         jTextArea1.setColumns(20);
+        jTextArea1.setEditable(false);
         jTextArea1.setFont(new java.awt.Font("Arial", 0, 13));
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
@@ -123,13 +121,13 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
         try {
             Formula formula1 = new Formula(txtFormula1.getText());
             Formula formula2 = new Formula(txtFormula2.getText());
-            LogicaEquivalencia logEquiv = new LogicaEquivalencia(formula1, formula2);
-            if (logEquiv.verificarEquivalencia()) {
+            Equivalencia equiv = new Equivalencia(formula1, formula2);
+            if (equiv.verificarEquivalencia()) {
                 JOptionPane.showMessageDialog(null, "Sao Equivalentes!", "Sao Equivalentes!", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, "Nao sao Equivalentes!", "Nao sao Equivalentes!", JOptionPane.INFORMATION_MESSAGE);
             }
-            new Tabelas(this, true, logEquiv.getLinhas(), logEquiv.getColunas(), null).setVisible(true);
+            new Tabelas(this, true, equiv.getLinhas(), equiv.getColunas(), null).setVisible(true);
         } catch (FormulaException e) {
             JOptionPane.showMessageDialog(null, Constantes.MENSAGEM_ERRO_FORMULA, Constantes.TITULO_ERRO_FORMULA, JOptionPane.ERROR_MESSAGE);
         }
@@ -140,7 +138,7 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
     
-    // DeclaraÃ§Ã£o de variÃ¡veis - nÃ£o modifique//GEN-BEGIN:variables
+    // Declaração de variáveis - não modifique//GEN-BEGIN:variables
     private javax.swing.JButton btnVerificar;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
@@ -149,6 +147,6 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txtFormula1;
     private javax.swing.JTextField txtFormula2;
-    // Fim da declaraÃ§Ã£o de variÃ¡veis//GEN-END:variables
+    // Fim da declaração de variáveis//GEN-END:variables
     
 }

@@ -28,7 +28,7 @@ public class OpcaoTabela extends javax.swing.JFrame {
     
     /** Este m√©todo √© gerado automaticamente pelo NetBeans e √© respons√°vel por toda a parte gr√°fica.
      */
-    // <editor-fold defaultstate="collapsed" desc=" C√≥digo Gerado ">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc=" CÛdigo Gerado ">//GEN-BEGIN:initComponents
     private void initComponents() {
         txtFormula = new javax.swing.JTextField();
         btnVoltar = new javax.swing.JButton();
@@ -59,6 +59,7 @@ public class OpcaoTabela extends javax.swing.JFrame {
 
         jTextArea1.setBackground(new java.awt.Color(226, 226, 226));
         jTextArea1.setColumns(20);
+        jTextArea1.setEditable(false);
         jTextArea1.setFont(new java.awt.Font("Arial", 0, 13));
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
@@ -120,13 +121,13 @@ public class OpcaoTabela extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
     
-    // Declara√ß√£o de vari√°veis - n√£o modifique//GEN-BEGIN:variables
+    // DeclaraÁ„o de vari·veis - n„o modifique//GEN-BEGIN:variables
     private javax.swing.JButton btnVisualizar;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txtFormula;
-    // Fim da declara√ß√£o de vari√°veis//GEN-END:variables
+    // Fim da declaraÁ„o de vari·veis//GEN-END:variables
     
 }
