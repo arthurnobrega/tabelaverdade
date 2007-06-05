@@ -164,7 +164,7 @@ public class Tabelas extends javax.swing.JDialog {
 
     /** Este m�todo � gerado automaticamente pelo NetBeans e � respons�vel por toda a parte gr�fica.
      */
-    // <editor-fold defaultstate="collapsed" desc=" C�digo Gerado ">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc=" Código Gerado ">//GEN-BEGIN:initComponents
     private void initComponents() {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane = new javax.swing.JScrollPane();
@@ -191,6 +191,9 @@ public class Tabelas extends javax.swing.JDialog {
         );
 
         btnVoltar.setText("Voltar");
+        javax.swing.ImageIcon iconVoltar = new javax.swing.ImageIcon("img/cancelar.png");
+        java.awt.Image imgVoltar = iconVoltar.getImage().getScaledInstance(22, 22, java.awt.Image.SCALE_AREA_AVERAGING);
+        btnVoltar.setIcon(new javax.swing.ImageIcon(imgVoltar));
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);
@@ -225,12 +228,12 @@ public class Tabelas extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
-    // Declara��o de vari�veis - n�o modifique//GEN-BEGIN:variables
+    // Declaração de variáveis - não modifique//GEN-BEGIN:variables
     private javax.swing.JButton btnVoltar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JTable tabela;
-    // Fim da declara��o de vari�veis//GEN-END:variables
+    // Fim da declaração de variáveis//GEN-END:variables
     private ArrayList<Integer> linhasCorretas;
     private ArrayList<Integer> linhasIncorretas;
     private ArrayList<String[]> linhas;
