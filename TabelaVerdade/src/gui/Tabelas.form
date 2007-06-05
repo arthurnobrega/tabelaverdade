@@ -86,6 +86,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVoltarActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="javax.swing.ImageIcon iconVoltar = new javax.swing.ImageIcon(&quot;img/cancelar.png&quot;);&#xa;java.awt.Image imgVoltar = iconVoltar.getImage().getScaledInstance(22, 22, java.awt.Image.SCALE_AREA_AVERAGING);&#xa;btnVoltar.setIcon(new javax.swing.ImageIcon(imgVoltar));"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
