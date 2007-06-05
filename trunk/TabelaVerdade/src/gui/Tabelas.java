@@ -104,7 +104,7 @@ public class Tabelas extends javax.swing.JDialog {
                 int nroLinhasCorretas = linhasCorretas.size();
                 while ((i <= nroLinhasCorretas - 1) && (!achou)) {
                     if (new Integer(row).equals(linhasCorretas.get(i))) {
-                        label.setBackground(new Color(144, 238, 144));
+                        label.setBackground(new Color(210, 255, 210));
                         achou = true;
                     }
                     i++;
@@ -116,7 +116,7 @@ public class Tabelas extends javax.swing.JDialog {
                 int nroLinhasIncorretas = linhasIncorretas.size();
                 while ((i <= nroLinhasIncorretas - 1) && (!achou)) {
                     if (new Integer(row).equals(linhasIncorretas.get(i))) {
-                        label.setBackground(new Color(255, 106, 106));
+                        label.setBackground(new Color(255, 210, 200));
                         achou = true;
                     }
                     i++;
