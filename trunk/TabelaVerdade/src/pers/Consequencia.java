@@ -54,6 +54,7 @@ public class Consequencia {
                 if (valoracaoConclusao.equals(verdadeiro)) {
                     if (valoracaoPremissa.equals(falso)) {
                         resultadoFinal = false;
+                        resultadoLinha = false;
                     } else {
                         resultadoLinha = true;
                     }
@@ -70,7 +71,7 @@ public class Consequencia {
         }
     }
     
-    public boolean testarConsequenciaLogica() {
+    public boolean getConsequenciaLogica() {
         return resultadoFinal;
     }
     

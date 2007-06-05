@@ -78,20 +78,20 @@ public class TabelaVerdade {
             }
             i++;
         }
-        Stack retorno = (Stack) pilhaProposicoes.clone();
+        Stack<String> retorno = (Stack<String>) pilhaProposicoes.clone();
         pilhaConectivos = new Stack();
         pilhaProposicoes = new Stack();
-        return (String) retorno.pop();
+        return retorno.pop();
     }
     
     private void realizarOperacao(int linha) {
-        String conectivo = (String) pilhaConectivos.pop();
+        String conectivo = pilhaConectivos.pop();
         String proposicao1, proposicao2;
         
         /* Testa qual conectivo � e faz a opera��o. */
         if (conectivo.equals(Constantes.CONJUNCAO)) {             
-            proposicao2 = (String) pilhaProposicoes.pop();
-            proposicao1 = (String) pilhaProposicoes.pop();
+            proposicao2 = pilhaProposicoes.pop();
+            proposicao1 = pilhaProposicoes.pop();
             if((proposicao1.equals(verdadeiro)) && (proposicao2.equals(verdadeiro))) {
                pilhaProposicoes.push(verdadeiro);
             } else {
@@ -101,8 +101,8 @@ public class TabelaVerdade {
 //                realizarOperacao(linha);
 //            }
         } else if (conectivo.equals(Constantes.DISJUNCAO)) {
-            proposicao2 = (String) pilhaProposicoes.pop();
-            proposicao1 = (String) pilhaProposicoes.pop();
+            proposicao2 = pilhaProposicoes.pop();
+            proposicao1 = pilhaProposicoes.pop();
             if (proposicao1.equals(verdadeiro) || proposicao2.equals(verdadeiro)) {
                 pilhaProposicoes.push(verdadeiro);
             } else {
@@ -110,23 +110,23 @@ public class TabelaVerdade {
             }
             
         } else if (conectivo.equals(Constantes.NEGACAO)) {
-            proposicao1 = (String) pilhaProposicoes.pop();
+            proposicao1 = pilhaProposicoes.pop();
             if (proposicao1.equals(verdadeiro)) {
                 pilhaProposicoes.push(falso);
             } else {
                 pilhaProposicoes.push(verdadeiro);
             }
         } else if (conectivo.equals(Constantes.IMPLICACAO)) {
-            proposicao2 = (String) pilhaProposicoes.pop();
-            proposicao1 = (String) pilhaProposicoes.pop();
+            proposicao2 = pilhaProposicoes.pop();
+            proposicao1 = pilhaProposicoes.pop();
             if ((proposicao1.equals(verdadeiro)) && (proposicao2.equals(falso))) {
                 pilhaProposicoes.push(falso);
             } else {
                 pilhaProposicoes.push(verdadeiro);
             }
         } else if (conectivo.equals(Constantes.DUPLA_IMPLICACAO)) {
-            proposicao2 = (String) pilhaProposicoes.pop();
-            proposicao1 = (String) pilhaProposicoes.pop();
+            proposicao2 = pilhaProposicoes.pop();
+            proposicao1 = pilhaProposicoes.pop();
             if (proposicao1.equals(proposicao2)) {
                 pilhaProposicoes.push(verdadeiro);
             } else {
@@ -145,7 +145,7 @@ public class TabelaVerdade {
             }
             coluna++;
         }
-        String[] vetorColuna = (String[]) colunas.get(coluna);
+        String[] vetorColuna = colunas.get(coluna);
         return vetorColuna[linha];
     }
     
@@ -153,29 +153,29 @@ public class TabelaVerdade {
         for (int i = 0; i <= nroLinhas - 1; i++) {
             String[] dadosLinha = new String[nroColunas + 1];
             for (int j = 0; j <= nroColunas; j++) {
-                String[] dadosColuna = (String[]) colunas.get(j);
+                String[] dadosColuna = colunas.get(j);
                 dadosLinha[j] = dadosColuna[i];
             }
             linhas.add(dadosLinha);
         }
     }    
     
-    public ArrayList getLinhas() {
-        return (ArrayList) linhas.clone();
+    public ArrayList<String[]> getLinhas() {
+        return (ArrayList<String[]>) linhas.clone();
     }
-    public ArrayList getColunas() {
+    public ArrayList<String> getColunas() {
         ArrayList listaColunas = formula.getProposicoes();
         listaColunas.add(formula.getFormula());
-        return (ArrayList) listaColunas;
+        return (ArrayList<String>) listaColunas;
     }
 
-    private ArrayList linhas = new ArrayList();
-    private ArrayList colunas = new ArrayList();
+    private ArrayList<String[]> linhas = new ArrayList<String[]>();
+    private ArrayList<String[]> colunas = new ArrayList<String[]>();
     private Formula formula = null;
     private int nroLinhas = 0;
     private int nroColunas = 0;
-    private Stack pilhaConectivos = new Stack();
-    private Stack pilhaProposicoes = new Stack();
+    private Stack<String> pilhaConectivos = new Stack<String>();
+    private Stack<String> pilhaProposicoes = new Stack<String>();
     private String verdadeiro = "V";
     private String falso = "F";
 }

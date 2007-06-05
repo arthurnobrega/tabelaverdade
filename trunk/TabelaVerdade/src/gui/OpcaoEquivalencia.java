@@ -123,9 +123,11 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
             Formula formula2 = new Formula(txtFormula2.getText());
             Equivalencia equiv = new Equivalencia(formula1, formula2);
             if (equiv.verificarEquivalencia()) {
-                JOptionPane.showMessageDialog(null, "Sao Equivalentes!", "Sao Equivalentes!", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "As f\u00f3rmulas s\u00e3o sem\u00e2nticamente " +
+                        "equivalentes!", "S\u00e3o Equivalentes!", JOptionPane.INFORMATION_MESSAGE);
             } else {
-                JOptionPane.showMessageDialog(null, "Nao sao Equivalentes!", "Nao sao Equivalentes!", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "As f\u00f3rmulas n\u00e3o s\u00e3o sem\u00e2nticamente " +
+                        "equivalentes!", "N\u00e3o s\u00e3o Equivalentes!", JOptionPane.INFORMATION_MESSAGE);
             }
             new Tabelas(this, true, equiv.getLinhas(), equiv.getColunas(), null).setVisible(true);
         } catch (FormulaException e) {

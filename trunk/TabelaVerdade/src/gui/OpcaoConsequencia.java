@@ -161,10 +161,20 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
         
         try {
             Consequencia conseq = new Consequencia(listaPremissas, conclusao);
-            new Tabelas(this, true, conseq.getLinhas(), conseq.getColunas(), conseq.getLinhasSelecionadas()).setVisible(true);
+            ArrayList<Integer> linhasSelecionadas;
+            if (conseq.getConsequenciaLogica()) {
+                 linhasSelecionadas = conseq.getLinhasSelecionadas();
+                JOptionPane.showMessageDialog(null, "A conclus\u00e3o \u00e9 consequ\u00eancia l\u00f3gica " +
+                        "das premissas!", "\u00c9 consequ\u00eancia l\u00f3gica!", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                linhasSelecionadas = null;
+                JOptionPane.showMessageDialog(null, "A conclus\u00e3o n\u00e3o \u00e9 consequ\u00eancia l\u00f3gica " +
+                        "das premissas!", "\u00c9 consequ\u00eancia l\u00f3gica!", JOptionPane.INFORMATION_MESSAGE);
+            }
+            new Tabelas(this, true, conseq.getLinhas(), conseq.getColunas(), linhasSelecionadas).setVisible(true);
         } catch (FormulaException e) {
-            JOptionPane.showMessageDialog(null, "A conclusão não segue os padrões estipulados!", 
-                    "Conclusão inválida!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "A conclus\u00e3o n\u00e3o segue os padr\u00f5es estipulados!",
+                    "Conclus\u00e3o inv\u00e1lida", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnVerificarActionPerformed
 
@@ -186,8 +196,8 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
         
         LogicaConsequencia logica = new LogicaConsequencia(novaPremissa);
         if (!logica.testarFormulaBemFormada()) {
-            JOptionPane.showMessageDialog(null, "A premissa não pode ser inserida pois não \n" +
-                    "segue os padrões estipulados!","Premissa incorreta!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "A premissa n\u00e3o p\u00f4de ser inserida pois n\u00e3o segue " +
+                    "os padr\u00f5es estipulados!", "Premissa inv\u00e1lida!", JOptionPane.ERROR_MESSAGE);
             return;
         }
         nroPremissas++;
