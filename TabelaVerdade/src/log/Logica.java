@@ -37,37 +37,27 @@ public class Logica {
         String strFormula = formula.getFormula();
         String[] cVetor = StringToChar(strFormula);
         
-        if (strFormula.length() == 0) {
-            return true;
-        }
-        
-        if(cVetor.length<2){
+        if (cVetor.length < 2) {
             return false;
-        }else{
-            if(cVetor.length == 3){
-                if(!cVetor[0].equals("(") || !cVetor[2].equals(")")){
-                    return false;
-                }                
-            }
-        }
-        
-        if (cVetor.length > 3){
-            if (((parenteses/2) != operadores) || parenteses == 0){
+        } else if (cVetor.length == 3) {
+            if (!cVetor[0].equals("(") || !cVetor[2].equals(")")) {
                 return false;
-            }        
+            }
+        } else {
+            if ((abreParenteses != fechaParenteses) || (fechaParenteses != operadores)
+            || (fechaParenteses == 0)) {
+                return false;
+            }
         }
         
         for (int i = 0; i< strFormula.length() - 1; i++) {
             if(cVetor[i].equals("(") && cVetor[i+1].equals(")")) {
                 return false;
             }
-        }    
-        
-         for (int i = 0; i< strFormula.length() - 1; i++) {
             if(cVetor[i].equals(")") && cVetor[i+1].equals("(")) {
                 return false;
             }
-        } 
+        }
         
         if (!testarConectivosJuntos(cVetor) || !testarProposicoesJuntas(cVetor)) {
             return false;
@@ -91,8 +81,10 @@ public class Logica {
         
         for(int i=0; i <= formula.length() - 1; i++) {
             cVetor[i] = formula.substring(i, i + 1); 
-            if (cVetor[i].equals((")")) || cVetor[i].equals(("("))) {
-                parenteses++;
+            if (cVetor[i].equals(("("))) {
+                abreParenteses++;
+            } else if (cVetor[i].equals((")"))) {
+                fechaParenteses++;
             } else if ((cVetor[i].equals(Constantes.CONJUNCAO)) || (cVetor[i].equals(Constantes.DISJUNCAO))
                     || (cVetor[i].equals(Constantes.NEGACAO)) || (cVetor[i].equals(Constantes.IMPLICACAO))
                     || (cVetor[i].equals(Constantes.DUPLA_IMPLICACAO))) {
@@ -171,11 +163,11 @@ public class Logica {
             if (!(formula[i].equals(Constantes.CONJUNCAO)) && (!formula[i].equals(Constantes.DISJUNCAO))
             && (!formula[i].equals(Constantes.NEGACAO)) && (!formula[i].equals(Constantes.IMPLICACAO))
             && (!formula[i].equals(Constantes.DUPLA_IMPLICACAO)) && (!formula[i].equals("("))
-            && (!formula[i].equals(")"))) {
-                if(!(formula[i+1].equals(Constantes.CONJUNCAO)) && (!formula[i+1].equals(Constantes.DISJUNCAO))
-                && (!formula[i+1].equals(Constantes.IMPLICACAO)) && (!formula[i+1].equals(Constantes.DUPLA_IMPLICACAO))
-                && (!formula[i+1].equals(")")) && (!formula[i+1].equals("("))
-                && (!formula[i+1].equals(Constantes.NEGACAO))) {
+            && (!formula[i].equals(")")) && (!formula[i].equals(" "))) {
+                if (!(formula[i+1].equals(Constantes.CONJUNCAO)) && (!formula[i+1].equals(Constantes.DISJUNCAO))
+                && (!formula[i+1].equals(Constantes.NEGACAO)) &&(!formula[i+1].equals(Constantes.IMPLICACAO))
+                && (!formula[i+1].equals(Constantes.DUPLA_IMPLICACAO)) && (!formula[i+1].equals(")"))
+                && (!formula[i+1].equals("(")) && (!formula[i+1].equals(" "))) {
                     return false;
                 } 
             }
@@ -184,7 +176,8 @@ public class Logica {
         return true;
     }    
     
-    private int parenteses = 0;
+    private int fechaParenteses = 0;
+    private int abreParenteses = 0;
     private int operadores = 0;
         
 }
