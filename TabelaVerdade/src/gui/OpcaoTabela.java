@@ -108,7 +108,7 @@ public class OpcaoTabela extends javax.swing.JFrame {
         try {
             Formula formula = new Formula(txtFormula.getText());
             Tabela logTab = new Tabela(formula);
-            new Tabelas(this, true, logTab.getLinhas(), logTab.getColunas(), null).setVisible(true);
+            new Tabelas(this, true, logTab.getLinhas(), logTab.getColunas(), null, null).setVisible(true);
         } catch (FormulaException e) {
             JOptionPane.showMessageDialog(null, Constantes.MENSAGEM_ERRO_FORMULA, Constantes.TITULO_ERRO_FORMULA, JOptionPane.ERROR_MESSAGE);
         }

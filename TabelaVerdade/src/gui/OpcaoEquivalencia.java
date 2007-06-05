@@ -129,7 +129,7 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "As f\u00f3rmulas n\u00e3o s\u00e3o sem\u00e2nticamente " +
                         "equivalentes!", "N\u00e3o s\u00e3o Equivalentes!", JOptionPane.INFORMATION_MESSAGE);
             }
-            new Tabelas(this, true, equiv.getLinhas(), equiv.getColunas(), null).setVisible(true);
+            new Tabelas(this, true, equiv.getLinhas(), equiv.getColunas(), null, null).setVisible(true);
         } catch (FormulaException e) {
             JOptionPane.showMessageDialog(null, Constantes.MENSAGEM_ERRO_FORMULA, Constantes.TITULO_ERRO_FORMULA, JOptionPane.ERROR_MESSAGE);
         }

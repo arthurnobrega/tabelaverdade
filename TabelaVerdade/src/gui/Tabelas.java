@@ -24,11 +24,12 @@ import tipos.Containers;
 public class Tabelas extends javax.swing.JDialog {
 
     /** Cria uma nova janela de Tabelas. */
-    public Tabelas(java.awt.Frame parent, boolean modal, ArrayList<String[]> linhas, ArrayList<String> colunas, ArrayList<Integer> linhasSelecionadas) {
+    public Tabelas(java.awt.Frame parent, boolean modal, ArrayList<String[]> linhas, ArrayList<String> colunas, ArrayList<Integer> linhasCorretas, ArrayList<Integer> linhasIncorretas) {
         super(parent, modal);
         this.linhas = linhas;
         this.colunas = colunas;
-        this.linhasSelecionadas = linhasSelecionadas;
+        this.linhasCorretas = linhasCorretas;
+        this.linhasIncorretas = linhasIncorretas;
         initComponents();
         Containers.alinharContainer(this);
     }
@@ -97,12 +98,29 @@ public class Tabelas extends javax.swing.JDialog {
             /* Seta a cor padr�o da letra. */
             label.setForeground(Color.BLACK);
             
-            int i = 0;
-            while ((linhasSelecionadas != null) && (i <= linhasSelecionadas.size() - 1)) {
-                if (new Integer(row).equals(linhasSelecionadas.get(i))) {
-                    label.setBackground(new Color(255, 218, 185));
+            boolean achou = false;
+            if (linhasCorretas != null) {
+                int i = 0;
+                int nroLinhasCorretas = linhasCorretas.size();
+                while ((i <= nroLinhasCorretas - 1) && (!achou)) {
+                    if (new Integer(row).equals(linhasCorretas.get(i))) {
+                        label.setBackground(new Color(144, 238, 144));
+                        achou = true;
+                    }
+                    i++;
                 }
-                i++;
+            }
+            
+            if (linhasIncorretas != null) {
+                int i = 0;
+                int nroLinhasIncorretas = linhasIncorretas.size();
+                while ((i <= nroLinhasIncorretas - 1) && (!achou)) {
+                    if (new Integer(row).equals(linhasIncorretas.get(i))) {
+                        label.setBackground(new Color(255, 106, 106));
+                        achou = true;
+                    }
+                    i++;
+                }
             }
 
             label.setHorizontalAlignment(SwingConstants.CENTER);
@@ -213,7 +231,8 @@ public class Tabelas extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JTable tabela;
     // Fim da declara��o de vari�veis//GEN-END:variables
-    private ArrayList<Integer> linhasSelecionadas;
+    private ArrayList<Integer> linhasCorretas;
+    private ArrayList<Integer> linhasIncorretas;
     private ArrayList<String[]> linhas;
     private ArrayList<String> colunas;
 }

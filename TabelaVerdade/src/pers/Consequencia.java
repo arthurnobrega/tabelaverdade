@@ -46,7 +46,6 @@ public class Consequencia {
         int nroColunas = tabelaConclusao.getColunas().size();
         for (int linha = 0; linha <= nroLinhasConclusao - 1; linha++) {
             int j = 0;
-            boolean resultadoLinha = false;
             String valoracaoConclusao = tabelaConclusao.getLinhas().get(linha)[nroColunas - 1];
             String[] novalinha = new String[tabelasPremissas.size() + 1];
             while (j <= tabelasPremissas.size() - 1) {
@@ -54,9 +53,11 @@ public class Consequencia {
                 if (valoracaoConclusao.equals(verdadeiro)) {
                     if (valoracaoPremissa.equals(falso)) {
                         resultadoFinal = false;
-                        resultadoLinha = false;
+                        Integer novoInteiro = new Integer(linha);
+                        linhasIncorretas.add(novoInteiro);
                     } else {
-                        resultadoLinha = true;
+                        Integer novoInteiro = new Integer(linha);
+                        linhasCorretas.add(novoInteiro);
                     }
                 }
                 novalinha[j] = valoracaoPremissa;
@@ -64,10 +65,6 @@ public class Consequencia {
             }
             novalinha[tabelasPremissas.size()] = valoracaoConclusao;
             linhas.add(novalinha);
-            if (resultadoLinha) {
-                Integer novoInteiro = new Integer(linha);
-                linhasSelecionadas.add(novoInteiro);
-            }
         }
     }
     
@@ -88,14 +85,19 @@ public class Consequencia {
         return colunas;
     }
     
-    public ArrayList<Integer> getLinhasSelecionadas() {
-        return linhasSelecionadas;
+    public ArrayList<Integer> getLinhasCorretas() {
+        return linhasCorretas;
+    }
+    
+    public ArrayList<Integer> getLinhasIncorretas() {
+        return linhasIncorretas;
     }
     
     private boolean resultadoFinal = true;
     private ArrayList<TabelaVerdade> tabelasPremissas = new ArrayList<TabelaVerdade>();
     private TabelaVerdade tabelaConclusao;
-    private ArrayList<Integer> linhasSelecionadas = new ArrayList<Integer>();
+    private ArrayList<Integer> linhasCorretas = new ArrayList<Integer>();
+    private ArrayList<Integer> linhasIncorretas = new ArrayList<Integer>();
     private String verdadeiro = "V";
     private String falso = "F";
     private ArrayList<String[]> linhas = new ArrayList<String[]>();

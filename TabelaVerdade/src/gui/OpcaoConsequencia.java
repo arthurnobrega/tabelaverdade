@@ -161,17 +161,17 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
         
         try {
             Consequencia conseq = new Consequencia(listaPremissas, conclusao);
-            ArrayList<Integer> linhasSelecionadas;
+            ArrayList<Integer> linhasCorretas = conseq.getLinhasCorretas();;
+            ArrayList<Integer> linhasIncorretas = null;
             if (conseq.getConsequenciaLogica()) {
-                 linhasSelecionadas = conseq.getLinhasSelecionadas();
                 JOptionPane.showMessageDialog(null, "A conclus\u00e3o \u00e9 consequ\u00eancia l\u00f3gica " +
                         "das premissas!", "\u00c9 consequ\u00eancia l\u00f3gica!", JOptionPane.INFORMATION_MESSAGE);
             } else {
-                linhasSelecionadas = null;
+                linhasIncorretas = conseq.getLinhasIncorretas();
                 JOptionPane.showMessageDialog(null, "A conclus\u00e3o n\u00e3o \u00e9 consequ\u00eancia l\u00f3gica " +
                         "das premissas!", "\u00c9 consequ\u00eancia l\u00f3gica!", JOptionPane.INFORMATION_MESSAGE);
             }
-            new Tabelas(this, true, conseq.getLinhas(), conseq.getColunas(), linhasSelecionadas).setVisible(true);
+            new Tabelas(this, true, conseq.getLinhas(), conseq.getColunas(), linhasCorretas, linhasIncorretas).setVisible(true);
         } catch (FormulaException e) {
             JOptionPane.showMessageDialog(null, "A conclus\u00e3o n\u00e3o segue os padr\u00f5es estipulados!",
                     "Conclus\u00e3o inv\u00e1lida", JOptionPane.ERROR_MESSAGE);
@@ -189,6 +189,7 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
         /* Remove o item selecionado na Lista de Premissas. */
         int nroPremissa = cmbPremissas.getSelectedIndex();
         cmbPremissas.removeItemAt(nroPremissa);
+        nroPremissas--;
     }//GEN-LAST:event_btnRemoverActionPerformed
 
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
