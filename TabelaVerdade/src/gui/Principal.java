@@ -35,7 +35,7 @@ public class Principal extends javax.swing.JFrame {
         txtAjuda = new javax.swing.JTextArea();
         txtAjuda.setText(TEXTOPADRAO);
         jLabel1 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        menu = new javax.swing.JMenuBar();
         menuAjuda = new javax.swing.JMenu();
         subMenuSobre = new javax.swing.JMenuItem();
 
@@ -108,11 +108,17 @@ public class Principal extends javax.swing.JFrame {
         java.awt.Image imgSobre = iconSobre.getImage().getScaledInstance(22, 22, java.awt.Image.SCALE_AREA_AVERAGING);
         subMenuSobre.setIcon(new javax.swing.ImageIcon(imgSobre));
 
+        subMenuSobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subMenuSobreActionPerformed(evt);
+            }
+        });
+
         menuAjuda.add(subMenuSobre);
 
-        jMenuBar1.add(menuAjuda);
+        menu.add(menuAjuda);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(menu);
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -151,6 +157,11 @@ public class Principal extends javax.swing.JFrame {
         );
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void subMenuSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subMenuSobreActionPerformed
+// TODO adicione seu código de manipulação aqui:
+        new DialogSobre(this, true).setVisible(true);
+    }//GEN-LAST:event_subMenuSobreActionPerformed
 
     private void btnConsequenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsequenciaActionPerformed
         new OpcaoConsequencia().setVisible(true);
@@ -212,8 +223,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btnEquivalencia;
     private javax.swing.JButton btnTabela;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JMenuBar menu;
     private javax.swing.JMenu menuAjuda;
     private javax.swing.JMenuItem subMenuSobre;
     private javax.swing.JTextArea txtAjuda;
