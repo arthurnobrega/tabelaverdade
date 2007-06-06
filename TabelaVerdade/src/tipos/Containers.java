@@ -7,7 +7,7 @@ package tipos;
 
 /**
  *
- * @author Arthur Thiago Barbosa Nobrega
+ * @author Arthur Thiago Barbosa Nobrega e Felippe Pires Ferreira
  */
 public class Containers {
     

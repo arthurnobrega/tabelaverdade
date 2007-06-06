@@ -7,7 +7,7 @@ package log;
 
 /**
  *
- * @author Arthur Thiago Barbosa Nobrega
+ * @author Arthur Thiago Barbosa Nobrega e Felippe Pires Ferreira
  */
 public class FormulaException extends Exception {
     

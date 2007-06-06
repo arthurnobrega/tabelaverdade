@@ -10,7 +10,7 @@ import tipos.Constantes;
 
 /**
  * 
- * @author Arthur Thiago Barbosa Nobrega
+ * @author Arthur Thiago Barbosa Nobrega e Felippe Pires Ferreira
  */
 public class Formula {
     

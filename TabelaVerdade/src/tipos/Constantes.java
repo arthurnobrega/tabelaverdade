@@ -7,7 +7,7 @@ package tipos;
 
 /** Esta classe guarda as constantes que são usadas no programa e que não foram encaixadas em outras classes.
  *
- * @author Arthur Thiago Barbosa Nobrega
+ * @author Arthur Thiago Barbosa Nobrega e Felippe Pires Ferreira
  */
 public class Constantes {
     
