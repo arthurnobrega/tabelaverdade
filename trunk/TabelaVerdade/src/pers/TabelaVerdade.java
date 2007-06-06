@@ -84,53 +84,58 @@ public class TabelaVerdade {
         return retorno.pop();
     }
     
-    private void realizarOperacao(int linha) {
-        String conectivo = pilhaConectivos.pop();
+    private void realizarOperacao(int linha) {        
+        boolean proposicaoSolitaria = false;
+        String conectivo = "";
+        if (!pilhaConectivos.isEmpty()) {
+            conectivo = pilhaConectivos.pop();
+        } else {
+            proposicaoSolitaria = true;
+        }
         String proposicao1, proposicao2;
         
         /* Testa qual conectivo � e faz a opera��o. */
-        if (conectivo.equals(Constantes.CONJUNCAO)) {             
-            proposicao2 = pilhaProposicoes.pop();
-            proposicao1 = pilhaProposicoes.pop();
-            if((proposicao1.equals(verdadeiro)) && (proposicao2.equals(verdadeiro))) {
-               pilhaProposicoes.push(verdadeiro);
-            } else {
-               pilhaProposicoes.push(falso);
-            }
-//            if (pilhaConectivos.get(pilhaConectivos.size() - 1).equals(Constantes.NEGACAO)) {
-//                realizarOperacao(linha);
-//            }
-        } else if (conectivo.equals(Constantes.DISJUNCAO)) {
-            proposicao2 = pilhaProposicoes.pop();
-            proposicao1 = pilhaProposicoes.pop();
-            if (proposicao1.equals(verdadeiro) || proposicao2.equals(verdadeiro)) {
-                pilhaProposicoes.push(verdadeiro);
-            } else {
-                pilhaProposicoes.push(falso);
-            }
-            
-        } else if (conectivo.equals(Constantes.NEGACAO)) {
-            proposicao1 = pilhaProposicoes.pop();
-            if (proposicao1.equals(verdadeiro)) {
-                pilhaProposicoes.push(falso);
-            } else {
-                pilhaProposicoes.push(verdadeiro);
-            }
-        } else if (conectivo.equals(Constantes.IMPLICACAO)) {
-            proposicao2 = pilhaProposicoes.pop();
-            proposicao1 = pilhaProposicoes.pop();
-            if ((proposicao1.equals(verdadeiro)) && (proposicao2.equals(falso))) {
-                pilhaProposicoes.push(falso);
-            } else {
-                pilhaProposicoes.push(verdadeiro);
-            }
-        } else if (conectivo.equals(Constantes.DUPLA_IMPLICACAO)) {
-            proposicao2 = pilhaProposicoes.pop();
-            proposicao1 = pilhaProposicoes.pop();
-            if (proposicao1.equals(proposicao2)) {
-                pilhaProposicoes.push(verdadeiro);
-            } else {
-                pilhaProposicoes.push(falso);
+        if (!proposicaoSolitaria) {
+            if (conectivo.equals(Constantes.CONJUNCAO)) {             
+                proposicao2 = pilhaProposicoes.pop();
+                proposicao1 = pilhaProposicoes.pop();
+                if((proposicao1.equals(verdadeiro)) && (proposicao2.equals(verdadeiro))) {
+                   pilhaProposicoes.push(verdadeiro);
+                } else {
+                   pilhaProposicoes.push(falso);
+                }
+            } else if (conectivo.equals(Constantes.DISJUNCAO)) {
+                proposicao2 = pilhaProposicoes.pop();
+                proposicao1 = pilhaProposicoes.pop();
+                if (proposicao1.equals(verdadeiro) || proposicao2.equals(verdadeiro)) {
+                    pilhaProposicoes.push(verdadeiro);
+                } else {
+                    pilhaProposicoes.push(falso);
+                }
+
+            } else if (conectivo.equals(Constantes.NEGACAO)) {
+                proposicao1 = pilhaProposicoes.pop();
+                if (proposicao1.equals(verdadeiro)) {
+                    pilhaProposicoes.push(falso);
+                } else {
+                    pilhaProposicoes.push(verdadeiro);
+                }
+            } else if (conectivo.equals(Constantes.IMPLICACAO)) {
+                proposicao2 = pilhaProposicoes.pop();
+                proposicao1 = pilhaProposicoes.pop();
+                if ((proposicao1.equals(verdadeiro)) && (proposicao2.equals(falso))) {
+                    pilhaProposicoes.push(falso);
+                } else {
+                    pilhaProposicoes.push(verdadeiro);
+                }
+            } else if (conectivo.equals(Constantes.DUPLA_IMPLICACAO)) {
+                proposicao2 = pilhaProposicoes.pop();
+                proposicao1 = pilhaProposicoes.pop();
+                if (proposicao1.equals(proposicao2)) {
+                    pilhaProposicoes.push(verdadeiro);
+                } else {
+                    pilhaProposicoes.push(falso);
+                }
             }
         }
     }
