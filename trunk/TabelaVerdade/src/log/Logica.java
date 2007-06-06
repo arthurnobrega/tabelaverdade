@@ -10,7 +10,7 @@ import tipos.Constantes;
 import tipos.Formula;
 
 /**
- *
+ * @author Felippe Pires Ferreira
  * @author Arthur Thiago Barbosa Nobrega
  */
 public class Logica {
@@ -50,7 +50,7 @@ public class Logica {
             }
         }
         
-        for (int i = 0; i< strFormula.length() - 1; i++) {
+        for (int i = 0; i< cVetor.length - 1; i++) {
             if(cVetor[i].equals("(") && cVetor[i+1].equals(")")) {
                 return false;
             }
@@ -77,18 +77,33 @@ public class Logica {
      */
     private String[] StringToChar(String formula){
         
-        String[] cVetor = new String[formula.length()];
+        int j=0;
+        int contador = 0;
+        char aux;
+        
+        for(int i=0; i <= formula.length() - 1; i++){
+            aux = (char)formula.charAt(i);
+            if(aux != ' '){
+                contador++;
+            }
+        }
+        
+        String[] cVetor = new String[contador];
         
         for(int i=0; i <= formula.length() - 1; i++) {
-            cVetor[i] = formula.substring(i, i + 1); 
-            if (cVetor[i].equals(("("))) {
-                abreParenteses++;
-            } else if (cVetor[i].equals((")"))) {
-                fechaParenteses++;
-            } else if ((cVetor[i].equals(Constantes.CONJUNCAO)) || (cVetor[i].equals(Constantes.DISJUNCAO))
-                    || (cVetor[i].equals(Constantes.NEGACAO)) || (cVetor[i].equals(Constantes.IMPLICACAO))
-                    || (cVetor[i].equals(Constantes.DUPLA_IMPLICACAO))) {
-                operadores++;
+            String letra = formula.substring(i, i + 1);
+            if(!letra.equals(" ")){
+                cVetor[j] = letra;
+                if (cVetor[j].equals(("("))) {
+                    abreParenteses++;
+                } else if (cVetor[j].equals((")"))) {
+                    fechaParenteses++;
+                } else if ((cVetor[j].equals(Constantes.CONJUNCAO)) || (cVetor[j].equals(Constantes.DISJUNCAO))
+                        || (cVetor[j].equals(Constantes.NEGACAO)) || (cVetor[j].equals(Constantes.IMPLICACAO))
+                        || (cVetor[j].equals(Constantes.DUPLA_IMPLICACAO))) {
+                    operadores++;
+                }
+                j++;
             }
         }
         return cVetor;
@@ -179,5 +194,5 @@ public class Logica {
     private int fechaParenteses = 0;
     private int abreParenteses = 0;
     private int operadores = 0;
-        
+    
 }
