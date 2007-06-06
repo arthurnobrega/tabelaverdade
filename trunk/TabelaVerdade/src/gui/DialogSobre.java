@@ -33,6 +33,7 @@ public class DialogSobre extends javax.swing.JDialog {
         lblNomeArthur = new javax.swing.JLabel();
         lblNomeFelippe = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         lblProfessora1 = new javax.swing.JLabel();
         lblSemestre1 = new javax.swing.JLabel();
         lblSemestre2 = new javax.swing.JLabel();
@@ -60,6 +61,10 @@ public class DialogSobre extends javax.swing.JDialog {
         jLabel1.setForeground(new java.awt.Color(51, 51, 255));
         jLabel1.setText("(arthurthiago@gmail.com)");
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 10));
+        jLabel2.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel2.setText("(felippepipipe@gmail.com)");
+
         org.jdesktop.layout.GroupLayout pnlDesenvolvedoresLayout = new org.jdesktop.layout.GroupLayout(pnlDesenvolvedores);
         pnlDesenvolvedores.setLayout(pnlDesenvolvedoresLayout);
         pnlDesenvolvedoresLayout.setHorizontalGroup(
@@ -69,7 +74,9 @@ public class DialogSobre extends javax.swing.JDialog {
                     .add(lblNomeFelippe)
                     .add(lblNomeArthur))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jLabel1))
+                .add(pnlDesenvolvedoresLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                    .add(jLabel1)
+                    .add(jLabel2)))
         );
         pnlDesenvolvedoresLayout.setVerticalGroup(
             pnlDesenvolvedoresLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -78,7 +85,9 @@ public class DialogSobre extends javax.swing.JDialog {
                     .add(lblNomeArthur)
                     .add(jLabel1))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(lblNomeFelippe)
+                .add(pnlDesenvolvedoresLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(lblNomeFelippe)
+                    .add(jLabel2))
                 .add(0, 0, Short.MAX_VALUE))
         );
 
@@ -157,6 +166,7 @@ public class DialogSobre extends javax.swing.JDialog {
     
     // Declaração de variáveis - não modifique//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblDesenvolvedores;

@@ -191,7 +191,7 @@ public class Tabelas extends javax.swing.JDialog {
         );
 
         btnVoltar.setText("Voltar");
-        javax.swing.ImageIcon iconVoltar = new javax.swing.ImageIcon("img/cancelar.png");
+        javax.swing.ImageIcon iconVoltar = new javax.swing.ImageIcon("img/voltar.png");
         java.awt.Image imgVoltar = iconVoltar.getImage().getScaledInstance(22, 22, java.awt.Image.SCALE_AREA_AVERAGING);
         btnVoltar.setIcon(new javax.swing.ImageIcon(imgVoltar));
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
