@@ -26,7 +26,7 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
     
     /** Este mï¿½todo ï¿½ gerado automaticamente pelo NetBeans e ï¿½ responsï¿½vel por toda a parte grï¿½fica.
      */
-    // <editor-fold defaultstate="collapsed" desc=" CÃ³digo Gerado ">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc=" Código Gerado ">//GEN-BEGIN:initComponents
     private void initComponents() {
         txtFormula1 = new javax.swing.JTextField();
         txtFormula2 = new javax.swing.JTextField();
@@ -41,8 +41,8 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
         setTitle("Verificando Equival\u00eancia entre duas FBFs");
 
         btnVoltar.setText("Voltar");
-        javax.swing.ImageIcon iconVoltar = new javax.swing.ImageIcon("img/cancelar.png");
-        java.awt.Image imgVoltar = iconVoltar.getImage().getScaledInstance(22, 22, java.awt.Image.SCALE_AREA_AVERAGING);
+        javax.swing.ImageIcon iconVoltar = new javax.swing.ImageIcon("img/voltar.png");
+        java.awt.Image imgVoltar = iconVoltar.getImage().getScaledInstance(18, 18, java.awt.Image.SCALE_AREA_AVERAGING);
         btnVoltar.setIcon(new javax.swing.ImageIcon(imgVoltar));
 
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -53,7 +53,7 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
 
         btnVerificar.setText("Verificar Equival\u00eancia");
         javax.swing.ImageIcon iconConfirmar = new javax.swing.ImageIcon("img/confirmar.png");
-        java.awt.Image imgConfirmar = iconConfirmar.getImage().getScaledInstance(22, 22, java.awt.Image.SCALE_AREA_AVERAGING);
+        java.awt.Image imgConfirmar = iconConfirmar.getImage().getScaledInstance(18, 18, java.awt.Image.SCALE_AREA_AVERAGING);
         btnVerificar.setIcon(new javax.swing.ImageIcon(imgConfirmar));
 
         btnVerificar.addActionListener(new java.awt.event.ActionListener() {
@@ -87,14 +87,14 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
                     .add(layout.createSequentialGroup()
                         .add(jLabel2)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(txtFormula2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE))
+                        .add(txtFormula2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE))
                     .add(layout.createSequentialGroup()
                         .add(jLabel1)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(txtFormula1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE))
+                        .add(txtFormula1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE))
                     .add(layout.createSequentialGroup()
                         .add(btnVoltar)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 325, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 368, Short.MAX_VALUE)
                         .add(btnVerificar)))
                 .addContainerGap())
         );
@@ -143,7 +143,7 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
     
-    // DeclaraÃ§Ã£o de variÃ¡veis - nÃ£o modifique//GEN-BEGIN:variables
+    // Declaração de variáveis - não modifique//GEN-BEGIN:variables
     private javax.swing.JButton btnVerificar;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
@@ -152,6 +152,6 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txtFormula1;
     private javax.swing.JTextField txtFormula2;
-    // Fim da declaraÃ§Ã£o de variÃ¡veis//GEN-END:variables
+    // Fim da declaração de variáveis//GEN-END:variables
     
 }

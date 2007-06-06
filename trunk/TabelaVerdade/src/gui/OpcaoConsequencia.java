@@ -30,7 +30,7 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
     
     /** Este mï¿½todo ï¿½ gerado automaticamente pelo NetBeans e ï¿½ responsï¿½vel por toda a parte grï¿½fica.
      */
-    // <editor-fold defaultstate="collapsed" desc=" CÃ³digo Gerado ">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc=" Código Gerado ">//GEN-BEGIN:initComponents
     private void initComponents() {
         btnVoltar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -47,11 +47,11 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Verificando Consequ\u00eancia L\u00f3gica entre FBFs");
+        setIconImage(new javax.swing.ImageIcon("img/logo.ico").getImage().getScaledInstance(16, 16, java.awt.Image.SCALE_AREA_AVERAGING));
         btnVoltar.setText("Voltar");
-        javax.swing.ImageIcon iconVoltar = new javax.swing.ImageIcon("img/cancelar.png");
-        java.awt.Image imgVoltar = iconVoltar.getImage().getScaledInstance(22, 22, java.awt.Image.SCALE_AREA_AVERAGING);
+        javax.swing.ImageIcon iconVoltar = new javax.swing.ImageIcon("img/voltar.png");
+        java.awt.Image imgVoltar = iconVoltar.getImage().getScaledInstance(18, 18, java.awt.Image.SCALE_AREA_AVERAGING);
         btnVoltar.setIcon(new javax.swing.ImageIcon(imgVoltar));
-
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);
@@ -62,7 +62,7 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
 
         btnAdicionar.setText("Adicionar");
         javax.swing.ImageIcon iconAdicionar = new javax.swing.ImageIcon("img/adicionar.png");
-        java.awt.Image imgAdicionar = iconAdicionar.getImage().getScaledInstance(22, 22, java.awt.Image.SCALE_AREA_AVERAGING);
+        java.awt.Image imgAdicionar = iconAdicionar.getImage().getScaledInstance(18, 18, java.awt.Image.SCALE_AREA_AVERAGING);
         btnAdicionar.setIcon(new javax.swing.ImageIcon(imgAdicionar));
 
         btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
@@ -73,7 +73,7 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
 
         btnRemover.setText("Remover");
         javax.swing.ImageIcon iconRemover = new javax.swing.ImageIcon("img/remover.png");
-        java.awt.Image imgRemover = iconRemover.getImage().getScaledInstance(22, 22, java.awt.Image.SCALE_AREA_AVERAGING);
+        java.awt.Image imgRemover = iconRemover.getImage().getScaledInstance(18, 18, java.awt.Image.SCALE_AREA_AVERAGING);
         btnRemover.setIcon(new javax.swing.ImageIcon(imgRemover));
 
         btnRemover.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +88,7 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
 
         btnVerificar.setText("Verificar Consequ\u00eancia L\u00f3gica");
         javax.swing.ImageIcon iconConfirmar = new javax.swing.ImageIcon("img/confirmar.png");
-        java.awt.Image imgConfirmar = iconConfirmar.getImage().getScaledInstance(22, 22, java.awt.Image.SCALE_AREA_AVERAGING);
+        java.awt.Image imgConfirmar = iconConfirmar.getImage().getScaledInstance(18, 18, java.awt.Image.SCALE_AREA_AVERAGING);
         btnVerificar.setIcon(new javax.swing.ImageIcon(imgConfirmar));
 
         btnVerificar.addActionListener(new java.awt.event.ActionListener() {
@@ -122,17 +122,17 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel1))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(txtNovaPremissa, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
-                            .add(cmbPremissas, 0, 310, Short.MAX_VALUE)
-                            .add(txtConclusao, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE))
+                            .add(txtNovaPremissa, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
+                            .add(cmbPremissas, 0, 362, Short.MAX_VALUE)
+                            .add(txtConclusao, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE))
                         .add(18, 18, 18)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
                             .add(btnRemover, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .add(btnAdicionar)))
                     .add(layout.createSequentialGroup()
                         .add(btnVoltar)
-                        .add(261, 261, 261)
-                        .add(btnVerificar, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 316, Short.MAX_VALUE)
+                        .add(btnVerificar)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -156,8 +156,8 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
                     .add(txtConclusao, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(16, 16, 16)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(btnVerificar)
-                    .add(btnVoltar))
+                    .add(btnVoltar)
+                    .add(btnVerificar))
                 .addContainerGap())
         );
         pack();
@@ -226,7 +226,7 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
     
-    // DeclaraÃ§Ã£o de variÃ¡veis - nÃ£o modifique//GEN-BEGIN:variables
+    // Declaração de variáveis - não modifique//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionar;
     private javax.swing.JButton btnRemover;
     private javax.swing.JButton btnVerificar;
@@ -239,6 +239,6 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txtConclusao;
     private javax.swing.JTextField txtNovaPremissa;
-    // Fim da declaraÃ§Ã£o de variÃ¡veis//GEN-END:variables
+    // Fim da declaração de variáveis//GEN-END:variables
     int nroPremissas = 0;
 }
