@@ -26,7 +26,7 @@ public class OpcaoTabela extends javax.swing.JFrame {
     
     /** Este método é gerado automaticamente pelo NetBeans e é responsável por toda a parte gráfica.
      */
-    // <editor-fold defaultstate="collapsed" desc=" C�digo Gerado ">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc=" Código Gerado ">//GEN-BEGIN:initComponents
     private void initComponents() {
         txtFormula = new javax.swing.JTextField();
         btnVoltar = new javax.swing.JButton();
@@ -37,7 +37,6 @@ public class OpcaoTabela extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Visualizando a Tabela Verdade de uma FBF");
-        setResizable(false);
 
         btnVoltar.setText("Voltar");
         javax.swing.ImageIcon iconVoltar = new javax.swing.ImageIcon("img/voltar.png");
@@ -81,7 +80,7 @@ public class OpcaoTabela extends javax.swing.JFrame {
                 .addContainerGap()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
+                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
                         .addContainerGap())
                     .add(layout.createSequentialGroup()
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
@@ -93,7 +92,7 @@ public class OpcaoTabela extends javax.swing.JFrame {
                             .add(org.jdesktop.layout.GroupLayout.LEADING, layout.createSequentialGroup()
                                 .add(jLabel1)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(txtFormula, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)))
+                                .add(txtFormula, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)))
                         .add(10, 10, 10))))
         );
         layout.setVerticalGroup(
@@ -129,13 +128,13 @@ public class OpcaoTabela extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
     
-    // Declara��o de vari�veis - n�o modifique//GEN-BEGIN:variables
+    // Declaração de variáveis - não modifique//GEN-BEGIN:variables
     private javax.swing.JButton btnVisualizar;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txtFormula;
-    // Fim da declara��o de vari�veis//GEN-END:variables
+    // Fim da declaração de variáveis//GEN-END:variables
     
 }
