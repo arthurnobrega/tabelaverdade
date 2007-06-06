@@ -18,7 +18,7 @@ import tipos.Formula;
 
 /**
  * 
- * @author Arthur Thiago Barbosa Nobrega
+ * @author Arthur Thiago Barbosa Nobrega e Felippe Pires Ferreira
  */
 public class OpcaoConsequencia extends javax.swing.JFrame {
     
@@ -30,7 +30,7 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
     
     /** Este mï¿½todo ï¿½ gerado automaticamente pelo NetBeans e ï¿½ responsï¿½vel por toda a parte grï¿½fica.
      */
-    // <editor-fold defaultstate="collapsed" desc=" Código Gerado ">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc=" Cï¿½digo Gerado ">//GEN-BEGIN:initComponents
     private void initComponents() {
         btnVoltar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -226,7 +226,7 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
     
-    // Declaração de variáveis - não modifique//GEN-BEGIN:variables
+    // Declaraï¿½ï¿½o de variï¿½veis - nï¿½o modifique//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionar;
     private javax.swing.JButton btnRemover;
     private javax.swing.JButton btnVerificar;
@@ -239,6 +239,6 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txtConclusao;
     private javax.swing.JTextField txtNovaPremissa;
-    // Fim da declaração de variáveis//GEN-END:variables
+    // Fim da declaraï¿½ï¿½o de variï¿½veis//GEN-END:variables
     int nroPremissas = 0;
 }

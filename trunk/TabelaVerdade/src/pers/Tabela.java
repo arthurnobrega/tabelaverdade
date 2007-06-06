@@ -13,7 +13,7 @@ import tipos.Formula;
 
 /**
  *
- * @author Arthur Thiago Barbosa Nobrega
+ * @author Arthur Thiago Barbosa Nobrega e Felippe Pires Ferreira
  */
 public class Tabela {
     

@@ -19,7 +19,7 @@ import tipos.Containers;
 
 /**
  *
- * @author Arthur Thiago Barbosa Nobrega
+ * @author Arthur Thiago Barbosa Nobrega e Felippe Pires Ferreira
  */
 public class Tabelas extends javax.swing.JDialog {
 

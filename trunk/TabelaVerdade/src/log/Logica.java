@@ -10,8 +10,7 @@ import tipos.Constantes;
 import tipos.Formula;
 
 /**
- * @author Felippe Pires Ferreira
- * @author Arthur Thiago Barbosa Nobrega
+ * @author Arthur Thiago Barbosa Nobrega e Felippe Pires Ferreira
  */
 public class Logica {
     
