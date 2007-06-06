@@ -26,7 +26,7 @@ public class OpcaoTabela extends javax.swing.JFrame {
     
     /** Este m√©todo √© gerado automaticamente pelo NetBeans e √© respons√°vel por toda a parte gr√°fica.
      */
-    // <editor-fold defaultstate="collapsed" desc=" C√≥digo Gerado ">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc=" CÛdigo Gerado ">//GEN-BEGIN:initComponents
     private void initComponents() {
         txtFormula = new javax.swing.JTextField();
         btnVoltar = new javax.swing.JButton();
@@ -40,8 +40,8 @@ public class OpcaoTabela extends javax.swing.JFrame {
         setResizable(false);
 
         btnVoltar.setText("Voltar");
-        javax.swing.ImageIcon iconVoltar = new javax.swing.ImageIcon("img/cancelar.png");
-        java.awt.Image imgVoltar = iconVoltar.getImage().getScaledInstance(22, 22, java.awt.Image.SCALE_AREA_AVERAGING);
+        javax.swing.ImageIcon iconVoltar = new javax.swing.ImageIcon("img/voltar.png");
+        java.awt.Image imgVoltar = iconVoltar.getImage().getScaledInstance(18, 18, java.awt.Image.SCALE_AREA_AVERAGING);
         btnVoltar.setIcon(new javax.swing.ImageIcon(imgVoltar));
 
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -52,7 +52,7 @@ public class OpcaoTabela extends javax.swing.JFrame {
 
         btnVisualizar.setText("Visualizar Tabela Verdade");
         javax.swing.ImageIcon iconConfirmar = new javax.swing.ImageIcon("img/confirmar.png");
-        java.awt.Image imgConfirmar = iconConfirmar.getImage().getScaledInstance(22, 22, java.awt.Image.SCALE_AREA_AVERAGING);
+        java.awt.Image imgConfirmar = iconConfirmar.getImage().getScaledInstance(18, 18, java.awt.Image.SCALE_AREA_AVERAGING);
         btnVisualizar.setIcon(new javax.swing.ImageIcon(imgConfirmar));
 
         btnVisualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -88,12 +88,12 @@ public class OpcaoTabela extends javax.swing.JFrame {
                             .add(layout.createSequentialGroup()
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(btnVoltar)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 303, Short.MAX_VALUE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 350, Short.MAX_VALUE)
                                 .add(btnVisualizar))
                             .add(org.jdesktop.layout.GroupLayout.LEADING, layout.createSequentialGroup()
                                 .add(jLabel1)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(txtFormula, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)))
+                                .add(txtFormula, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)))
                         .add(10, 10, 10))))
         );
         layout.setVerticalGroup(
@@ -129,13 +129,13 @@ public class OpcaoTabela extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
     
-    // Declara√ß√£o de vari√°veis - n√£o modifique//GEN-BEGIN:variables
+    // DeclaraÁ„o de vari·veis - n„o modifique//GEN-BEGIN:variables
     private javax.swing.JButton btnVisualizar;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txtFormula;
-    // Fim da declara√ß√£o de vari√°veis//GEN-END:variables
+    // Fim da declaraÁ„o de vari·veis//GEN-END:variables
     
 }
