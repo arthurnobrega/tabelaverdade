@@ -13,8 +13,14 @@ public class Constantes {
     public final static String MENSAGEM_ERRO_FORMULA = "A f\u00f3rmula inserida n\u00e3o segue os padr\u00f5es pr\u00e9-definidos!";
     public final static String MENSAGEM_ERRO_CONCLUSAO = "A conclus\u00e3o inserida n\u00e3o segue os padr\u00f5es pr\u00e9-definidos!";    
     public final static String TITULO_ERRO_FORMULA = "Os padr\u00f5es n\u00e3o foram seguidos!";
+    
     public final static String MENSAGEM_ERRO_PROPOSICOES = "O n\u00famero de proposic\u00f5es de todas as f\u00f3rmulas devem ser iguais!";
-    public final static String TITULO_ERRO_PROPOSICOES = "N\u00famero de proposi\u00e7\u00f5es incorreto!";
+    public final static String TITULO_ERRO_PROPOSICOES = "N\u00famero de proposi\u00e7\u00f5es incorreto!";    
+    
+    /* Constantes para padronizar os números das propriedades semânticas. */
+    public final static int TAUTOLOGIA = 0;
+    public final static int CONTRADICAO = 1;
+    public final static int CONTINGENCIA = 2;
     
     /* Constantes que definem as strings de verdadeiro e falso. */
     public final static String VERDADEIRO = "V";

@@ -123,6 +123,17 @@ public class OpcaoTabela extends javax.swing.JFrame {
             Formula formula = new Formula(txtFormula.getText());
             Tabela logTab = new Tabela(formula);
             
+            if (logTab.getPropriedade() == Constantes.TAUTOLOGIA) {
+                JOptionPane.showMessageDialog(null, "A f\u00f3rmula inserida \u00e9 uma Tautologia!", 
+                        "Tautologia!", JOptionPane.INFORMATION_MESSAGE);
+            } else if (logTab.getPropriedade() == Constantes.CONTRADICAO) {
+                JOptionPane.showMessageDialog(null, "A f\u00f3rmula inserida \u00e9 uma Contradi\u00e7\u00e3o!", 
+                        "Contradi\u00e7\u00e3o!", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "A f\u00f3rmula inserida \u00e9 uma Conting\u00eancia!", 
+                        "Conting\u00eancia!", JOptionPane.INFORMATION_MESSAGE);
+            }
+            
             /* Cria uma nova janela de Tabelas para mostrar os dados da fórmula. */
             new Tabelas(this, true, logTab.getLinhas(), logTab.getColunas(), null, null).setVisible(true);
         } catch (FormulaException e) {
