@@ -7,6 +7,7 @@ package pers;
 import java.util.ArrayList;
 import log.FormulaException;
 import log.Logica;
+import tipos.Constantes;
 import tipos.Formula;
 
 /** Classe que retorna a tabela se a fórmula passar nos testes.
@@ -23,6 +24,22 @@ public class Tabela {
             throw new FormulaException();
         }
         tabela = new TabelaVerdade(formula);
+        int nroColunas = tabela.getColunas().size();
+        int pontos = 0;
+        for (int linha = 0; linha <= tabela.getLinhas().size() - 1; linha++) {
+            if (tabela.getLinhas().get(linha)[nroColunas - 1].equals(Constantes.VERDADEIRO)) {
+                pontos++;
+            } else {
+                pontos--;
+            }
+        }
+        if (pontos == tabela.getLinhas().size()) {
+            propriedade = Constantes.TAUTOLOGIA;
+        } else if (pontos == -tabela.getLinhas().size()) {
+            propriedade = Constantes.CONTRADICAO;
+        } else {
+            propriedade = Constantes.CONTINGENCIA;
+        }
     }
     
     /** Retorna as linhas para serem mostradas na tabela. 
@@ -37,5 +54,10 @@ public class Tabela {
         return tabela.getColunas();
     }
     
-    TabelaVerdade tabela;
+    public int getPropriedade() {
+        return propriedade;
+    }
+    
+    private int propriedade = 0;
+    private TabelaVerdade tabela;
 }
