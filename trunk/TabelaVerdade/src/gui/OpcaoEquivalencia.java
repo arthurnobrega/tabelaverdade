@@ -7,18 +7,20 @@ package gui;
 
 import javax.swing.JOptionPane;
 import log.FormulaException;
+import log.ProposicoesException;
 import pers.Equivalencia;
 import tipos.Constantes;
 import tipos.Containers;
 import tipos.Formula;
 
-/**
- *
+/** Janela para que o usuário insira duas fórmulas.
+ * @see javax.swing.JFrame
  * @author Arthur Thiago Barbosa Nobrega e Felippe Pires Ferreira
  */
 public class OpcaoEquivalencia extends javax.swing.JFrame {
     
-    /** Cria uma nova janela de OpcaoEquivalencia. */
+    /** Cria uma nova janela para que o usuário insira duas fórmulas. 
+     */
     public OpcaoEquivalencia() {
         initComponents();
         Containers.alinharContainer(this);
@@ -120,8 +122,12 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /** Cria uma ação quando o usuário pressionar o botão "Verificar Equivalência".
+     * @see java.awt.event.ActionEvent
+     */
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
         try {
+            /* Cria um objeto Equivalencia e testa se as fórmulas são equivalentes. */
             Formula formula1 = new Formula(txtFormula1.getText());
             Formula formula2 = new Formula(txtFormula2.getText());
             Equivalencia equiv = new Equivalencia(formula1, formula2);
@@ -132,12 +138,21 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "As f\u00f3rmulas n\u00e3o s\u00e3o sem\u00e2nticamente " +
                         "equivalentes!", "N\u00e3o s\u00e3o Equivalentes!", JOptionPane.INFORMATION_MESSAGE);
             }
+            
+            /* Cria uma nova janela de Tabelas para mostrar os dados das fórmulas. */
             new Tabelas(this, true, equiv.getLinhas(), equiv.getColunas(), null, null).setVisible(true);
         } catch (FormulaException e) {
-            JOptionPane.showMessageDialog(null, Constantes.MENSAGEM_ERRO_FORMULA, Constantes.TITULO_ERRO_FORMULA, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, Constantes.MENSAGEM_ERRO_FORMULA, 
+                    Constantes.TITULO_ERRO_FORMULA, JOptionPane.ERROR_MESSAGE);
+        } catch (ProposicoesException e) {
+            JOptionPane.showMessageDialog(null, Constantes.MENSAGEM_ERRO_PROPOSICOES, 
+                    Constantes.TITULO_ERRO_PROPOSICOES, JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnVerificarActionPerformed
 
+    /** Cria uma ação quando o usuário pressionar o botão "Voltar".
+     * @see java.awt.event.ActionEvent
+     */
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         /* Fecha a janela. */
         this.dispose();

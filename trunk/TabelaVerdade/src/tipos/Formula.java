@@ -1,6 +1,5 @@
 /*
  * Formula.java
- *
  */
 
 package tipos;
@@ -8,20 +7,19 @@ package tipos;
 import java.util.ArrayList;
 import tipos.Constantes;
 
-/**
- * 
+/** Esta classe é responsável por dividir as letras da fórmula em tipos.
  * @author Arthur Thiago Barbosa Nobrega e Felippe Pires Ferreira
  */
 public class Formula {
     
-    /** Cria uma nova instância de fórmula. */
+    /** Cria uma nova instância de fórmula. 
+     */
     public Formula(String formula) {
         this.formula = formula;
         contarCaracteres();
     }
 
-    /** Função interna que conta o número de proposições distintas que 
-     * existem na fórmula e as guarda na variável de objeto 'proposicoes'.
+    /* Função interna que conta o número de proposições distintas que existem na fórmula e as guarda na variável de objeto 'proposicoes'.
      */
     private void contarCaracteres() {
         String letra;
@@ -57,26 +55,32 @@ public class Formula {
         }
     }
 
-    /** @return A fórmula em forma de String.
+    /** Retorna a fórmula em forma de String.
      */
     public String getFormula() {
         return formula;
     }
     
-    /** @return A lista de proposições da fórmula.
+    /** Retorna a lista de proposições da fórmula.
      */
     public ArrayList<String> getProposicoes() {
         return (ArrayList) proposicoes.clone();
     }
     
+    /** Retorna o número de conectivos na fórmula.
+     */
     public int getConectivos() {
         return conectivos;
     }
     
+    /** Retorna o número parênteses abrindo na fórmula.
+     */
     public int getAbreParenteses() {
         return abreParenteses;
     }
     
+    /** Retorna o número parênteses fechando na fórmula.
+     */
     public int getFechaParenteses() {
         return fechaParenteses;
     }

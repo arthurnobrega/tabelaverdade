@@ -10,19 +10,20 @@ import javax.swing.ComboBoxModel;
 import javax.swing.JOptionPane;
 import log.FormulaException;
 import log.Logica;
-import log.LogicaConsequencia;
+import log.ProposicoesException;
 import pers.Consequencia;
 import tipos.Constantes;
 import tipos.Containers;
 import tipos.Formula;
 
-/**
- * 
+/** Janela para que o usuário insira as premissas e a conclusão.
+ * @see javax.swing.JFrame
  * @author Arthur Thiago Barbosa Nobrega e Felippe Pires Ferreira
  */
 public class OpcaoConsequencia extends javax.swing.JFrame {
     
-    /** Cria uma nova janela de OpcaoConsequencia. */
+    /** Cria uma nova janela para que o usuário insira as premissas e a conclusão. 
+     */
     public OpcaoConsequencia() {
         initComponents();
         Containers.alinharContainer(this);
@@ -163,16 +164,21 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /** Cria uma ação quando o usuário pressionar o botão "Verificar Consequência".
+     * @see java.awt.event.ActionEvent
+     */
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
         ComboBoxModel modelo = cmbPremissas.getModel();
+        String conclusao = txtConclusao.getText();
+
+        /* Cria um ArrayList das Premissas inseridas. */
         ArrayList listaPremissas = new ArrayList();
         for (int i = 0; i <= nroPremissas - 1; i++) {
             listaPremissas.add(modelo.getElementAt(i));
         }
         
-        String conclusao = txtConclusao.getText();
-        
         try {
+            /* Cria um objeto de Consequencia e testa se a conclusão é consequência lógica das premissas. */
             Consequencia conseq = new Consequencia(listaPremissas, conclusao);
             ArrayList<Integer> linhasCorretas = conseq.getLinhasCorretas();;
             ArrayList<Integer> linhasIncorretas = null;
@@ -184,15 +190,23 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "A conclus\u00e3o n\u00e3o \u00e9 consequ\u00eancia l\u00f3gica " +
                         "das premissas!", "\u00c9 consequ\u00eancia l\u00f3gica!", JOptionPane.INFORMATION_MESSAGE);
             }
+            
+            /* Cria uma nova janela de Tabelas para mostrar os dados das premissas e da conclusão. */
             new Tabelas(this, true, conseq.getLinhas(), conseq.getColunas(), linhasCorretas, linhasIncorretas).setVisible(true);
         } catch (FormulaException e) {
-            JOptionPane.showMessageDialog(null, "A conclus\u00e3o n\u00e3o segue os padr\u00f5es estipulados!",
-                    "Conclus\u00e3o inv\u00e1lida", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, Constantes.MENSAGEM_ERRO_CONCLUSAO, 
+                    Constantes.TITULO_ERRO_FORMULA, JOptionPane.ERROR_MESSAGE);
+        } catch (ProposicoesException e) {
+            JOptionPane.showMessageDialog(null, Constantes.MENSAGEM_ERRO_PROPOSICOES, 
+                    Constantes.TITULO_ERRO_PROPOSICOES, JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnVerificarActionPerformed
-
+    
+    /** Cria uma ação quando o usuário pressionar o botão "Remover".
+     * @see java.awt.event.ActionEvent
+     */
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
-        /* Verifica se a Lista de Premissas est� em branco. */
+        /* Verifica se a Lista de Premissas está em branco. */
         if (cmbPremissas.getItemCount() == 0) {
             JOptionPane.showMessageDialog(null, "N\u00e3o existem f\u00f3rmulas para serem deletadas!", 
                     "Lista de Premissas vazia!",JOptionPane.INFORMATION_MESSAGE);
@@ -202,25 +216,37 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
         /* Remove o item selecionado na Lista de Premissas. */
         int nroPremissa = cmbPremissas.getSelectedIndex();
         cmbPremissas.removeItemAt(nroPremissa);
+        
+        /* Retira uma premissa no contador de premissas do ComboBox. */
         nroPremissas--;
     }//GEN-LAST:event_btnRemoverActionPerformed
 
+    /** Cria uma ação quando o usuário pressionar o botão "Adicionar".
+     * @see java.awt.event.ActionEvent
+     */
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         String novaPremissa = txtNovaPremissa.getText();
+        Formula premissa = new Formula(novaPremissa);
         
-        LogicaConsequencia logica = new LogicaConsequencia(novaPremissa);
-        if (!logica.testarFormulaBemFormada()) {
+        /* Testa se a premissa segue os padrões pré-definidos. */
+        Logica logica = new Logica();
+        if (!logica.testarFormulaBemFormada(premissa)) {
             JOptionPane.showMessageDialog(null, "A premissa n\u00e3o p\u00f4de ser inserida pois n\u00e3o segue " +
                     "os padr\u00f5es estipulados!", "Premissa inv\u00e1lida!", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        nroPremissas++;
-        /* Adiciona a premissa � Lista de Premissas e a seleciona. */
+        /* Adiciona a premissa à Lista de Premissas e a seleciona. */
         cmbPremissas.addItem(novaPremissa);
         txtNovaPremissa.setText("");
         cmbPremissas.setSelectedIndex(cmbPremissas.getItemCount() - 1);
+        
+        /* Adiciona uma premissa no contador de premissas do ComboBox. */
+        nroPremissas++;
     }//GEN-LAST:event_btnAdicionarActionPerformed
 
+    /** Cria uma ação quando o usuário pressionar o botão "Voltar".
+     * @see java.awt.event.ActionEvent
+     */
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         /* Fecha a janela. */
         this.dispose();

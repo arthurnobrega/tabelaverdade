@@ -1,18 +1,24 @@
 /*
  * Constantes.java
- *
  */
 
 package tipos;
 
 /** Esta classe guarda as constantes que são usadas no programa e que não foram encaixadas em outras classes.
- *
  * @author Arthur Thiago Barbosa Nobrega e Felippe Pires Ferreira
  */
 public class Constantes {
     
+    /* Constantes para padronizar as mensagens de erros para o usuário. */
     public final static String MENSAGEM_ERRO_FORMULA = "A f\u00f3rmula inserida n\u00e3o segue os padr\u00f5es pr\u00e9-definidos!";
+    public final static String MENSAGEM_ERRO_CONCLUSAO = "A conclus\u00e3o inserida n\u00e3o segue os padr\u00f5es pr\u00e9-definidos!";    
     public final static String TITULO_ERRO_FORMULA = "Os padr\u00f5es n\u00e3o foram seguidos!";
+    public final static String MENSAGEM_ERRO_PROPOSICOES = "O n\u00famero de proposic\u00f5es de todas as f\u00f3rmulas devem ser iguais!";
+    public final static String TITULO_ERRO_PROPOSICOES = "N\u00famero de proposi\u00e7\u00f5es incorreto!";
+    
+    /* Constantes que definem as strings de verdadeiro e falso. */
+    public final static String VERDADEIRO = "V";
+    public final static String FALSO = "F";
         
     /* Constante que é utilizada nas 3 opções iniciais para mostrar os padrões de escrita ao usuário. */
     public final static String PADRAO_FORMULA = "* Operadores l\u00f3gicos que devem ser utilizados:\n" +
