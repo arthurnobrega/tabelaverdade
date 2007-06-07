@@ -17,13 +17,14 @@ import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.TableColumn;
 import tipos.Containers;
 
-/**
- *
+/** Tabela para mostrar os dados das fórmulas.
+ * @see javax.swing.JDialog
  * @author Arthur Thiago Barbosa Nobrega e Felippe Pires Ferreira
  */
 public class Tabelas extends javax.swing.JDialog {
 
-    /** Cria uma nova janela de Tabelas. */
+    /** Cria uma nova janela de Tabelas. 
+     */
     public Tabelas(java.awt.Frame parent, boolean modal, ArrayList<String[]> linhas, ArrayList<String> colunas, ArrayList<Integer> linhasCorretas, ArrayList<Integer> linhasIncorretas) {
         super(parent, modal);
         this.linhas = linhas;
@@ -34,7 +35,9 @@ public class Tabelas extends javax.swing.JDialog {
         Containers.alinharContainer(this);
     }
 
-    /* Cria uma classe interna que ser� o modelo da Tabela. */
+    /** Classe interna que será utilizada como modelo da Tabela.
+     * @see javax.swing.table.AbstractTableModel
+     */
     class ModeloTabela extends AbstractTableModel {
 
         /** Cria um novo modelo de Tabela.
@@ -51,7 +54,7 @@ public class Tabelas extends javax.swing.JDialog {
         }
 
          /**
-          * Retorna o numero de linhas existentes no modelo
+          * Retorna o numero de linhas existentes no modelo.
           * @see javax.swing.table.TableModel#getRowCount()
           */
         public int getRowCount() {
@@ -59,28 +62,30 @@ public class Tabelas extends javax.swing.JDialog {
         }
 
          /**
-          * Obtem o valor na linha e coluna
+          * Obtem o valor na linha e coluna.
           * @see javax.swing.table.TableModel#getValueAt(int, int)
           */
         public Object getValueAt(int rowIndex, int columnIndex) {
-            // Obtem a linha, que � uma String []
+            /* Obtem a linha, que é uma String []. */
             String[] linha = (String[]) linhas.get(rowIndex);
-            // Retorna o objeto que esta na coluna
+            /* Retorna o objeto que esta na coluna. */
             return linha[columnIndex];
-        }
-
-        public String[] getValues(int rowIndex){
-            return (String[]) linhas.get(rowIndex);
         }
     }
     
+    /** Classe interna que será utilizada para personalizar o visual da tabela.
+     * @see javax.swing.table.DefaultTableCellRenderer
+     */
     class CellRenderer extends DefaultTableCellRenderer {
 
-
+        /** Cria uma nova renderização da tabela.
+         */
         public CellRenderer() {
             super();
         }
-
+        
+        /** Retorna a personalização da tabela para que possa ser mostrada ao usuário.
+         */
         public Component getTableCellRendererComponent(javax.swing.JTable table,
                 Object value, boolean isSelected, boolean hasFocus, int row, int column) {
 
@@ -93,12 +98,14 @@ public class Tabelas extends javax.swing.JDialog {
                 label.setHorizontalAlignment(JLabel.CENTER);
             }
             
-            /* Seta a cor padr�o do fundo. */
+            /* Seta a cor padrão do fundo. */
             label.setBackground(Color.WHITE);
-            /* Seta a cor padr�o da letra. */
+            /* Seta a cor padrão da letra. */
             label.setForeground(Color.BLACK);
             
+            /* Escolhe outras cores para as linhas e letras. */
             boolean achou = false;
+            /* Pinta de verde as linhas. */
             if (linhasCorretas != null) {
                 int i = 0;
                 int nroLinhasCorretas = linhasCorretas.size();
@@ -111,6 +118,7 @@ public class Tabelas extends javax.swing.JDialog {
                 }
             }
             
+            /* Pinta de vermelho as linhas. */
             if (linhasIncorretas != null) {
                 int i = 0;
                 int nroLinhasIncorretas = linhasIncorretas.size();
@@ -123,6 +131,7 @@ public class Tabelas extends javax.swing.JDialog {
                 }
             }
 
+            /* Centraliza os dados no centro das colunas. */
             label.setHorizontalAlignment(SwingConstants.CENTER);
 
             return label;
@@ -130,9 +139,13 @@ public class Tabelas extends javax.swing.JDialog {
     }
 
 
+    /** Classe interna que será utilizada para mostrar as colunas da tabela.
+     * see javax.swing.table.DefaultTableColumnModel
+     */
     class ModeloColuna extends DefaultTableColumnModel {
 
-
+        /** Cria um novo Modelo de Coluna.
+         */
         public ModeloColuna(FontMetrics fm) {
 
                 int nColunas = colunas.size();
@@ -141,6 +154,8 @@ public class Tabelas extends javax.swing.JDialog {
                 }
         }
 
+        /* Cria uma nova coluna.
+         */
         private TableColumn criaColuna(int columnIndex, int largura, FontMetrics fm, boolean resizable, String titulo){
 
             int larguraTitulo = fm.stringWidth(titulo + "  ");
@@ -223,6 +238,9 @@ public class Tabelas extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /** Cria uma ação quando o usuário pressionar o botão "Voltar".
+     * @see java.awt.event.ActionEvent
+     */
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         /* Fecha a janela. */
         this.dispose();

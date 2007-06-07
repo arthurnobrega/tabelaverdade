@@ -12,13 +12,14 @@ import tipos.Constantes;
 import tipos.Containers;
 import tipos.Formula;
 
-/**
- *
+/** Janela para que o usuário insira uma fórmula.
+ * @see javax.swing.JFrame
  * @author Arthur Thiago Barbosa Nobrega e Felippe Pires Ferreira
  */
 public class OpcaoTabela extends javax.swing.JFrame {
     
-    /** Cria uma nova janela de OpcaoTabela. */
+    /** Cria uma nova janela de Tabela Verdade. 
+     */
     public OpcaoTabela() {
         initComponents();
         Containers.alinharContainer(this);
@@ -113,16 +114,25 @@ public class OpcaoTabela extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /** Cria uma ação quando o usuário pressionar o botão "Visualizar Tabela Verdade".
+     * @see java.awt.event.ActionEvent
+     */
     private void btnVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarActionPerformed
         try {
+            /* Cria um novo objeto Tabela. */
             Formula formula = new Formula(txtFormula.getText());
             Tabela logTab = new Tabela(formula);
+            
+            /* Cria uma nova janela de Tabelas para mostrar os dados da fórmula. */
             new Tabelas(this, true, logTab.getLinhas(), logTab.getColunas(), null, null).setVisible(true);
         } catch (FormulaException e) {
             JOptionPane.showMessageDialog(null, Constantes.MENSAGEM_ERRO_FORMULA, Constantes.TITULO_ERRO_FORMULA, JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnVisualizarActionPerformed
 
+    /** Cria uma ação quando o usuário pressionar o botão "Voltar".
+     * @see java.awt.event.ActionEvent
+     */
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         /* Fecha a janela. */
         this.dispose();

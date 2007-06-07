@@ -26,16 +26,16 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtFormula2" pref="527" max="32767" attributes="0"/>
+                      <Component id="txtFormula2" pref="550" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtFormula1" pref="527" max="32767" attributes="0"/>
+                      <Component id="txtFormula1" pref="550" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="btnVoltar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="368" max="32767" attributes="0"/>
+                      <EmptySpace pref="411" max="32767" attributes="0"/>
                       <Component id="btnVerificar" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>

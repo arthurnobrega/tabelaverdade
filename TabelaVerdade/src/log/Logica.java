@@ -1,6 +1,5 @@
 /*
  * Logica.java
- *
  */
 
 package log;
@@ -9,23 +8,15 @@ import java.util.ArrayList;
 import tipos.Constantes;
 import tipos.Formula;
 
-/**
+/** Classe que testa se o usuário informou uma fórmula válida.
  * @author Arthur Thiago Barbosa Nobrega e Felippe Pires Ferreira
  */
 public class Logica {
     
-    protected ArrayList getLinhas() {
-        return new ArrayList();
-    }
-    
-    protected ArrayList getColunas() {
-        return new ArrayList();
-    }
-    
     /** 
      * Esta função irá testar se a fórmula é bem formada e segue os padrões exigidos.
-     *ela utiliza funções para analizar o uso de operadores e proposições e casos
-     *de erro possíveis na construção da fórmula pelo usuário.
+     * ela utiliza funções para analizar o uso de operadores e proposições e casos
+     * de erro possíveis na construção da fórmula pelo usuário.
      *
      * @param formula Objeto que possui a fórmula como uma String.
      *
@@ -111,9 +102,9 @@ public class Logica {
     
     /** 
      * Função que testa a existência de dois operadores lógicos juntos. 
-     *Se existe um parentese '(' iniciando a formula e um parentese ')' encerrando
-     *a fórmula.
-     *Ela analisa a existência de um um conector e um parentese ')' juntos.
+     * Se existe um parentese '(' iniciando a formula e um parentese ')' encerrando
+     * a fórmula.
+     * Ela analisa a existência de um um conector e um parentese ')' juntos.
      *
      * @param formula Vetor de Strings.
      *

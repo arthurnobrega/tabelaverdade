@@ -1,6 +1,5 @@
 /*
  * TabelaVerdade.java
- *
  */
 
 package pers;
@@ -10,13 +9,13 @@ import java.util.Stack;
 import tipos.Constantes;
 import tipos.Formula;
 
-/**
- *
+/** Classe que constroi a tabela verdade.
  * @author Arthur Thiago Barbosa Nobrega e Felippe Pires Ferreira
  */
 public class TabelaVerdade {
 
-    /** Creates a new instance of TabelaVerdade */
+    /** Cria uma nova instância de Tabela Verdade.
+     */
     public TabelaVerdade(Formula formula) {        
         /* Inicializa todas as vari�veis de objeto com seus respectivos valores. */
         this.formula = formula;
@@ -31,11 +30,10 @@ public class TabelaVerdade {
         transformarArray();
     }
     
-    /** Fun��o que preenche as colunas das proposi��es com V ou F.
-     *
+    /** Preenche as colunas das proposições com V ou F.
      */
     private void preencherTabela() {
-        String[] valores = new String[] {verdadeiro, falso};
+        String[] valores = new String[] {Constantes.VERDADEIRO, Constantes.FALSO};
         nroColunas = formula.getProposicoes().size();
         nroLinhas = (int) Math.pow(2, nroColunas);
         int proporcao = nroLinhas / 2;
@@ -56,7 +54,7 @@ public class TabelaVerdade {
         }
     }
 
-    /** Resolve de fato a tabela, preenchendo com V ou F nas f�rmulas.
+    /** Resolve de fato a tabela, preenchendo com V ou F a última coluna, que é o resultado.
      *
      */
     private String resolverFormula(int linha) {
@@ -71,7 +69,7 @@ public class TabelaVerdade {
                     && !(letra.equals(")")) && !(letra.equals(" "))) {
                 pilhaProposicoes.add(pegarValor(letra, linha));
             } else if (letra.equals(")")) {
-                    realizarOperacao(linha);
+                    realizarOperacao();
                     parent--;
             } else if (!(letra.equals("(")) && !(letra.equals(" "))) {
                 pilhaConectivos.add(letra);
@@ -84,7 +82,9 @@ public class TabelaVerdade {
         return retorno.pop();
     }
     
-    private void realizarOperacao(int linha) {        
+    /** Realiza a operação de acordo com o respectivo conectivo.
+     */
+    private void realizarOperacao() {        
         boolean proposicaoSolitaria = false;
         String conectivo = "";
         if (!pilhaConectivos.isEmpty()) {
@@ -99,47 +99,51 @@ public class TabelaVerdade {
             if (conectivo.equals(Constantes.CONJUNCAO)) {             
                 proposicao2 = pilhaProposicoes.pop();
                 proposicao1 = pilhaProposicoes.pop();
-                if((proposicao1.equals(verdadeiro)) && (proposicao2.equals(verdadeiro))) {
-                   pilhaProposicoes.push(verdadeiro);
+                if((proposicao1.equals(Constantes.VERDADEIRO)) && (proposicao2.equals(Constantes.VERDADEIRO))) {
+                   pilhaProposicoes.push(Constantes.VERDADEIRO);
                 } else {
-                   pilhaProposicoes.push(falso);
+                   pilhaProposicoes.push(Constantes.FALSO);
                 }
             } else if (conectivo.equals(Constantes.DISJUNCAO)) {
                 proposicao2 = pilhaProposicoes.pop();
                 proposicao1 = pilhaProposicoes.pop();
-                if (proposicao1.equals(verdadeiro) || proposicao2.equals(verdadeiro)) {
-                    pilhaProposicoes.push(verdadeiro);
+                if (proposicao1.equals(Constantes.VERDADEIRO) || proposicao2.equals(Constantes.VERDADEIRO)) {
+                    pilhaProposicoes.push(Constantes.VERDADEIRO);
                 } else {
-                    pilhaProposicoes.push(falso);
+                    pilhaProposicoes.push(Constantes.FALSO);
                 }
 
             } else if (conectivo.equals(Constantes.NEGACAO)) {
                 proposicao1 = pilhaProposicoes.pop();
-                if (proposicao1.equals(verdadeiro)) {
-                    pilhaProposicoes.push(falso);
+                if (proposicao1.equals(Constantes.VERDADEIRO)) {
+                    pilhaProposicoes.push(Constantes.FALSO);
                 } else {
-                    pilhaProposicoes.push(verdadeiro);
+                    pilhaProposicoes.push(Constantes.VERDADEIRO);
                 }
             } else if (conectivo.equals(Constantes.IMPLICACAO)) {
                 proposicao2 = pilhaProposicoes.pop();
                 proposicao1 = pilhaProposicoes.pop();
-                if ((proposicao1.equals(verdadeiro)) && (proposicao2.equals(falso))) {
-                    pilhaProposicoes.push(falso);
+                if ((proposicao1.equals(Constantes.VERDADEIRO)) && (proposicao2.equals(Constantes.FALSO))) {
+                    pilhaProposicoes.push(Constantes.FALSO);
                 } else {
-                    pilhaProposicoes.push(verdadeiro);
+                    pilhaProposicoes.push(Constantes.VERDADEIRO);
                 }
             } else if (conectivo.equals(Constantes.DUPLA_IMPLICACAO)) {
                 proposicao2 = pilhaProposicoes.pop();
                 proposicao1 = pilhaProposicoes.pop();
                 if (proposicao1.equals(proposicao2)) {
-                    pilhaProposicoes.push(verdadeiro);
+                    pilhaProposicoes.push(Constantes.VERDADEIRO);
                 } else {
-                    pilhaProposicoes.push(falso);
+                    pilhaProposicoes.push(Constantes.FALSO);
                 }
             }
         }
     }
     
+    /* Retorna o valor da da proposição em determinada linha (V ou F).
+     * @param proposicao O nome da proposição que se deseja pegar o valor.
+     * @param linha A linha em que o valor se encontra.
+     */
     private String pegarValor(String proposicao, int linha) {
         ArrayList listaProposicoes = formula.getProposicoes();
         int coluna = 0;
@@ -165,9 +169,14 @@ public class TabelaVerdade {
         }
     }    
     
+    /** Retorna as linhas que serão mostradas na tabela.
+     */
     public ArrayList<String[]> getLinhas() {
         return (ArrayList<String[]>) linhas.clone();
     }
+    
+    /** Retorna as colunas que serão mostradas na tabela.
+     */
     public ArrayList<String> getColunas() {
         ArrayList listaColunas = formula.getProposicoes();
         listaColunas.add(formula.getFormula());
@@ -181,6 +190,4 @@ public class TabelaVerdade {
     private int nroColunas = 0;
     private Stack<String> pilhaConectivos = new Stack<String>();
     private Stack<String> pilhaProposicoes = new Stack<String>();
-    private String verdadeiro = "V";
-    private String falso = "F";
 }
