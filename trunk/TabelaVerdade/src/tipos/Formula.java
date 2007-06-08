@@ -5,6 +5,7 @@
 package tipos;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import tipos.Constantes;
 
 /** Esta classe é responsável por dividir as letras da fórmula em tipos.
@@ -53,6 +54,7 @@ public class Formula {
                 }
             }
         }
+        Collections.sort(proposicoes);
     }
 
     /** Retorna a fórmula em forma de String.
