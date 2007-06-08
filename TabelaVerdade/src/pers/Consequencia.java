@@ -11,27 +11,27 @@ import log.ProposicoesException;
 import tipos.Constantes;
 import tipos.Formula;
 
-/** Classe que testa se a conclusão é consequência lógica das premissas.
+/** Classe que testa se a conclusï¿½o ï¿½ consequï¿½ncia lï¿½gica das premissas.
  * @author Arthur Thiago Barbosa Nobrega e Felippe Pires Ferreira
  */
 public class Consequencia {
     
-    /** Cria um novo teste de Consequência Lógica.
+    /** Cria um novo teste de Consequï¿½ncia Lï¿½gica.
      */
     public Consequencia(ArrayList<String> premissas, String conclusao) throws FormulaException, ProposicoesException {
-        /* Testa se a conclusão segue os padrões. */
+        /* Testa se a conclusï¿½o segue os padrï¿½es. */
         Logica logica = new Logica();
         Formula formConclusao = new Formula(conclusao);
         if (!logica.testarFormulaBemFormada(formConclusao)) {
             throw new FormulaException();
         }
         
-        /* Constroi a tabela da conclusão. */
+        /* Constroi a tabela da conclusï¿½o. */
         tabelaConclusao = new TabelaVerdade(formConclusao);
         int nroColunasConclusao = tabelaConclusao.getColunas().size();
         int nroLinhasConclusao = tabelaConclusao.getLinhas().size();
         
-        /* Testa se a lista das premissas está vazia. */
+        /* Testa se a lista das premissas estï¿½ vazia. */
         if (!premissas.isEmpty()) {
         
             /* Constroi as tabelas verdade das premissas. */
@@ -42,7 +42,7 @@ public class Consequencia {
                 tabelasPremissas.add(tabela);
             }
 
-            /* Testa se o número de linhas da conclusão é igual ao das premissas. */
+            /* Testa se o nï¿½mero de linhas da conclusï¿½o ï¿½ igual ao das premissas. */
             for (int i = 0; i <= tabelasPremissas.size() - 1; i++) {
                 int nroLinhas = tabelasPremissas.get(i).getLinhas().size();
                 if (nroLinhas != nroLinhasConclusao) {
@@ -50,32 +50,38 @@ public class Consequencia {
                 }
             }
 
-            /* Testa se a conclusão é consequência lógica das premissas. */
+            /* Testa se a conclusï¿½o ï¿½ consequï¿½ncia lï¿½gica das premissas. */
             for (int linha = 0; linha <= nroLinhasConclusao - 1; linha++) {
                 int j = 0;
                 String valoracaoConclusao = tabelaConclusao.getLinhas().get(linha)[nroColunasConclusao - 1];
                 String[] novalinha = new String[tabelasPremissas.size() + 1];
+                int nroVerdadeiros = 0;
+                Integer novoInteiro = null;
                 while (j <= tabelasPremissas.size() - 1) {
                     String valoracaoPremissa = tabelasPremissas.get(j).getLinhas().get(linha)[nroColunasConclusao - 1];
-                    Integer novoInteiro = new Integer(linha);
+                    novoInteiro = new Integer(linha);
                     if (valoracaoConclusao.equals(Constantes.VERDADEIRO)) {
                         if (valoracaoPremissa.equals(Constantes.FALSO)) {
                             resultadoFinal = false;
                             linhasIncorretas.add(novoInteiro);
                         } else {
-                            linhasCorretas.add(novoInteiro);
+                            nroVerdadeiros++;
+                            
                         }
                     }
                     novalinha[j] = valoracaoPremissa;
                     j++;
                 }
+                if (nroVerdadeiros == premissas.size()) {
+                    linhasCorretas.add(novoInteiro);
+                }
                 novalinha[tabelasPremissas.size()] = valoracaoConclusao;
                 linhas.add(novalinha);
             }
         } else {
-            /* A lista de premissas está vazia. */
+            /* A lista de premissas estï¿½ vazia. */
             premissaVazia = true;
-            /* Testa se a conclusão é ou não uma tautologia. */
+            /* Testa se a conclusï¿½o ï¿½ ou nï¿½o uma tautologia. */
             for (int linha = 0; linha <= nroLinhasConclusao - 1; linha++) {
                 String valoracaoConclusao = tabelaConclusao.getLinhas().get(linha)[nroColunasConclusao - 1];
                 Integer novoInteiro = new Integer(linha);
@@ -93,7 +99,7 @@ public class Consequencia {
         }
     }
     
-    /** Retorna o resultado do teste de Consequência Lógica.
+    /** Retorna o resultado do teste de Consequï¿½ncia Lï¿½gica.
      */
     public boolean getConsequenciaLogica() {
         return resultadoFinal;
@@ -120,13 +126,13 @@ public class Consequencia {
         return colunas;
     }
     
-    /** Retorna as linhas que serão selecionadas como verde. 
+    /** Retorna as linhas que serï¿½o selecionadas como verde. 
      */
     public ArrayList<Integer> getLinhasCorretas() {
         return linhasCorretas;
     }
     
-    /** Retorna as linhas que serão selecionadas como vermelha.
+    /** Retorna as linhas que serï¿½o selecionadas como vermelha.
      */
     public ArrayList<Integer> getLinhasIncorretas() {
         return linhasIncorretas;
