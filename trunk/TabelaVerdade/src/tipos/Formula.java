@@ -8,24 +8,24 @@ import java.util.ArrayList;
 import java.util.Collections;
 import tipos.Constantes;
 
-/** Esta classe Ã© responsÃ¡vel por dividir as letras da fÃ³rmula em tipos.
+/** Esta classe é responsável por dividir as letras da fórmula em tipos.
  * @author Arthur Thiago Barbosa Nobrega e Felippe Pires Ferreira
  */
 public class Formula {
     
-    /** Cria uma nova instÃ¢ncia de fÃ³rmula. 
+    /** Cria uma nova instância de fórmula. 
      */
     public Formula(String formula) {
         this.formula = formula;
         contarCaracteres();
     }
 
-    /* FunÃ§Ã£o interna que conta o nÃºmero de proposiÃ§Ãµes distintas que existem na fÃ³rmula e as guarda na variÃ¡vel de objeto 'proposicoes'.
+    /* Função interna que conta o número de proposições distintas que existem na fórmula e as guarda na variável de objeto 'proposicoes'.
      */
     private void contarCaracteres() {
         String letra;
         proposicoes = new ArrayList();
-        /* Testa o caractere e armazena o tipo dele na variÃ¡vel correspondente. */
+        /* Testa o caractere e armazena o tipo dele na variável correspondente. */
         for (int i = 0; i <= formula.length() - 1; i++) {
             letra = formula.substring(i, i + 1);
             if (letra.equals(Constantes.CONJUNCAO) || letra.equals(Constantes.DISJUNCAO)
@@ -37,7 +37,7 @@ public class Formula {
             } else if (letra.equals(")")) {
                 fechaParenteses++;
             } else if (letra.equals(" ")) {
-                /* Desconsidera os espaÃ§os. */
+                /* Desconsidera os espaços. */
             } else {
                 boolean achou = false;
                 int j = 0;
@@ -57,31 +57,35 @@ public class Formula {
         Collections.sort(proposicoes);
     }
 
-    /** Retorna a fÃ³rmula em forma de String.
+    /** Retorna a fórmula em forma de String.
      */
     public String getFormula() {
         return formula;
     }
     
-    /** Retorna a lista de proposiÃ§Ãµes da fÃ³rmula.
-     */
-    public ArrayList<String> getProposicoes() {
-        return (ArrayList) proposicoes.clone();
+    public void setFormula(String formula) {
+        this.formula = formula;
     }
     
-    /** Retorna o nÃºmero de conectivos na fÃ³rmula.
+    /** Retorna a lista de proposições da fórmula.
+     */
+    public ArrayList<String> getProposicoes() {
+        return proposicoes;
+    }
+    
+    /** Retorna o número de conectivos na fórmula.
      */
     public int getConectivos() {
         return conectivos;
     }
     
-    /** Retorna o nÃºmero parÃªnteses abrindo na fÃ³rmula.
+    /** Retorna o número parênteses abrindo na fórmula.
      */
     public int getAbreParenteses() {
         return abreParenteses;
     }
     
-    /** Retorna o nÃºmero parÃªnteses fechando na fÃ³rmula.
+    /** Retorna o número parênteses fechando na fórmula.
      */
     public int getFechaParenteses() {
         return fechaParenteses;

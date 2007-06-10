@@ -31,7 +31,7 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
     
     /** Este mï¿½todo ï¿½ gerado automaticamente pelo NetBeans e ï¿½ responsï¿½vel por toda a parte grï¿½fica.
      */
-    // <editor-fold defaultstate="collapsed" desc=" Cï¿½digo Gerado ">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc=" Código Gerado ">//GEN-BEGIN:initComponents
     private void initComponents() {
         btnVoltar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -48,7 +48,6 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Verificando Consequ\u00eancia L\u00f3gica entre FBFs");
-        setIconImage(new javax.swing.ImageIcon("img/logo.ico").getImage().getScaledInstance(16, 16, java.awt.Image.SCALE_AREA_AVERAGING));
         btnVoltar.setText("Voltar");
         javax.swing.ImageIcon iconVoltar = new javax.swing.ImageIcon("img/voltar.png");
         java.awt.Image imgVoltar = iconVoltar.getImage().getScaledInstance(18, 18, java.awt.Image.SCALE_AREA_AVERAGING);
@@ -115,7 +114,7 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
             .add(layout.createSequentialGroup()
                 .addContainerGap()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel3)
@@ -123,16 +122,16 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel1))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(txtNovaPremissa, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
-                            .add(cmbPremissas, 0, 362, Short.MAX_VALUE)
-                            .add(txtConclusao, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE))
+                            .add(txtNovaPremissa, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
+                            .add(cmbPremissas, 0, 417, Short.MAX_VALUE)
+                            .add(txtConclusao, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE))
                         .add(18, 18, 18)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
                             .add(btnRemover, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .add(btnAdicionar)))
                     .add(layout.createSequentialGroup()
                         .add(btnVoltar)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 316, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 371, Short.MAX_VALUE)
                         .add(btnVerificar)))
                 .addContainerGap())
         );
@@ -196,9 +195,6 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
         } catch (FormulaException e) {
             JOptionPane.showMessageDialog(null, Constantes.MENSAGEM_ERRO_CONCLUSAO, 
                     Constantes.TITULO_ERRO_FORMULA, JOptionPane.ERROR_MESSAGE);
-        } catch (ProposicoesException e) {
-            JOptionPane.showMessageDialog(null, Constantes.MENSAGEM_ERRO_PROPOSICOES, 
-                    Constantes.TITULO_ERRO_PROPOSICOES, JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnVerificarActionPerformed
     
@@ -252,7 +248,7 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
     
-    // Declaraï¿½ï¿½o de variï¿½veis - nï¿½o modifique//GEN-BEGIN:variables
+    // Declaração de variáveis - não modifique//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionar;
     private javax.swing.JButton btnRemover;
     private javax.swing.JButton btnVerificar;
@@ -265,6 +261,6 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txtConclusao;
     private javax.swing.JTextField txtNovaPremissa;
-    // Fim da declaraï¿½ï¿½o de variï¿½veis//GEN-END:variables
+    // Fim da declaração de variáveis//GEN-END:variables
     int nroPremissas = 0;
 }

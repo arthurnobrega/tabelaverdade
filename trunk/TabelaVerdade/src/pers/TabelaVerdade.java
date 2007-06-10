@@ -14,12 +14,12 @@ import tipos.Formula;
  */
 public class TabelaVerdade {
 
-    /** Cria uma nova instÃ¢ncia de Tabela Verdade.
+    /** Cria uma nova instância de Tabela Verdade.
      */
     public TabelaVerdade(Formula formula) {        
-        /* Inicializa todas as variï¿½veis de objeto com seus respectivos valores. */
+        /* Inicializa todas as vari?veis de objeto com seus respectivos valores. */
         this.formula = formula;
-        /* Preenche a tabela primeiramente com as colunas das proposiï¿½ï¿½es. */
+        /* Preenche a tabela primeiramente com as colunas das proposi??es. */
         preencherTabela();
         /* Agora realmente resolve a tabela. */
         String[] resultado = new String[nroLinhas];
@@ -30,7 +30,7 @@ public class TabelaVerdade {
         transformarArray();
     }
     
-    /** Preenche as colunas das proposiÃ§Ãµes com V ou F.
+    /** Preenche as colunas das proposições com V ou F.
      */
     private void preencherTabela() {
         String[] valores = new String[] {Constantes.VERDADEIRO, Constantes.FALSO};
@@ -54,7 +54,7 @@ public class TabelaVerdade {
         }
     }
 
-    /** Resolve de fato a tabela, preenchendo com V ou F a Ãºltima coluna, que Ã© o resultado.
+    /** Resolve de fato a tabela, preenchendo com V ou F a última coluna, que é o resultado.
      *
      */
     private String resolverFormula(int linha) {
@@ -82,7 +82,7 @@ public class TabelaVerdade {
         return retorno.pop();
     }
     
-    /** Realiza a operaÃ§Ã£o de acordo com o respectivo conectivo.
+    /** Realiza a operação de acordo com o respectivo conectivo.
      */
     private void realizarOperacao() {        
         boolean proposicaoSolitaria = false;
@@ -94,7 +94,7 @@ public class TabelaVerdade {
         }
         String proposicao1, proposicao2;
         
-        /* Testa qual conectivo ï¿½ e faz a operaï¿½ï¿½o. */
+        /* Testa qual conectivo ? e faz a opera??o. */
         if (!proposicaoSolitaria) {
             if (conectivo.equals(Constantes.CONJUNCAO)) {             
                 proposicao2 = pilhaProposicoes.pop();
@@ -140,8 +140,8 @@ public class TabelaVerdade {
         }
     }
     
-    /* Retorna o valor da da proposiÃ§Ã£o em determinada linha (V ou F).
-     * @param proposicao O nome da proposiÃ§Ã£o que se deseja pegar o valor.
+    /* Retorna o valor da da proposição em determinada linha (V ou F).
+     * @param proposicao O nome da proposição que se deseja pegar o valor.
      * @param linha A linha em que o valor se encontra.
      */
     private String pegarValor(String proposicao, int linha) {
@@ -169,18 +169,22 @@ public class TabelaVerdade {
         }
     }    
     
-    /** Retorna as linhas que serÃ£o mostradas na tabela.
+    /** Retorna as linhas que serão mostradas na tabela.
      */
     public ArrayList<String[]> getLinhas() {
         return (ArrayList<String[]>) linhas.clone();
     }
     
-    /** Retorna as colunas que serÃ£o mostradas na tabela.
+    /** Retorna as colunas que serão mostradas na tabela.
      */
     public ArrayList<String> getColunas() {
         ArrayList listaColunas = formula.getProposicoes();
         listaColunas.add(formula.getFormula());
         return (ArrayList<String>) listaColunas;
+    }
+    
+    public Formula getFormula() {
+        return formula;
     }
 
     private ArrayList<String[]> linhas = new ArrayList<String[]>();

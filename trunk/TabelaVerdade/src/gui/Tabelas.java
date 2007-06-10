@@ -179,7 +179,7 @@ public class Tabelas extends javax.swing.JDialog {
 
     /** Este mï¿½todo ï¿½ gerado automaticamente pelo NetBeans e ï¿½ responsï¿½vel por toda a parte grï¿½fica.
      */
-    // <editor-fold defaultstate="collapsed" desc=" CÃ³digo Gerado ">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc=" Código Gerado ">//GEN-BEGIN:initComponents
     private void initComponents() {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane = new javax.swing.JScrollPane();
@@ -198,11 +198,11 @@ public class Tabelas extends javax.swing.JDialog {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jScrollPane, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
+            .add(jScrollPane, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 646, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jScrollPane, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
+            .add(jScrollPane, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE)
         );
 
         btnVoltar.setText("Voltar");
@@ -246,12 +246,12 @@ public class Tabelas extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
-    // DeclaraÃ§Ã£o de variÃ¡veis - nÃ£o modifique//GEN-BEGIN:variables
+    // Declaração de variáveis - não modifique//GEN-BEGIN:variables
     private javax.swing.JButton btnVoltar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JTable tabela;
-    // Fim da declaraÃ§Ã£o de variÃ¡veis//GEN-END:variables
+    // Fim da declaração de variáveis//GEN-END:variables
     private ArrayList<Integer> linhasCorretas;
     private ArrayList<Integer> linhasIncorretas;
     private ArrayList<String[]> linhas;
