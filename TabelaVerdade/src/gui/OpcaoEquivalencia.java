@@ -144,9 +144,6 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
         } catch (FormulaException e) {
             JOptionPane.showMessageDialog(null, Constantes.MENSAGEM_ERRO_FORMULA, 
                     Constantes.TITULO_ERRO_FORMULA, JOptionPane.ERROR_MESSAGE);
-        } catch (ProposicoesException e) {
-            JOptionPane.showMessageDialog(null, Constantes.MENSAGEM_ERRO_PROPOSICOES, 
-                    Constantes.TITULO_ERRO_PROPOSICOES, JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnVerificarActionPerformed
 

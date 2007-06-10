@@ -5,6 +5,7 @@
 package pers;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import log.FormulaException;
 import log.Logica;
 import log.ProposicoesException;
@@ -18,36 +19,62 @@ public class Consequencia {
     
     /** Cria um novo teste de Consequï¿½ncia Lï¿½gica.
      */
-    public Consequencia(ArrayList<String> premissas, String conclusao) throws FormulaException, ProposicoesException {
-        /* Testa se a conclusï¿½o segue os padrï¿½es. */
+    public Consequencia(ArrayList<String> premissas, String conclusao) throws FormulaException {
+        /* Testa se a conclusão segue os padrões. */
         Logica logica = new Logica();
         Formula formConclusao = new Formula(conclusao);
         if (!logica.testarFormulaBemFormada(formConclusao)) {
             throw new FormulaException();
         }
         
-        /* Constroi a tabela da conclusï¿½o. */
-        tabelaConclusao = new TabelaVerdade(formConclusao);
-        int nroColunasConclusao = tabelaConclusao.getColunas().size();
-        int nroLinhasConclusao = tabelaConclusao.getLinhas().size();
+        //int nroColunasConclusao = formConclusao.getProposicoes().size();
         
-        /* Testa se a lista das premissas estï¿½ vazia. */
+        
+        /* Testa se a lista das premissas está vazia. */
         if (!premissas.isEmpty()) {
+            
+            ArrayList<Formula> formPremissas = new ArrayList<Formula>();
+            for (int i = 0; i <= premissas.size() - 1; i++) {
+                Formula formula = new Formula(premissas.get(i));
+                formPremissas.add(formula);
+            }
+            
+            Formula formConclusaoComp = new Formula(conclusao);
+            ArrayList<Formula> formPremissasComp = new ArrayList<Formula>();
+            for (int i = 0; i <= premissas.size() - 1; i++) {
+                Formula formula = new Formula(premissas.get(i));
+                formPremissasComp.add(formula);
+            }
+            
+            Iterator<Formula> it = formPremissasComp.iterator();
+            while (it.hasNext()) {
+                ArrayList<String> propPremissa1 = it.next().getProposicoes();
+                testarProposicoes(propPremissa1, formConclusaoComp.getProposicoes());
+                if (it.hasNext()) {
+                    ArrayList<String> propPremissa2 = it.next().getProposicoes();
+                    testarProposicoes(propPremissa2, formConclusaoComp.getProposicoes());
+                    testarProposicoes(propPremissa1, propPremissa2);
+                }
+            }
+            
+            adicionarProposicoes(formConclusaoComp, formConclusao.getProposicoes());
+            
+            for (int i = 0; i <= formPremissasComp.size() - 1; i++) {
+                adicionarProposicoes(formPremissasComp.get(i), formPremissas.get(i).getProposicoes());
+            }
+            
+            /* Constroi a tabela da conclusão. */
+            formConclusao = new Formula(formConclusaoComp.getFormula());
+            tabelaConclusao = new TabelaVerdade(formConclusao);
+            
+            int nroLinhasConclusao = tabelaConclusao.getLinhas().size();
+            int nroColunasConclusao = tabelaConclusao.getColunas().size();
         
             /* Constroi as tabelas verdade das premissas. */
-            for (int i = 0; i <= premissas.size() - 1; i++) {
-                String strFormula = premissas.get(i);
-                Formula formula = new Formula(strFormula);
-                TabelaVerdade tabela = new TabelaVerdade(formula);
+            for (int i = 0; i <= formPremissasComp.size() - 1; i++) {
+                formPremissas.set(i, new Formula(formPremissasComp.get(i).getFormula()));
+                TabelaVerdade tabela = new TabelaVerdade(formPremissas.get(i));
                 tabelasPremissas.add(tabela);
-            }
-
-            /* Testa se o nï¿½mero de linhas da conclusï¿½o ï¿½ igual ao das premissas. */
-            for (int i = 0; i <= tabelasPremissas.size() - 1; i++) {
-                int nroLinhas = tabelasPremissas.get(i).getLinhas().size();
-                if (nroLinhas != nroLinhasConclusao) {
-                    throw new ProposicoesException();
-                }
             }
 
             /* Testa se a conclusï¿½o ï¿½ consequï¿½ncia lï¿½gica das premissas. */
@@ -66,7 +93,6 @@ public class Consequencia {
                             linhasIncorretas.add(novoInteiro);
                         } else {
                             nroVerdadeiros++;
-                            
                         }
                     }
                     novalinha[j] = valoracaoPremissa;
@@ -79,8 +105,12 @@ public class Consequencia {
                 linhas.add(novalinha);
             }
         } else {
-            /* A lista de premissas estï¿½ vazia. */
+            /* A lista de premissas está vazia. */
             premissaVazia = true;
+            
+            int nroLinhasConclusao = (int) Math.pow(2, formConclusao.getProposicoes().size());
+            int nroColunasConclusao = formConclusao.getProposicoes().size();
+            
             /* Testa se a conclusï¿½o ï¿½ ou nï¿½o uma tautologia. */
             for (int linha = 0; linha <= nroLinhasConclusao - 1; linha++) {
                 String valoracaoConclusao = tabelaConclusao.getLinhas().get(linha)[nroColunasConclusao - 1];
@@ -99,6 +129,66 @@ public class Consequencia {
         }
     }
     
+    private void testarProposicoes(ArrayList<String> proposicoes1, ArrayList<String> proposicoes2) {
+        Iterator<String> iterator1 = proposicoes1.iterator();
+        Iterator<String> iterator2;
+        
+        while (iterator1.hasNext()) {
+            String prop1 = iterator1.next();
+            boolean achou = false;
+            iterator2 = proposicoes2.iterator();
+            while (iterator2.hasNext()) {             
+                String prop2 = iterator2.next();
+                if (prop1.equals(prop2)) {
+                    achou = true;
+                    break;
+                }
+            }
+            if (!achou) {
+                proposicoes2.add(prop1);
+            }
+        }
+        
+        iterator2 = proposicoes2.iterator();
+        
+        while (iterator2.hasNext()) {
+            String prop2 = iterator2.next();
+            boolean achou = false;
+            iterator1 = proposicoes1.iterator();
+            while (iterator1.hasNext()) {             
+                String prop1 = iterator1.next();
+                if (prop2.equals(prop1)) {
+                    achou = true;
+                    break;
+                }
+            }
+            if (!achou) {
+                proposicoes1.add(prop2);
+            }
+        }
+    }
+    
+    private void adicionarProposicoes(Formula formulaComp, ArrayList<String> proposicoesAntes) {
+        ArrayList<String> proposicoesDepois = formulaComp.getProposicoes();
+        
+        for (int i = 0; i <= proposicoesDepois.size() - 1; i++) {
+            boolean achou = false;
+            String prop2 = proposicoesDepois.get(i);
+            for (int j = 0; j <= proposicoesAntes.size() - 1; j++) {
+                if (proposicoesAntes.get(j).equals(prop2)) {
+                    achou = true;
+                    break;
+                }
+            }
+            if (!achou) {
+                String formulaAntiga = formulaComp.getFormula();
+                formulaComp.setFormula("( " + formulaAntiga + " " + Constantes.CONJUNCAO
+                        + " (" + proposicoesDepois.get(i)+ " " + Constantes.DISJUNCAO + " (~" +
+                        proposicoesDepois.get(i) + ")) )");
+            }
+        }            
+    }
+    
     /** Retorna o resultado do teste de Consequï¿½ncia Lï¿½gica.
      */
     public boolean getConsequenciaLogica() {
@@ -114,15 +204,16 @@ public class Consequencia {
     /** Retorna as colunas para serem mostradas na tabela. 
      */
     public ArrayList<String> getColunas() {
-        int nroColunas = tabelaConclusao.getColunas().size();
+        int nroColunasConclusao = tabelaConclusao.getColunas().size();
         if (premissaVazia) {
             colunas.add("VAZIA");
         } else {
             for (int i = 0; i <= tabelasPremissas.size() - 1; i++) {
+                int nroColunas = tabelasPremissas.get(i).getColunas().size();
                 colunas.add(tabelasPremissas.get(i).getColunas().get(nroColunas - 1));
             }
         }
-        colunas.add(tabelaConclusao.getColunas().get(nroColunas - 1));
+        colunas.add(tabelaConclusao.getColunas().get(nroColunasConclusao - 1));
         return colunas;
     }
     
