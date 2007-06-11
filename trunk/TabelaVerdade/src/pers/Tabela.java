@@ -10,7 +10,7 @@ import log.Logica;
 import tipos.Constantes;
 import tipos.Formula;
 
-/** Classe que retorna a tabela se a fórmula passar nos testes.
+/** Classe que retorna a tabela se a fï¿½rmula passar nos testes.
  * @author Arthur Thiago Barbosa Nobrega e Felippe Pires Ferreira
  */
 public class Tabela {
@@ -18,7 +18,7 @@ public class Tabela {
     /** Cria um novo teste de tabela.
      */
     public Tabela(Formula formula) throws FormulaException {
-        /* Testa se a fórmula segue os padrões. */
+        /* Testa se a fï¿½rmula segue os padrï¿½es. */
         Logica logica = new Logica();
         if (!(logica.testarFormulaBemFormada(formula))) {
             throw new FormulaException();
@@ -51,7 +51,9 @@ public class Tabela {
     /** Retorna as colunas para serem mostradas na tabela. 
      */
     public ArrayList getColunas() {
-        return tabela.getColunas();
+        ArrayList<String> colunas = tabela.getColunas();
+        colunas.remove(colunas.size() - 1);
+        return colunas;
     }
     
     public int getPropriedade() {

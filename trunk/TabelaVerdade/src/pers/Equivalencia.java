@@ -19,8 +19,10 @@ public class Equivalencia {
     
     /** Cria um novo teste de Equivalência Semântica.
      */
-    public Equivalencia(Formula formula1, Formula formula2) throws FormulaException {
+    public Equivalencia(String strFormula1, String strFormula2) throws FormulaException {
         /* Testa se as fórmulas seguem os padrões. */
+        Formula formula1 = new Formula(strFormula1);
+        Formula formula2 = new Formula(strFormula2);
         Logica logica = new Logica();
         if (!(logica.testarFormulaBemFormada(formula1)) || !(logica.testarFormulaBemFormada(formula2))) {
             throw new FormulaException();
@@ -38,7 +40,9 @@ public class Equivalencia {
         
         /* Cria as tabelas das fórmulas. */
         tabela1 = new TabelaVerdade(formula1);
-        tabela2 = new TabelaVerdade(formula2);        
+        tabela1.getFormula().setFormula(strFormula1);
+        tabela2 = new TabelaVerdade(formula2);
+        tabela2.getFormula().setFormula(strFormula2);
         
         int nroLinhas = tabela1.getLinhas().size();
         nroColunas = tabela1.getColunas().size();
@@ -58,7 +62,6 @@ public class Equivalencia {
             novaLinha[1] = linha2[nroColunas - 1];
             linhas.add(novaLinha);
         }
-        System.out.println(tabela1.getFormula().getProposicoes().size());
     }
     
     private void testarProposicoes(ArrayList<String> proposicoes1, ArrayList<String> proposicoes2) {
