@@ -128,9 +128,7 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
         try {
             /* Cria um objeto Equivalencia e testa se as fórmulas são equivalentes. */
-            Formula formula1 = new Formula(txtFormula1.getText());
-            Formula formula2 = new Formula(txtFormula2.getText());
-            Equivalencia equiv = new Equivalencia(formula1, formula2);
+            Equivalencia equiv = new Equivalencia(txtFormula1.getText(), txtFormula2.getText());
             if (equiv.verificarEquivalencia()) {
                 JOptionPane.showMessageDialog(null, "As f\u00f3rmulas s\u00e3o sem\u00e2nticamente " +
                         "equivalentes!", "S\u00e3o Equivalentes!", JOptionPane.INFORMATION_MESSAGE);

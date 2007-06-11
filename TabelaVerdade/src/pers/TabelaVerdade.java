@@ -14,7 +14,7 @@ import tipos.Formula;
  */
 public class TabelaVerdade {
 
-    /** Cria uma nova instância de Tabela Verdade.
+    /** Cria uma nova instï¿½ncia de Tabela Verdade.
      */
     public TabelaVerdade(Formula formula) {        
         /* Inicializa todas as vari?veis de objeto com seus respectivos valores. */
@@ -30,7 +30,7 @@ public class TabelaVerdade {
         transformarArray();
     }
     
-    /** Preenche as colunas das proposições com V ou F.
+    /** Preenche as colunas das proposiï¿½ï¿½es com V ou F.
      */
     private void preencherTabela() {
         String[] valores = new String[] {Constantes.VERDADEIRO, Constantes.FALSO};
@@ -54,7 +54,7 @@ public class TabelaVerdade {
         }
     }
 
-    /** Resolve de fato a tabela, preenchendo com V ou F a última coluna, que é o resultado.
+    /** Resolve de fato a tabela, preenchendo com V ou F a ï¿½ltima coluna, que ï¿½ o resultado.
      *
      */
     private String resolverFormula(int linha) {
@@ -82,7 +82,7 @@ public class TabelaVerdade {
         return retorno.pop();
     }
     
-    /** Realiza a operação de acordo com o respectivo conectivo.
+    /** Realiza a operaï¿½ï¿½o de acordo com o respectivo conectivo.
      */
     private void realizarOperacao() {        
         boolean proposicaoSolitaria = false;
@@ -140,8 +140,8 @@ public class TabelaVerdade {
         }
     }
     
-    /* Retorna o valor da da proposição em determinada linha (V ou F).
-     * @param proposicao O nome da proposição que se deseja pegar o valor.
+    /* Retorna o valor da da proposiï¿½ï¿½o em determinada linha (V ou F).
+     * @param proposicao O nome da proposiï¿½ï¿½o que se deseja pegar o valor.
      * @param linha A linha em que o valor se encontra.
      */
     private String pegarValor(String proposicao, int linha) {
@@ -169,13 +169,13 @@ public class TabelaVerdade {
         }
     }    
     
-    /** Retorna as linhas que serão mostradas na tabela.
+    /** Retorna as linhas que serï¿½o mostradas na tabela.
      */
     public ArrayList<String[]> getLinhas() {
         return (ArrayList<String[]>) linhas.clone();
     }
     
-    /** Retorna as colunas que serão mostradas na tabela.
+    /** Retorna as colunas que serï¿½o mostradas na tabela.
      */
     public ArrayList<String> getColunas() {
         ArrayList listaColunas = formula.getProposicoes();

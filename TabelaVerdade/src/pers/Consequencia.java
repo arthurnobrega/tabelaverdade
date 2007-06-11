@@ -20,17 +20,14 @@ public class Consequencia {
     /** Cria um novo teste de Consequï¿½ncia Lï¿½gica.
      */
     public Consequencia(ArrayList<String> premissas, String conclusao) throws FormulaException {
-        /* Testa se a conclusão segue os padrões. */
+        /* Testa se a conclusï¿½o segue os padrï¿½es. */
         Logica logica = new Logica();
         Formula formConclusao = new Formula(conclusao);
         if (!logica.testarFormulaBemFormada(formConclusao)) {
             throw new FormulaException();
         }
         
-        //int nroColunasConclusao = formConclusao.getProposicoes().size();
-        
-        
-        /* Testa se a lista das premissas está vazia. */
+        /* Testa se a lista das premissas estï¿½ vazia. */
         if (!premissas.isEmpty()) {
             
             ArrayList<Formula> formPremissas = new ArrayList<Formula>();
@@ -63,9 +60,10 @@ public class Consequencia {
                 adicionarProposicoes(formPremissasComp.get(i), formPremissas.get(i).getProposicoes());
             }
             
-            /* Constroi a tabela da conclusão. */
+            /* Constroi a tabela da conclusï¿½o. */
             formConclusao = new Formula(formConclusaoComp.getFormula());
             tabelaConclusao = new TabelaVerdade(formConclusao);
+            tabelaConclusao.getFormula().setFormula(conclusao);
             
             int nroLinhasConclusao = tabelaConclusao.getLinhas().size();
             int nroColunasConclusao = tabelaConclusao.getColunas().size();
@@ -74,6 +72,7 @@ public class Consequencia {
             for (int i = 0; i <= formPremissasComp.size() - 1; i++) {
                 formPremissas.set(i, new Formula(formPremissasComp.get(i).getFormula()));
                 TabelaVerdade tabela = new TabelaVerdade(formPremissas.get(i));
+                tabela.getFormula().setFormula(premissas.get(i));
                 tabelasPremissas.add(tabela);
             }
 
@@ -87,41 +86,43 @@ public class Consequencia {
                 while (j <= tabelasPremissas.size() - 1) {
                     String valoracaoPremissa = tabelasPremissas.get(j).getLinhas().get(linha)[nroColunasConclusao - 1];
                     novoInteiro = new Integer(linha);
-                    if (valoracaoConclusao.equals(Constantes.VERDADEIRO)) {
-                        if (valoracaoPremissa.equals(Constantes.FALSO)) {
-                            resultadoFinal = false;
-                            linhasIncorretas.add(novoInteiro);
-                        } else {
-                            nroVerdadeiros++;
-                        }
+                    if (valoracaoPremissa.equals(Constantes.VERDADEIRO)) {
+                        nroVerdadeiros++;
                     }
                     novalinha[j] = valoracaoPremissa;
                     j++;
                 }
                 if (nroVerdadeiros == premissas.size()) {
-                    linhasCorretas.add(novoInteiro);
+                    if (valoracaoConclusao.equals(Constantes.VERDADEIRO)) {
+                        linhasCorretas.add(novoInteiro);
+                    } else {
+                        resultadoFinal = false;
+                        linhasIncorretas.add(novoInteiro);
+                    }
                 }
                 novalinha[tabelasPremissas.size()] = valoracaoConclusao;
                 linhas.add(novalinha);
             }
         } else {
-            /* A lista de premissas está vazia. */
+            /* A lista de premissas estï¿½ vazia. */
             premissaVazia = true;
+            
+            tabelaConclusao = new TabelaVerdade(formConclusao);
             
             int nroLinhasConclusao = (int) Math.pow(2, formConclusao.getProposicoes().size());
             int nroColunasConclusao = formConclusao.getProposicoes().size();
             
             /* Testa se a conclusï¿½o ï¿½ ou nï¿½o uma tautologia. */
             for (int linha = 0; linha <= nroLinhasConclusao - 1; linha++) {
-                String valoracaoConclusao = tabelaConclusao.getLinhas().get(linha)[nroColunasConclusao - 1];
+                String valoracaoConclusao = tabelaConclusao.getLinhas().get(linha)[nroColunasConclusao];
                 Integer novoInteiro = new Integer(linha);
                 if (valoracaoConclusao.equals(Constantes.VERDADEIRO)) {
-                    String[] novalinha = {"", Constantes.VERDADEIRO};
+                    String[] novalinha = {Constantes.VERDADEIRO, Constantes.VERDADEIRO};
                     linhas.add(novalinha);
                     linhasCorretas.add(novoInteiro);
                 } else {
                     resultadoFinal = false;
-                    String[] novalinha = {"", Constantes.FALSO};
+                    String[] novalinha = {Constantes.VERDADEIRO, Constantes.FALSO};
                     linhas.add(novalinha);
                     linhasIncorretas.add(novoInteiro);
                 }
