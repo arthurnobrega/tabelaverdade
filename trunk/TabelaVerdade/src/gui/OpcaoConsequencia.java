@@ -10,7 +10,6 @@ import javax.swing.ComboBoxModel;
 import javax.swing.JOptionPane;
 import log.FormulaException;
 import log.Logica;
-import log.ProposicoesException;
 import pers.Consequencia;
 import tipos.Constantes;
 import tipos.Containers;
@@ -29,9 +28,9 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
         Containers.alinharContainer(this);
     }
     
-    /** Este mï¿½todo ï¿½ gerado automaticamente pelo NetBeans e ï¿½ responsï¿½vel por toda a parte grï¿½fica.
+    /** Este mÃ©todo Ã© gerado automaticamente pelo NetBeans e Ã© responsÃ¡vel por toda a parte grÃ¡fica.
      */
-    // <editor-fold defaultstate="collapsed" desc=" Código Gerado ">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc=" CÃ³digo Gerado ">//GEN-BEGIN:initComponents
     private void initComponents() {
         btnVoltar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -248,7 +247,7 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
     
-    // Declaração de variáveis - não modifique//GEN-BEGIN:variables
+    // DeclaraÃ§Ã£o de variÃ¡veis - nÃ£o modifique//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionar;
     private javax.swing.JButton btnRemover;
     private javax.swing.JButton btnVerificar;
@@ -261,6 +260,6 @@ public class OpcaoConsequencia extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txtConclusao;
     private javax.swing.JTextField txtNovaPremissa;
-    // Fim da declaração de variáveis//GEN-END:variables
+    // Fim da declaraÃ§Ã£o de variÃ¡veis//GEN-END:variables
     int nroPremissas = 0;
 }

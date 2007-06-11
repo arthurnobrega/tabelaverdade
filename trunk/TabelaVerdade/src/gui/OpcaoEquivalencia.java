@@ -7,11 +7,9 @@ package gui;
 
 import javax.swing.JOptionPane;
 import log.FormulaException;
-import log.ProposicoesException;
 import pers.Equivalencia;
 import tipos.Constantes;
 import tipos.Containers;
-import tipos.Formula;
 
 /** Janela para que o usuário insira duas fórmulas.
  * @see javax.swing.JFrame
@@ -26,9 +24,9 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
         Containers.alinharContainer(this);
     }
     
-    /** Este m�todo � gerado automaticamente pelo NetBeans e � respons�vel por toda a parte gr�fica.
+    /** Este método é gerado automaticamente pelo NetBeans e é responsável por toda a parte gráfica.
      */
-    // <editor-fold defaultstate="collapsed" desc=" C�digo Gerado ">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc=" Código Gerado ">//GEN-BEGIN:initComponents
     private void initComponents() {
         txtFormula1 = new javax.swing.JTextField();
         txtFormula2 = new javax.swing.JTextField();
@@ -153,7 +151,7 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
     
-    // Declara��o de vari�veis - n�o modifique//GEN-BEGIN:variables
+    // Declaração de variáveis - não modifique//GEN-BEGIN:variables
     private javax.swing.JButton btnVerificar;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
@@ -162,6 +160,6 @@ public class OpcaoEquivalencia extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txtFormula1;
     private javax.swing.JTextField txtFormula2;
-    // Fim da declara��o de vari�veis//GEN-END:variables
+    // Fim da declaração de variáveis//GEN-END:variables
     
 }

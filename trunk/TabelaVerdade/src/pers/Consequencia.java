@@ -8,26 +8,25 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import log.FormulaException;
 import log.Logica;
-import log.ProposicoesException;
 import tipos.Constantes;
 import tipos.Formula;
 
-/** Classe que testa se a conclus�o � consequ�ncia l�gica das premissas.
+/** Classe que testa se a conclusão é consequência lógica das premissas.
  * @author Arthur Thiago Barbosa Nobrega e Felippe Pires Ferreira
  */
 public class Consequencia {
     
-    /** Cria um novo teste de Consequ�ncia L�gica.
+    /** Cria um novo teste de Consequência Lógica.
      */
     public Consequencia(ArrayList<String> premissas, String conclusao) throws FormulaException {
-        /* Testa se a conclus�o segue os padr�es. */
+        /* Testa se a conclusão segue os padrões. */
         Logica logica = new Logica();
         Formula formConclusao = new Formula(conclusao);
         if (!logica.testarFormulaBemFormada(formConclusao)) {
             throw new FormulaException();
         }
         
-        /* Testa se a lista das premissas est� vazia. */
+        /* Testa se a lista das premissas está vazia. */
         if (!premissas.isEmpty()) {
             
             ArrayList<Formula> formPremissas = new ArrayList<Formula>();
@@ -60,7 +59,7 @@ public class Consequencia {
                 adicionarProposicoes(formPremissasComp.get(i), formPremissas.get(i).getProposicoes());
             }
             
-            /* Constroi a tabela da conclus�o. */
+            /* Constroi a tabela da conclusão. */
             formConclusao = new Formula(formConclusaoComp.getFormula());
             tabelaConclusao = new TabelaVerdade(formConclusao);
             tabelaConclusao.getFormula().setFormula(conclusao);
@@ -76,7 +75,7 @@ public class Consequencia {
                 tabelasPremissas.add(tabela);
             }
 
-            /* Testa se a conclus�o � consequ�ncia l�gica das premissas. */
+            /* Testa se a conclusão é consequência lógica das premissas. */
             for (int linha = 0; linha <= nroLinhasConclusao - 1; linha++) {
                 int j = 0;
                 String valoracaoConclusao = tabelaConclusao.getLinhas().get(linha)[nroColunasConclusao - 1];
@@ -104,7 +103,7 @@ public class Consequencia {
                 linhas.add(novalinha);
             }
         } else {
-            /* A lista de premissas est� vazia. */
+            /* A lista de premissas está vazia. */
             premissaVazia = true;
             
             tabelaConclusao = new TabelaVerdade(formConclusao);
@@ -112,7 +111,7 @@ public class Consequencia {
             int nroLinhasConclusao = (int) Math.pow(2, formConclusao.getProposicoes().size());
             int nroColunasConclusao = formConclusao.getProposicoes().size();
             
-            /* Testa se a conclus�o � ou n�o uma tautologia. */
+            /* Testa se a conclusão é ou não uma tautologia. */
             for (int linha = 0; linha <= nroLinhasConclusao - 1; linha++) {
                 String valoracaoConclusao = tabelaConclusao.getLinhas().get(linha)[nroColunasConclusao];
                 Integer novoInteiro = new Integer(linha);
@@ -130,6 +129,10 @@ public class Consequencia {
         }
     }
     
+    /** Adiciona as proposições que não existem em uma fórmula mas existem na outra.
+     * @param proposicoes1 Primeira lista de proposicoes.
+     * @param proposicoes2 Segunda lista de proposicoes.
+     */
     private void testarProposicoes(ArrayList<String> proposicoes1, ArrayList<String> proposicoes2) {
         Iterator<String> iterator1 = proposicoes1.iterator();
         Iterator<String> iterator2;
@@ -169,6 +172,10 @@ public class Consequencia {
         }
     }
     
+    /** Adiciona as proposicoes que não existem na antiga fórmula e aumenta ela.
+     * @param formulaComp Fórmula que será expandida e que contem a nova lista de proposicoes.
+     * @param proposicoesAntes lista de proposicoes antes da expansão.
+     */
     private void adicionarProposicoes(Formula formulaComp, ArrayList<String> proposicoesAntes) {
         ArrayList<String> proposicoesDepois = formulaComp.getProposicoes();
         
@@ -190,7 +197,7 @@ public class Consequencia {
         }            
     }
     
-    /** Retorna o resultado do teste de Consequ�ncia L�gica.
+    /** Retorna o resultado do teste de Consequência Lógica.
      */
     public boolean getConsequenciaLogica() {
         return resultadoFinal;
@@ -218,13 +225,13 @@ public class Consequencia {
         return colunas;
     }
     
-    /** Retorna as linhas que ser�o selecionadas como verde. 
+    /** Retorna as linhas que serão selecionadas como verde. 
      */
     public ArrayList<Integer> getLinhasCorretas() {
         return linhasCorretas;
     }
     
-    /** Retorna as linhas que ser�o selecionadas como vermelha.
+    /** Retorna as linhas que serão selecionadas como vermelha.
      */
     public ArrayList<Integer> getLinhasIncorretas() {
         return linhasIncorretas;
