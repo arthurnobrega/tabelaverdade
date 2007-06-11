@@ -15,7 +15,7 @@ public class Logica {
     
     /** 
      * Esta função irá testar se a fórmula é bem formada e segue os padrões exigidos.
-     * ela utiliza funções para analizar o uso de operadores e proposições e casos
+     * Ela utiliza funções para analizar o uso de operadores e proposições e casos
      * de erro possíveis na construção da fórmula pelo usuário.
      *
      * @param formula Objeto que possui a fórmula como uma String.

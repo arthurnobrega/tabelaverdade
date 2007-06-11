@@ -177,9 +177,9 @@ public class Tabelas extends javax.swing.JDialog {
         }    
     }
 
-    /** Este mï¿½todo ï¿½ gerado automaticamente pelo NetBeans e ï¿½ responsï¿½vel por toda a parte grï¿½fica.
+    /** Este mÃ©todo Ã© gerado automaticamente pelo NetBeans e Ã© responsÃ¡vel por toda a parte grÃ¡fica.
      */
-    // <editor-fold defaultstate="collapsed" desc=" Código Gerado ">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc=" CÃ³digo Gerado ">//GEN-BEGIN:initComponents
     private void initComponents() {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane = new javax.swing.JScrollPane();
@@ -246,12 +246,12 @@ public class Tabelas extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
-    // Declaração de variáveis - não modifique//GEN-BEGIN:variables
+    // DeclaraÃ§Ã£o de variÃ¡veis - nÃ£o modifique//GEN-BEGIN:variables
     private javax.swing.JButton btnVoltar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JTable tabela;
-    // Fim da declaração de variáveis//GEN-END:variables
+    // Fim da declaraÃ§Ã£o de variÃ¡veis//GEN-END:variables
     private ArrayList<Integer> linhasCorretas;
     private ArrayList<Integer> linhasIncorretas;
     private ArrayList<String[]> linhas;

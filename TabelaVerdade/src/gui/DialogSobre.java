@@ -6,13 +6,13 @@
 
 package gui;
 
-/** Janela para mostrar informa��es sobre o software.
+/** Janela para mostrar informações sobre o software.
  * @see javax.swing.JDialog
  * @author Arthur Thiago Barbosa Nobrega e Felippe Pires Ferreira
  */
 public class DialogSobre extends javax.swing.JDialog {
     
-    /** Cria uma nova janela de informa��es do software.
+    /** Cria uma nova janela de informações do software.
      */
     public DialogSobre(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -20,7 +20,7 @@ public class DialogSobre extends javax.swing.JDialog {
         tipos.Containers.alinharContainer(this);
     }
     
-    /** Este m?todo ? gerado automaticamente pelo NetBeans e ? respons?vel por toda a parte gr?fica.
+    /** Este método é gerado automaticamente pelo NetBeans e é respons?vel por toda a parte gráfica.
      */
     // <editor-fold defaultstate="collapsed" desc=" Código Gerado ">//GEN-BEGIN:initComponents
     private void initComponents() {

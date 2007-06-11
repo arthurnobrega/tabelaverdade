@@ -8,7 +8,6 @@ import java.util.Iterator;
 import log.FormulaException;
 import log.Logica;
 import java.util.ArrayList;
-import log.ProposicoesException;
 import tipos.Constantes;
 import tipos.Formula;
 
@@ -18,6 +17,8 @@ import tipos.Formula;
 public class Equivalencia {
     
     /** Cria um novo teste de Equivalência Semântica.
+     * @param strFormula1 Primeira fórmula que será comparada.
+     * @param strFormula2 Segunda fórmula que será comparada.
      */
     public Equivalencia(String strFormula1, String strFormula2) throws FormulaException {
         /* Testa se as fórmulas seguem os padrões. */
@@ -64,6 +65,10 @@ public class Equivalencia {
         }
     }
     
+    /** Adiciona as proposições que não existem em uma fórmula mas existem na outra.
+            * @param proposicoes1 Primeira lista de proposicoes.
+            * @param proposicoes2 Segunda lista de proposicoes.
+    */
     private void testarProposicoes(ArrayList<String> proposicoes1, ArrayList<String> proposicoes2) {
         Iterator<String> iterator1 = proposicoes1.iterator();
         Iterator<String> iterator2;
@@ -103,6 +108,10 @@ public class Equivalencia {
         }
     }
     
+    /** Adiciona as proposicoes que não existem na antiga fórmula e aumenta ela.
+            * @param formulaComp Fórmula que será expandida e que contem a nova lista de proposicoes.
+            * @param proposicoesAntes lista de proposicoes antes da expansão.
+    */
     private void adicionarProposicoes(Formula formulaComp, ArrayList<String> proposicoesAntes) {
         ArrayList<String> proposicoesDepois = formulaComp.getProposicoes();
         

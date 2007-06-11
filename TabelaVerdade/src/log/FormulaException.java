@@ -10,12 +10,18 @@ package log;
  * @author Arthur Thiago Barbosa Nobrega e Felippe Pires Ferreira
  */
 public class FormulaException extends Exception {
-    
+
+    /** Construtor padrão da classe.
+     */
     public FormulaException() {
 	super();
     }
-    public FormulaException(String s) {
-	super(s);
-    }
     
+    /** Construtor que recebe a descrição do erro.
+     * @param mensagem Mensagem que será mostrada ao usuário para informar sobre a exceção ocorrida.
+     */
+    public FormulaException(String mensagem) {
+	super(mensagem);
+    }
+
 }
