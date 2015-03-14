@@ -1,0 +1,1 @@
+Este projeto implementa um software que testa Conseqüência Lógica e Equivalência Semântica entre fórmulas bem-formadas da lógica proposicional por meio de tabelas verdade. Mostra também a tabela verdade de uma dada fórmula fornecida por meio do uso da API Swing em Java.
